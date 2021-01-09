@@ -31,19 +31,27 @@ function redSqEpiFreqOverRedAngFreq(xi::Float64, eps::Float64)
 end
 
 # Legendre polynomial through _₂F₁
-# https://functions.wolfram.com/Polynomials/LegendreP2/26/01/02/0004/
+# https://en.wikipedia.org/wiki/Associated_Legendre_polynomials#Generalization_via_hypergeometric_functions
 
-function LegendrePol(x::Float64, n::Int64, m::Int64)
-    local pref
-    let pref
-    pref = gamma(2*n+1)/(gamma(n+1)*gamma(n-m+1))
-    if (mod(n,2) == 0)
-        pref *= 1/2^n
+function LegendrePol(z::Float64, n::Int64, m::Int64)
+    # use a recursion identity
+    # stock previous polynomial coefficients
+    # take into argument nbBasis
+    # maybe make nbBasis an command-line argument to be parsed?
+    
+    # recursion formula: (n-m+1)P_{n+1}^m(x) = (2n+1)xP_n^m(x)-(n+m)P_{n-1}^n(x)
+    if (n < m)
+        # P = 0
+    else if (n == m)
+        # P_n^n(x) = (-1)^n*(2n-1)!! * (1-x^2)^(n/2)
+        # recursion on n previous n?
+        # P_{n+1}^{n+1}(x) = -(2n+1)*sqrt(1-x^2)*P_n^n(x)
+    else if (n == m+1)
+        # P_{n+1}^n(x) = x*(2n+1)*P_n^n(x)
     else
-        pref *= -1/2^n
-    end
-    return pref*(1-z)^(n-m/2)*(1+z)^(m/2)*_₂F₁(-n,m-n,-2*n,2/(1-z))
-    end
+        # (n-m+1)P_{n+1}^m(x) = (2n+1)xP_n^m(x)-(n+m)P_{n-1}^n(x)
+        # hence
+        # P_{n+1}^m(x) = (2n+1)/(n-m+1) *xP_n^m(x)-(n+m)/(n-m+1) *P_{n-1}^n(x)
 end
 
 #P_n^|m|(x)
