@@ -32,13 +32,26 @@ function RedSqEpiFreqOverRedAngFreq(xi::Float64, eps::Float64)
 end
 
 # Legendre polynomial through _₂F₁
-# P_n^m(z)= 1/gamma(1-m) * ((1+z)/(1-z))^(m/2) *_₂F₁(-n,n+1,1-m,(1-z)/2) (finite sum)
+# https://functions.wolfram.com/Polynomials/LegendreP2/26/01/02/0004/
 
-# P_n^|m|
-function redLegendrePol(xi::Float64, n::Int64, m::Int64)
+function LegendrePol(x::Float64, n::Int64, m::Int64)
+    local pref
+    let pref
+    pref = gamma(2*n+1)/(gamma(n+1)*gamma(n-m+1))
+    if (mod(n,2) == 0)
+        pref *= 1/2^n
+    else
+        pref *= -1/2^n
+    end
+    return pref*(1-z)^(n-m/2)*(1+z)^(m/2)*_₂F₁(-n,m-n,-2*n,2/(1-z))
+    end
+end
+
+#P_n^|m|(x)
+function redLegPol(x::Float64, n::Int64, m::Int64)
     local norm
     let norm
-    norm = sqrt( gamma(n-abs(m)+1)*(2*n+1)/(2*gamma(n+abs(m)+1)) )
-    return norm * 1/gamma(1-abs(m)) * ((1+xi)/(1-xi))^(m/2) *_₂F₁(-n,n+1,1-m,(1-xi)/2)
+    norm = sqrt(gamma(n-abs(m)+1)*(2*n+1)/(2*gamma(n+abs(m) ) ))
+    return norm*LegendrePol(x,n,abs(m))
     end
 end
