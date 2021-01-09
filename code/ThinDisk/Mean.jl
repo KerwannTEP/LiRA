@@ -21,7 +21,7 @@ function redDensity(xi::Float64)
     return ((1-xi)/2)^(3/2)
 end
 
-function RedSqEpiFreqOverRedAngFreq(xi::Float64, eps::Float64)
+function redSqEpiFreqOverRedAngFreq(xi::Float64, eps::Float64)
     local fct, pref
     let fct, pref
     fct = derivative(x->(1-x)^(1/2)*sqrt(1-eps*((1-xi)/2)^(3*polyIndex/2 -2)))
