@@ -48,7 +48,7 @@ function LegendrePol(x::Float64, n::Int64, m::Int64)
 end
 
 #P_n^|m|(x)
-function redLegPol(x::Float64, n::Int64, m::Int64)
+function redLegendrePol(x::Float64, n::Int64, m::Int64)
     local norm
     let norm
     norm = sqrt(gamma(n-abs(m)+1)*(2*n+1)/(2*gamma(n+abs(m) ) ))
