@@ -2,7 +2,6 @@
 # Useful functions
 #####################################
 
-using Calculus
 using HypergeometricFunctions
 using SpecialFunctions
 
