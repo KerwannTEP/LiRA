@@ -2,10 +2,6 @@
 # Constants
 #####################################
 
-polyIndex::Float64 = 7.0/4
+polyIndex = 7/4
 
-mSun = 2.0*10^30
-
-diskMass::Float64 = 1.0*10^8*mSun
-
-G = 6.67*10^(-11)
+nbBasis = 12

@@ -8,7 +8,7 @@ using LinearAlgebra
 # M = ( D A F )
 #       G H A
 # iBasis from i=0 to nbBasis-1
-function computeResponseMatrix(nbBasis::Int64, eps::Float64, m::Int64=2)
+function computeResponseMatrix(eps::Float64, m::Int=2)
     M = zeros(3*nbBasis,3*nbBasis)
     elem = 0.0
 
@@ -54,17 +54,16 @@ end
 function computeMaxEigenvalue(matrix::Array{Float64,2})
     D = eigvals(matrix)
     max = 0.0
-    len = length(D)
-    for i=1:len
-        if abs(D[i])>max
-            max = abs(D[i])
+    for i=1:nbBasis
+        if imag(D[i])>max
+            max = imag(D[i])
         end
     end
     return max
 end
 
-function growthRate(nbBasis::Int64, eps::Float64, m::Int64=2)
-    responseMatrix = computeResponseMatrix(nbBasis,eps,m)
+function growthRate(eps::Float64, m::Int=2)
+    responseMatrix = computeResponseMatrix(eps,m)
     growthRate = computeMaxEigenvalue(responseMatrix)
     return growthRate
 end
