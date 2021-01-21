@@ -158,7 +158,294 @@ q=0.1 <= M_disc/M_DH = 1/10
 
 \end_layout
 
+\begin_layout Section
+Evolution equations
+\end_layout
+
 \begin_layout Standard
+Self-gravitating system: thin galactic disk of surface density 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+, velocity field 
+\begin_inset Formula $\mathbf{v}$
+\end_inset
+
+, pression 
+\begin_inset Formula $P$
+\end_inset
+
+, gravitational field 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ and self-gravity parameter
+\begin_inset Formula $q\in[0,1]$
+\end_inset
+
+, defined by 
+\begin_inset Formula $q=\frac{M_{{\rm disk}}}{M_{{\rm dark\,halo}}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Sigma\rightarrow q\Sigma$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Equation are
+\begin_inset Formula 
+\[
+\frac{\partial\Sigma}{\partial t}+\nabla\cdot(\Sigma\mathbf{v})=0
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\partial\mathbf{v}}{\partial t}+(\mathbf{v}\cdot\nabla)(\mathbf{v})=-\frac{1}{q\Sigma}\nabla P-\nabla\Phi
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Delta\Phi=4\pi Gq\Sigma\delta(z)
+\]
+
+\end_inset
+
+Let 
+\begin_inset Formula $P=\kappa\Sigma^{\Gamma}$
+\end_inset
+
+ and 
+\begin_inset Formula 
+\[
+\frac{\nabla P}{\Sigma}=\nabla\psi\Leftrightarrow\psi=\int\frac{dP}{\Sigma}.
+\]
+
+\end_inset
+
+Then 
+\begin_inset Formula 
+\[
+\psi=\int\frac{dP}{\Sigma}=\frac{\kappa\Gamma}{\Gamma-1}\Sigma^{\Gamma-1}
+\]
+
+\end_inset
+
+and letting 
+\begin_inset Formula $\Psi_{q}=\Phi+\frac{1}{q}\psi$
+\end_inset
+
+, we have the set of equations
+\begin_inset Formula 
+\[
+\frac{\partial\Sigma}{\partial t}+\nabla\cdot(\Sigma\mathbf{v})=0
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\partial\mathbf{v}}{\partial t}+(\mathbf{v}\cdot\nabla)(\mathbf{v})=-\nabla\Psi_{q}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Delta\Phi=4\pi Gq\Sigma\delta(z)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Eq.
+ solution
+\end_layout
+
+\begin_layout Standard
+https://ui.adsabs.harvard.edu/abs/1963ApJ...138..385T/abstract
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\xi=(r^{2}-a^{2})/(r^{2}+a^{2})\leftrightarrow r/a=\sqrt{\frac{1+\xi}{1-\xi}}$
+\end_inset
+
+.
+ or also
+\begin_inset Formula 
+\[
+\frac{1-\xi}{2}=\frac{a^{2}}{r^{2}+a^{2}}=\frac{1}{1+(\frac{r}{a})^{2}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{1+\xi}{2}=\frac{r^{2}}{r^{2}+a^{2}}=\frac{1}{1+(\frac{a}{r})^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+http://articles.adsabs.harvard.edu/pdf/1979PASJ...31..737A.
+ 
+\begin_inset Formula $G\rightarrow qG$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Phi_{0}=-\frac{qGM}{a}(\frac{1-\xi}{2})^{1/2}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Sigma_{0}=\frac{M}{2\pi a^{2}}(\frac{1-\xi}{2})^{3/2}
+\]
+
+\end_inset
+
+Then 
+\begin_inset Formula 
+\[
+\Psi_{0}=\Phi_{0}+\frac{1}{q}\psi_{0}=-\frac{qGM}{a}(\frac{1-\xi}{2})^{1/2}+\frac{1}{q}\frac{\kappa\Gamma}{\Gamma-1}\left(\frac{M}{2\pi a^{2}}\right)^{\Gamma-1}(\frac{1-\xi}{2})^{3(\Gamma-1)/2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+And 
+\begin_inset Formula 
+\[
+v_{r}^{0}=0
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(v_{\theta}^{0}\right)^{2}=V^{2}=r\frac{\partial\Psi_{0}}{\partial r}=\frac{qGM}{a}(\frac{1-\xi}{2})^{1/2}(\frac{1+\xi}{2})\left[1-\epsilon(\frac{1-\xi}{2})^{3\Gamma/2-2}\right]
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\epsilon=\frac{3a\kappa\Gamma}{qGM}\left(\frac{M}{2\pi a}\right)^{\Gamma-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+energy cinetique: (check)
+\begin_inset Formula 
+\[
+T_{0}=\int_{0}^{2\pi}\int_{0}^{\infty}\frac{1}{2}V^{2}\Sigma_{0}rdrd\theta=\frac{(1-\epsilon)qGM^{2}}{8a}
+\]
+
+\end_inset
+
+Total pot energy:
+\begin_inset Formula 
+\[
+W_{0}=\frac{1}{2}\int_{0}^{2\pi}\int_{0}^{\infty}\Phi_{0}\Sigma_{0}rdrd\theta=-\frac{qGM^{2}}{4a}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+two degree of freedom:
+\end_layout
+
+\begin_layout Standard
+total internal energy is
+\begin_inset Formula 
+\[
+U_{0}=\int_{0}^{2\pi}\int_{0}^{\infty}P_{0}rdrd\theta=\frac{\epsilon qGM^{2}}{8a}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+total energy: 
+\begin_inset Formula 
+\[
+E_{0}=T_{0}+U_{0}+W_{0}=-\frac{qGM^{2}}{8a}
+\]
+
+\end_inset
+
+Et donc 
+\begin_inset Formula 
+\[
+\epsilon=\frac{U_{0}}{|E_{0}|}=\frac{\mathrm{internal\,energy}}{|\mathrm{total\,energy}|}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+2(T_{0}+U_{0})+W_{0}=0
+\]
+
+\end_inset
+
 
 \end_layout
 
