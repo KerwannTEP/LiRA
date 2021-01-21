@@ -433,7 +433,15 @@ E_{0}=T_{0}+U_{0}+W_{0}=-\frac{qGM^{2}}{8a}
 Et donc 
 \begin_inset Formula 
 \[
-\epsilon=\frac{U_{0}}{|E_{0}|}
+\epsilon=\frac{U_{0}}{|E_{0}|}=\frac{\mathrm{internal\,energy}}{|\mathrm{total\,energy}|}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+2(T_{0}+U_{0})+W_{0}=0
 \]
 
 \end_inset
