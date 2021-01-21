@@ -767,32 +767,44 @@ im\frac{\Psi_{q}^{1}}{r}+\frac{\alpha^{2}}{2\Omega}v_{r}^{1}+i(-\omega+\Omega)v_
 \end_layout
 
 \begin_layout Standard
-thus
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \[
-im\frac{\Psi_{q}^{1}}{r}+\frac{\alpha^{2}}{2\Omega}v_{r}^{1}+i(-\omega+\Omega)v_{\theta}^{1}=0
+\Sigma_{m}^{p}=\frac{M}{2\pi a^{2}}\left(\frac{1-\xi}{2}\right)^{3/2}\sum_{n=|m|}^{\infty}a_{n}^{m}\widehat{P_{n}^{|m|}}(\xi)e^{-i\omega t}
 \]
 
 \end_inset
 
 
-\end_layout
+\begin_inset Formula 
+\[
+\Phi_{m}^{p}=-\frac{qGM}{a}\left(\frac{1-\xi}{2}\right)^{1/2}\sum_{n=|m|}^{\infty}\frac{a_{n}^{m}}{2n+1}\widehat{P_{n}^{|m|}}(\xi)e^{-i\omega t}
+\]
 
-\begin_layout Standard
-\begin_inset space ~
 \end_inset
 
 
-\end_layout
+\begin_inset Formula 
+\[
+\psi_{m}^{p}=\kappa\Gamma\left(\frac{M}{2\pi a^{2}}\right)^{\Gamma-1}\left(\frac{1-\xi}{2}\right)^{3/2}(\Sigma^{0})^{\Gamma-2}\sum_{n=|m|}^{\infty}a_{n}^{m}\widehat{P_{n}^{|m|}}(\xi)e^{-i\omega t}
+\]
 
-\begin_layout Standard
-\begin_inset space ~
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \[
 (\Psi_{q})_{m}^{p}=\frac{qGM}{a}\left(\frac{1-\xi}{2}\right)^{1/2}\sum_{n=|m|}^{\infty}\left[\frac{\epsilon}{3}\left(\frac{1-\xi}{2}\right)(\Sigma^{0})^{\Gamma-2}-\frac{1}{2n+1}\right]a_{n}^{m}\widehat{P_{n}^{|m|}}(\xi)e^{-i\omega t}
