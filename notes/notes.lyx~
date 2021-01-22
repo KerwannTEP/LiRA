@@ -191,7 +191,7 @@ Self-gravitating system: thin galactic disk of surface density
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\Sigma\rightarrow q\Sigma$
+\begin_inset Formula $G\rightarrow\frac{G}{q}$
 \end_inset
 
 .
@@ -209,7 +209,7 @@ Equation are
 
 \begin_inset Formula 
 \[
-\frac{\partial\mathbf{v}}{\partial t}+(\mathbf{v}\cdot\nabla)(\mathbf{v})=-\frac{1}{q\Sigma}\nabla P-\nabla\Phi
+\frac{\partial\mathbf{v}}{\partial t}+(\mathbf{v}\cdot\nabla)(\mathbf{v})=-\frac{1}{\Sigma}\nabla P-\nabla\Phi
 \]
 
 \end_inset
@@ -217,7 +217,7 @@ Equation are
 
 \begin_inset Formula 
 \[
-\Delta\Phi=4\pi Gq\Sigma\delta(z)
+\Delta\Phi=4\pi\frac{G}{q}\Sigma\delta(z)
 \]
 
 \end_inset
@@ -243,7 +243,7 @@ Then
 \end_inset
 
 and letting 
-\begin_inset Formula $\Psi_{q}=\Phi+\frac{1}{q}\psi$
+\begin_inset Formula $\Psi=\Phi+\psi$
 \end_inset
 
 , we have the set of equations
@@ -257,7 +257,7 @@ and letting
 
 \begin_inset Formula 
 \[
-\frac{\partial\mathbf{v}}{\partial t}+(\mathbf{v}\cdot\nabla)(\mathbf{v})=-\nabla\Psi_{q}
+\frac{\partial\mathbf{v}}{\partial t}+(\mathbf{v}\cdot\nabla)(\mathbf{v})=-\nabla\Psi
 \]
 
 \end_inset
@@ -265,7 +265,7 @@ and letting
 
 \begin_inset Formula 
 \[
-\Delta\Phi=4\pi Gq\Sigma\delta(z)
+\Delta\Phi=4\pi\frac{G}{q}\Sigma\delta(z)
 \]
 
 \end_inset
@@ -310,7 +310,7 @@ Let
 \begin_layout Standard
 http://articles.adsabs.harvard.edu/pdf/1979PASJ...31..737A.
  
-\begin_inset Formula $G\rightarrow qG$
+\begin_inset Formula $G\rightarrow\frac{G}{q}$
 \end_inset
 
 
@@ -326,7 +326,7 @@ http://articles.adsabs.harvard.edu/pdf/1979PASJ...31..737A.
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\Phi_{0}=-\frac{qGM}{a}(\frac{1-\xi}{2})^{1/2}
+\Phi_{0}=-\frac{GM}{aq}(\frac{1-\xi}{2})^{1/2}
 \]
 
 \end_inset
@@ -342,7 +342,7 @@ http://articles.adsabs.harvard.edu/pdf/1979PASJ...31..737A.
 Then 
 \begin_inset Formula 
 \[
-\Psi_{0}=\Phi_{0}+\frac{1}{q}\psi_{0}=-\frac{qGM}{a}(\frac{1-\xi}{2})^{1/2}+\frac{1}{q}\frac{\kappa\Gamma}{\Gamma-1}\left(\frac{M}{2\pi a^{2}}\right)^{\Gamma-1}(\frac{1-\xi}{2})^{3(\Gamma-1)/2}
+\Psi_{0}=\Phi_{0}+\psi_{0}=-\frac{GM}{aq}(\frac{1-\xi}{2})^{1/2}+\frac{\kappa\Gamma}{\Gamma-1}\left(\frac{M}{2\pi a^{2}}\right)^{\Gamma-1}(\frac{1-\xi}{2})^{3(\Gamma-1)/2}
 \]
 
 \end_inset
@@ -362,7 +362,7 @@ v_{r}^{0}=0
 
 \begin_inset Formula 
 \[
-\left(v_{\theta}^{0}\right)^{2}=V^{2}=r\frac{\partial\Psi_{0}}{\partial r}=\frac{qGM}{a}(\frac{1-\xi}{2})^{1/2}(\frac{1+\xi}{2})\left[1-\epsilon(\frac{1-\xi}{2})^{3\Gamma/2-2}\right]
+\left(v_{\theta}^{0}\right)^{2}=V^{2}=r\frac{\partial\Psi_{0}}{\partial r}=\frac{GM}{aq}(\frac{1-\xi}{2})^{1/2}(\frac{1+\xi}{2})\left[1-\epsilon(\frac{1-\xi}{2})^{3\Gamma/2-2}\right]
 \]
 
 \end_inset
@@ -370,7 +370,7 @@ v_{r}^{0}=0
 
 \begin_inset Formula 
 \[
-\epsilon=\frac{3a\kappa\Gamma}{qGM}\left(\frac{M}{2\pi a}\right)^{\Gamma-1}
+\epsilon=\frac{3aq\kappa\Gamma}{GM}\left(\frac{M}{2\pi a}\right)^{\Gamma-1}
 \]
 
 \end_inset
@@ -389,7 +389,7 @@ v_{r}^{0}=0
 energy cinetique: (check)
 \begin_inset Formula 
 \[
-T_{0}=\int_{0}^{2\pi}\int_{0}^{\infty}\frac{1}{2}V^{2}\Sigma_{0}rdrd\theta=\frac{(1-\epsilon)qGM^{2}}{8a}
+T_{0}=\int_{0}^{2\pi}\int_{0}^{\infty}\frac{1}{2}V^{2}\Sigma_{0}rdrd\theta=\frac{(1-\epsilon)GM^{2}}{8aq}
 \]
 
 \end_inset
@@ -397,7 +397,7 @@ T_{0}=\int_{0}^{2\pi}\int_{0}^{\infty}\frac{1}{2}V^{2}\Sigma_{0}rdrd\theta=\frac
 Total pot energy:
 \begin_inset Formula 
 \[
-W_{0}=\frac{1}{2}\int_{0}^{2\pi}\int_{0}^{\infty}\Phi_{0}\Sigma_{0}rdrd\theta=-\frac{qGM^{2}}{4a}
+W_{0}=\frac{1}{2}\int_{0}^{2\pi}\int_{0}^{\infty}\Phi_{0}\Sigma_{0}rdrd\theta=-\frac{GM^{2}}{4aq}
 \]
 
 \end_inset
@@ -413,7 +413,7 @@ two degree of freedom:
 total internal energy is
 \begin_inset Formula 
 \[
-U_{0}=\int_{0}^{2\pi}\int_{0}^{\infty}P_{0}rdrd\theta=\frac{\epsilon qGM^{2}}{8a}
+U_{0}=\int_{0}^{2\pi}\int_{0}^{\infty}P_{0}rdrd\theta=\frac{\epsilon GM^{2}}{8aq}
 \]
 
 \end_inset
@@ -425,7 +425,7 @@ U_{0}=\int_{0}^{2\pi}\int_{0}^{\infty}P_{0}rdrd\theta=\frac{\epsilon qGM^{2}}{8a
 total energy: 
 \begin_inset Formula 
 \[
-E_{0}=T_{0}+U_{0}+W_{0}=-\frac{qGM^{2}}{8a}
+E_{0}=T_{0}+U_{0}+W_{0}=-\frac{qGM^{2}}{8aq}
 \]
 
 \end_inset
@@ -471,7 +471,7 @@ Eq perturbatives
 
 \begin_inset Formula 
 \[
-\frac{\partial v_{r}^{p}}{\partial t}+\frac{v_{\theta}^{0}}{r}\frac{\partial v_{r}^{p}}{\partial\theta}-2\frac{v_{\theta}^{0}v_{\theta}^{p}}{r}=-\frac{\partial\Psi_{q}^{p}}{\partial r}
+\frac{\partial v_{r}^{p}}{\partial t}+\frac{v_{\theta}^{0}}{r}\frac{\partial v_{r}^{p}}{\partial\theta}-2\frac{v_{\theta}^{0}v_{\theta}^{p}}{r}=-\frac{\partial\Psi^{p}}{\partial r}
 \]
 
 \end_inset
@@ -479,7 +479,7 @@ Eq perturbatives
 
 \begin_inset Formula 
 \[
-\frac{\partial v_{\theta}^{p}}{\partial t}+v_{r}^{p}\frac{\partial v_{\theta}^{0}}{\partial r}+\frac{v_{\theta}^{0}}{r}\frac{\partial v_{\theta}^{p}}{\partial\theta}+\frac{v_{r}^{p}v_{\theta}^{0}}{r}=-\frac{1}{r}\frac{\partial\Psi_{q}^{p}}{\partial\theta}
+\frac{\partial v_{\theta}^{p}}{\partial t}+v_{r}^{p}\frac{\partial v_{\theta}^{0}}{\partial r}+\frac{v_{\theta}^{0}}{r}\frac{\partial v_{\theta}^{p}}{\partial\theta}+\frac{v_{r}^{p}v_{\theta}^{0}}{r}=-\frac{1}{r}\frac{\partial\Psi^{p}}{\partial\theta}
 \]
 
 \end_inset
@@ -514,7 +514,7 @@ For a rotation mode
 
 \begin_inset Formula 
 \[
-\Phi_{m}^{p}=-\frac{qGM}{a}\left(\frac{1-\xi}{2}\right)^{1/2}\sum_{n=|m|}^{\infty}\frac{a_{n}^{m}}{2n+1}\widehat{P_{n}^{|m|}}(\xi)e^{-i\omega t}
+\Phi_{m}^{p}=-\frac{GM}{aq}\left(\frac{1-\xi}{2}\right)^{1/2}\sum_{n=|m|}^{\infty}\frac{a_{n}^{m}}{2n+1}\widehat{P_{n}^{|m|}}(\xi)e^{-i\omega t}
 \]
 
 \end_inset
@@ -530,7 +530,7 @@ For a rotation mode
 
 \begin_inset Formula 
 \[
-(\Psi_{q})_{m}^{p}=\frac{qGM}{a}\left(\frac{1-\xi}{2}\right)^{1/2}\sum_{n=|m|}^{\infty}\left[\frac{\epsilon}{3}\left(\frac{1-\xi}{2}\right)(\Sigma^{0})^{\Gamma-2}-\frac{1}{2n+1}\right]a_{n}^{m}\widehat{P_{n}^{|m|}}(\xi)e^{-i\omega t}
+(\Psi)_{m}^{p}=\frac{GM}{aq}\left(\frac{1-\xi}{2}\right)^{1/2}\sum_{n=|m|}^{\infty}\left[\frac{\epsilon}{3}\left(\frac{1-\xi}{2}\right)(\Sigma^{0})^{\Gamma-2}-\frac{1}{2n+1}\right]a_{n}^{m}\widehat{P_{n}^{|m|}}(\xi)e^{-i\omega t}
 \]
 
 \end_inset
@@ -541,7 +541,7 @@ For a rotation mode
 \begin_layout Standard
 \begin_inset Formula 
 \[
-(v_{r})_{m}^{p}=i\frac{m}{|m|}\left(\frac{qGM}{a}\right)^{1/2}\left(\frac{1-\xi}{2}\right)^{1/4}\left(\frac{1+\xi}{2}\right)^{-1/2}\sum_{n=|m|}^{\infty}b_{n}^{m}\widehat{P_{n}^{|m|}}(\xi)e^{-i\omega t}
+(v_{r})_{m}^{p}=i\frac{m}{|m|}\left(\frac{GM}{aq}\right)^{1/2}\left(\frac{1-\xi}{2}\right)^{1/4}\left(\frac{1+\xi}{2}\right)^{-1/2}\sum_{n=|m|}^{\infty}b_{n}^{m}\widehat{P_{n}^{|m|}}(\xi)e^{-i\omega t}
 \]
 
 \end_inset
@@ -549,7 +549,7 @@ For a rotation mode
 
 \begin_inset Formula 
 \[
-(v_{\theta})_{m}^{p}=\left(\frac{qGM}{a}\right)^{1/2}\left(\frac{1-\xi}{2}\right)^{1/4}\left(\frac{1+\xi}{2}\right)^{-1/2}\sum_{n=|m|}^{\infty}c_{n}^{m}\widehat{P_{n}^{|m|}}(\xi)e^{-i\omega t}
+(v_{\theta})_{m}^{p}=\left(\frac{GM}{aq}\right)^{1/2}\left(\frac{1-\xi}{2}\right)^{1/4}\left(\frac{1+\xi}{2}\right)^{-1/2}\sum_{n=|m|}^{\infty}c_{n}^{m}\widehat{P_{n}^{|m|}}(\xi)e^{-i\omega t}
 \]
 
 \end_inset
@@ -581,7 +581,7 @@ Let
 
 \begin_inset Formula 
 \[
--i\omega v_{r}^{1}+\frac{imv_{\theta}^{0}v_{r}^{1}}{r}-2\frac{v_{\theta}^{0}v_{\theta}^{1}}{r}=-\frac{\partial\Psi_{q}^{1}}{\partial r}
+-i\omega v_{r}^{1}+\frac{imv_{\theta}^{0}v_{r}^{1}}{r}-2\frac{v_{\theta}^{0}v_{\theta}^{1}}{r}=-\frac{\partial\Psi^{1}}{\partial r}
 \]
 
 \end_inset
@@ -589,7 +589,7 @@ Let
 
 \begin_inset Formula 
 \[
--i\omega v_{\theta}^{1}+v_{r}^{p}\frac{\partial v_{\theta}^{0}}{\partial r}+\frac{imv_{\theta}^{0}}{r}v_{\theta}^{1}+\frac{v_{r}^{1}v_{\theta}^{0}}{r}=-\frac{im\Psi_{q}^{1}}{r}
+-i\omega v_{\theta}^{1}+v_{r}^{p}\frac{\partial v_{\theta}^{0}}{\partial r}+\frac{imv_{\theta}^{0}}{r}v_{\theta}^{1}+\frac{v_{r}^{1}v_{\theta}^{0}}{r}=-\frac{im\Psi^{1}}{r}
 \]
 
 \end_inset
@@ -613,7 +613,7 @@ i(-\omega+m\Omega)\Sigma^{1}+\frac{1}{r}\frac{\partial(r\Sigma^{0}v_{r}^{1})}{\p
 
 \begin_inset Formula 
 \[
-\frac{\partial\Psi_{q}^{1}}{\partial r}+i(-\omega+m\Omega)v_{r}^{1}-2\Omega v_{\theta}^{1}=0
+\frac{\partial\Psi^{1}}{\partial r}+i(-\omega+m\Omega)v_{r}^{1}-2\Omega v_{\theta}^{1}=0
 \]
 
 \end_inset
@@ -621,7 +621,7 @@ i(-\omega+m\Omega)\Sigma^{1}+\frac{1}{r}\frac{\partial(r\Sigma^{0}v_{r}^{1})}{\p
 
 \begin_inset Formula 
 \[
-im\frac{\Psi_{q}^{1}}{r}+\frac{\alpha^{2}}{2\Omega}v_{r}^{1}+i(-\omega+\Omega)v_{\theta}^{1}=0
+im\frac{\Psi^{1}}{r}+\frac{\alpha^{2}}{2\Omega}v_{r}^{1}+i(-\omega+\Omega)v_{\theta}^{1}=0
 \]
 
 \end_inset
@@ -658,8 +658,8 @@ i(-\omega+m\Omega)\Sigma^{1}+\frac{1}{r}\frac{\partial(r\Sigma^{0}v_{r}^{1})}{\p
 \[
 \begin{array}{l}
 i(-\omega+m\Omega)\frac{M}{2\pi a^{2}}\left(\frac{1-\xi}{2}\right)^{3/2}\sum_{n=|m|}^{\infty}a_{n}^{m}\widehat{P_{n}^{|m|}}(\xi)\\
-{\displaystyle +\frac{1}{r}\frac{\partial(r\Sigma^{0}i\frac{m}{|m|}\left(\frac{qGM}{a}\right)^{1/2}\left(\frac{1-\xi}{2}\right)^{1/4}\left(\frac{1+\xi}{2}\right)^{-1/2}\sum_{n=|m|}^{\infty}b_{n}^{m}\widehat{P_{n}^{|m|}}(\xi))}{\partial r}}\\
-{\displaystyle +\frac{im\Sigma^{0}}{r}\left(\frac{qGM}{a}\right)^{1/2}\left(\frac{1-\xi}{2}\right)^{1/4}\left(\frac{1+\xi}{2}\right)^{-1/2}\sum_{n=|m|}^{\infty}b_{n}^{m}\widehat{P_{n}^{|m|}}(\xi)}\\
+{\displaystyle +\frac{1}{r}\frac{\partial(r\Sigma^{0}i\frac{m}{|m|}\left(\frac{GM}{qa}\right)^{1/2}\left(\frac{1-\xi}{2}\right)^{1/4}\left(\frac{1+\xi}{2}\right)^{-1/2}\sum_{n=|m|}^{\infty}b_{n}^{m}\widehat{P_{n}^{|m|}}(\xi))}{\partial r}}\\
+{\displaystyle +\frac{im\Sigma^{0}}{r}\left(\frac{GM}{qa}\right)^{1/2}\left(\frac{1-\xi}{2}\right)^{1/4}\left(\frac{1+\xi}{2}\right)^{-1/2}\sum_{n=|m|}^{\infty}b_{n}^{m}\widehat{P_{n}^{|m|}}(\xi)}\\
 =0
 \end{array}
 \]
@@ -675,8 +675,8 @@ thus
 \[
 \begin{array}{l}
 \sum_{n=|m|}^{\infty}\left[m\Omega\frac{M}{2\pi a^{2}}\left(\frac{1-\xi}{2}\right)^{3/2}\widehat{P_{n}^{|m|}}(\xi)\right]a_{n}^{m}\\
-{\displaystyle +\sum_{n=|m|}^{\infty}\left[\frac{1}{r}\frac{\partial(r\Sigma^{0}\frac{m}{|m|}\left(\frac{qGM}{a}\right)^{1/2}\left(\frac{1-\xi}{2}\right)^{1/4}\left(\frac{1+\xi}{2}\right)^{-1/2}\widehat{P_{n}^{|m|}}(\xi))}{\partial r}\right]}b_{n}^{m}\\
-{\displaystyle +\sum_{n=|m|}^{\infty}\left[\frac{m\Sigma^{0}}{r}\left(\frac{qGM}{a}\right)^{1/2}\left(\frac{1-\xi}{2}\right)^{1/4}\left(\frac{1+\xi}{2}\right)^{-1/2}\widehat{P_{n}^{|m|}}(\xi)\right]c_{n}^{m}}\\
+{\displaystyle +\sum_{n=|m|}^{\infty}\left[\frac{1}{r}\frac{\partial(r\Sigma^{0}\frac{m}{|m|}\left(\frac{GM}{qa}\right)^{1/2}\left(\frac{1-\xi}{2}\right)^{1/4}\left(\frac{1+\xi}{2}\right)^{-1/2}\widehat{P_{n}^{|m|}}(\xi))}{\partial r}\right]}b_{n}^{m}\\
+{\displaystyle +\sum_{n=|m|}^{\infty}\left[\frac{m\Sigma^{0}}{r}\left(\frac{GM}{qa}\right)^{1/2}\left(\frac{1-\xi}{2}\right)^{1/4}\left(\frac{1+\xi}{2}\right)^{-1/2}\widehat{P_{n}^{|m|}}(\xi)\right]c_{n}^{m}}\\
 =\omega\sum_{n=|m|}^{\infty}\left[\frac{M}{2\pi a^{2}}\left(\frac{1-\xi}{2}\right)^{3/2}\widehat{P_{n}^{|m|}}(\xi)\right]a_{n}^{m}
 \end{array}
 \]
@@ -705,8 +705,8 @@ thus integrating
 \[
 \begin{array}{l}
 \sum_{n=|m|}^{\infty}\left[m\int_{-1}^{1}d\xi\widehat{P_{l}^{|m|}}(\xi)\Omega\widehat{P_{n}^{|m|}}(\xi)\right]a_{n}^{m}\\
-{\displaystyle +\sum_{n=|m|}^{\infty}\left[\int_{-1}^{1}d\xi\widehat{P_{l}^{|m|}}(\xi)\left(\frac{1-\xi}{2}\right)^{-3/2}\frac{2\pi a^{2}}{M}\frac{1}{r}\frac{\partial(r\Sigma^{0}\frac{m}{|m|}\left(\frac{qGM}{a}\right)^{1/2}\left(\frac{1-\xi}{2}\right)^{1/4}\left(\frac{1+\xi}{2}\right)^{-1/2}\widehat{P_{n}^{|m|}}(\xi))}{\partial r}\right]}b_{n}^{m}\\
-{\displaystyle +\sum_{n=|m|}^{\infty}\left[\int_{-1}^{1}d\xi\widehat{P_{l}^{|m|}}(\xi)\left(\frac{1-\xi}{2}\right)^{-3/2}\frac{2\pi a^{2}}{M}\frac{m\Sigma^{0}}{r}\left(\frac{qGM}{a}\right)^{1/2}\left(\frac{1-\xi}{2}\right)^{1/4}\left(\frac{1+\xi}{2}\right)^{-1/2}\widehat{P_{n}^{|m|}}(\xi)\right]c_{n}^{m}}\\
+{\displaystyle +\sum_{n=|m|}^{\infty}\left[\int_{-1}^{1}d\xi\widehat{P_{l}^{|m|}}(\xi)\left(\frac{1-\xi}{2}\right)^{-3/2}\frac{2\pi a^{2}}{M}\frac{1}{r}\frac{\partial(r\Sigma^{0}\frac{m}{|m|}\left(\frac{GM}{aq}\right)^{1/2}\left(\frac{1-\xi}{2}\right)^{1/4}\left(\frac{1+\xi}{2}\right)^{-1/2}\widehat{P_{n}^{|m|}}(\xi))}{\partial r}\right]}b_{n}^{m}\\
+{\displaystyle +\sum_{n=|m|}^{\infty}\left[\int_{-1}^{1}d\xi\widehat{P_{l}^{|m|}}(\xi)\left(\frac{1-\xi}{2}\right)^{-3/2}\frac{2\pi a^{2}}{M}\frac{m\Sigma^{0}}{r}\left(\frac{GM}{qa}\right)^{1/2}\left(\frac{1-\xi}{2}\right)^{1/4}\left(\frac{1+\xi}{2}\right)^{-1/2}\widehat{P_{n}^{|m|}}(\xi)\right]c_{n}^{m}}\\
 =\omega\sum_{n=|m|}^{\infty}\int_{-1}^{1}d\xi\widehat{P_{l}^{|m|}}(\xi)\widehat{P_{n}^{|m|}}(\xi)a_{n}^{m}
 \end{array}
 \]
@@ -758,7 +758,7 @@ last eq:
 \begin_layout Standard
 \begin_inset Formula 
 \[
-im\frac{\Psi_{q}^{1}}{r}+\frac{\alpha^{2}}{2\Omega}v_{r}^{1}+i(-\omega+\Omega)v_{\theta}^{1}=0
+im\frac{\Psi^{1}}{r}+\frac{\alpha^{2}}{2\Omega}v_{r}^{1}+i(-\omega+\Omega)v_{\theta}^{1}=0
 \]
 
 \end_inset
@@ -783,7 +783,7 @@ im\frac{\Psi_{q}^{1}}{r}+\frac{\alpha^{2}}{2\Omega}v_{r}^{1}+i(-\omega+\Omega)v_
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\Sigma_{m}^{p}=\frac{M}{2\pi a^{2}}\left(\frac{1-\xi}{2}\right)^{3/2}\sum_{n=|m|}^{\infty}a_{n}^{m}\widehat{P_{n}^{|m|}}(\xi)e^{-i\omega t}
+\Sigma_{*}=\frac{M_{*}}{2\pi a^{2}}(\frac{a^{2}}{r^{2}+a^{2}})^{3/2}
 \]
 
 \end_inset
@@ -791,7 +791,15 @@ im\frac{\Psi_{q}^{1}}{r}+\frac{\alpha^{2}}{2\Omega}v_{r}^{1}+i(-\omega+\Omega)v_
 
 \begin_inset Formula 
 \[
-\Phi_{m}^{p}=-\frac{qGM}{a}\left(\frac{1-\xi}{2}\right)^{1/2}\sum_{n=|m|}^{\infty}\frac{a_{n}^{m}}{2n+1}\widehat{P_{n}^{|m|}}(\xi)e^{-i\omega t}
+\Sigma_{{\rm dh}}=\frac{M_{{\rm dh}}}{2\pi a^{2}}(\frac{a^{2}}{r^{2}+a^{2}})^{3/2}
+\]
+
+\end_inset
+
+donc 
+\begin_inset Formula 
+\[
+\Delta\phi_{{\rm tot}}=4\pi G\left[\Sigma_{*}+\Sigma_{{\rm dh}}\right]\delta(z)=4\pi G\left[\Sigma_{*}+\frac{M_{{\rm dh}}}{M_{*}}\Sigma_{*}\right]\delta(z)
 \]
 
 \end_inset
@@ -799,7 +807,46 @@ im\frac{\Psi_{q}^{1}}{r}+\frac{\alpha^{2}}{2\Omega}v_{r}^{1}+i(-\omega+\Omega)v_
 
 \begin_inset Formula 
 \[
-\psi_{m}^{p}=\kappa\Gamma\left(\frac{M}{2\pi a^{2}}\right)^{\Gamma-1}\left(\frac{1-\xi}{2}\right)^{3/2}(\Sigma^{0})^{\Gamma-2}\sum_{n=|m|}^{\infty}a_{n}^{m}\widehat{P_{n}^{|m|}}(\xi)e^{-i\omega t}
+\Delta\phi_{{\rm tot}}=4\pi G\left[1+\frac{M_{{\rm dh}}}{M_{*}}\right]\Sigma_{*}\delta(z)=4\pi G\underbrace{\left[\frac{M_{*}+M_{{\rm dh}}}{M_{*}}\right]}_{\geq1}\Sigma_{*}\delta(z)
+\]
+
+\end_inset
+
+Let 
+\begin_inset Formula $q=\frac{M_{*}}{M_{{\rm tot}}}\in[0,1]$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\[
+\Delta\phi=\frac{4\pi G}{q}\Sigma_{*}\delta(z)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+plus général
+\begin_inset Formula 
+\[
+\Delta\phi_{{\rm tot}}=4\pi G\left[\Sigma_{*}+\Sigma_{{\rm dh}}\right]\delta(z)=4\pi G\left[\Sigma_{*}+\frac{\Sigma_{{\rm dh}}}{\Sigma_{*}}\Sigma_{*}\right]\delta(z)
 \]
 
 \end_inset
@@ -807,7 +854,53 @@ im\frac{\Psi_{q}^{1}}{r}+\frac{\alpha^{2}}{2\Omega}v_{r}^{1}+i(-\omega+\Omega)v_
 
 \begin_inset Formula 
 \[
-(\Psi_{q})_{m}^{p}=\frac{qGM}{a}\left(\frac{1-\xi}{2}\right)^{1/2}\sum_{n=|m|}^{\infty}\left[\frac{\epsilon}{3}\left(\frac{1-\xi}{2}\right)(\Sigma^{0})^{\Gamma-2}-\frac{1}{2n+1}\right]a_{n}^{m}\widehat{P_{n}^{|m|}}(\xi)e^{-i\omega t}
+\Delta\phi_{{\rm tot}}=4\pi G\left[1+\frac{\Sigma_{{\rm dh}}}{\Sigma_{*}}\right]\Sigma_{*}\delta(z)=4\pi G\underbrace{\left[\frac{\Sigma_{*}+\Sigma_{{\rm dh}}}{\Sigma_{*}}\right]}_{\geq1}\Sigma_{*}\delta(z)
+\]
+
+\end_inset
+
+Let 
+\begin_inset Formula $q(r)=\frac{\Sigma_{*}(r)}{\Sigma_{{\rm tot}}(r)}\in[0,1]$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\[
+\Delta\phi=\frac{4\pi G}{q(r)}\Sigma_{*}(r)\delta(z)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+q(r)=\frac{\frac{M_{*}}{2\pi a_{*}^{2}}(\frac{a_{*}^{2}}{r^{2}+a_{*}^{2}})^{3/2}}{\frac{M_{*}}{2\pi a_{*}^{2}}(\frac{a_{*}^{2}}{r^{2}+a_{*}^{2}})^{3/2}+\frac{M_{{\rm dh}}}{2\pi a_{{\rm dh}}^{2}}(\frac{a_{{\rm dh}}^{2}}{r^{2}+a_{{\rm dh}}^{2}})^{3/2}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+q(0)=\frac{M_{*}}{M_{*}+M_{{\rm dh}}\frac{a_{*}^{2}}{a_{{\rm dh}}^{2}}}
 \]
 
 \end_inset
@@ -818,7 +911,93 @@ im\frac{\Psi_{q}^{1}}{r}+\frac{\alpha^{2}}{2\Omega}v_{r}^{1}+i(-\omega+\Omega)v_
 \begin_layout Standard
 \begin_inset Formula 
 \[
-(v_{r})_{m}^{p}=i\frac{m}{|m|}\left(\frac{qGM}{a}\right)^{1/2}\left(\frac{1-\xi}{2}\right)^{1/4}\left(\frac{1+\xi}{2}\right)^{-1/2}\sum_{n=|m|}^{\infty}b_{n}^{m}\widehat{P_{n}^{|m|}}(\xi)e^{-i\omega t}
+q(\infty)=\frac{M_{*}}{M_{*}+M_{{\rm dh}}\frac{a_{{\rm dh}}}{a_{*}}}
+\]
+
+\end_inset
+
+Letting 
+\begin_inset Formula $a_{*}<a_{dh}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $q(0)>q_{=}=\frac{M_{*}}{M_{*}+M_{{\rm dh}}}$
+\end_inset
+
+ et 
+\begin_inset Formula $q(\infty)<q_{=}$
+\end_inset
+
+ donc il existe 
+\begin_inset Formula $r_{=}>0$
+\end_inset
+
+ tel que 
+\begin_inset Formula $q(r)=q_{=}=\frac{M_{*}}{M_{*}+M_{{\rm dh}}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Consider the toy model in which 
+\begin_inset Formula $q(r)=q_{=}=\frac{M_{*}}{M_{*}+M_{{\rm dh}}}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula 
+\[
+\Delta\phi=\frac{4\pi G}{q}\Sigma_{*}(r)\delta(z)
+\]
+
+\end_inset
+
+meaning the equation stays the same, with the 
+\begin_inset Quotes eld
+\end_inset
+
+transformation 
+\begin_inset Formula $G\rightarrow G/q$
+\end_inset
+
+
+\begin_inset Quotes eld
+\end_inset
+
+.
+ Pour le reste, equations fluides sur le gaz d'étoiles (
+\begin_inset Formula $X_{*}$
+\end_inset
+
+) seul ne sont pas modifiées.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+maybe use 
+\begin_inset Formula $\Gamma=4/3$
+\end_inset
+
+ for simple expressions.
+ all the matrix elements reduce to the computation of 
+\begin_inset Formula 
+\[
+I(\alpha,m,l,n)=\int_{-1}^{1}\left(\frac{1-\xi}{2}\right)^{\alpha}\hat{P}_{l}^{m}(\xi)\hat{P}_{n}^{m}(\xi){\rm d}\xi
 \]
 
 \end_inset
@@ -826,7 +1005,233 @@ im\frac{\Psi_{q}^{1}}{r}+\frac{\alpha^{2}}{2\Omega}v_{r}^{1}+i(-\omega+\Omega)v_
 
 \begin_inset Formula 
 \[
-(v_{\theta})_{m}^{p}=\left(\frac{qGM}{a}\right)^{1/2}\left(\frac{1-\xi}{2}\right)^{1/4}\left(\frac{1+\xi}{2}\right)^{-1/2}\sum_{n=|m|}^{\infty}c_{n}^{m}\widehat{P_{n}^{|m|}}(\xi)e^{-i\omega t}
+J(\alpha,m,l,n)=\int_{-1}^{1}\left(\frac{1-\xi}{2}\right)^{\alpha}\left(\frac{1+\xi}{2}\right)^{-1}\hat{P}_{l}^{m}(\xi)\hat{P}_{n}^{m}(\xi){\rm d}\xi
+\]
+
+\end_inset
+
+for 
+\begin_inset Formula $\alpha\in\{3/4,7/4\}$
+\end_inset
+
+.
+ Eq valeur propres
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\begin{array}{ccc}
+A & B & C\\
+D & A & F\\
+G & H & A
+\end{array}\right)\left(\begin{array}{c}
+a\\
+b\\
+c
+\end{array}\right)=\lambda\left(\begin{array}{c}
+a\\
+b\\
+c
+\end{array}\right)
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\lambda={\rm sgn}(m)\cdot\hat{\omega}$
+\end_inset
+
+ and 
+\begin_inset Formula $\hat{\omega}=\sqrt{q}\left(\frac{GM}{a^{3}}\right)^{-1/2}\omega$
+\end_inset
+
+.
+ Calculer les valeurs possibles de 
+\begin_inset Formula $\omega$
+\end_inset
+
+.
+ Pour 
+\begin_inset Formula $\Gamma=4/3$
+\end_inset
+
+, on a:
+\begin_inset Formula 
+\[
+A_{ln}=m(1-\epsilon)^{1/2}I(\frac{3}{4},m,l,n)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+B_{ln} & =\frac{1}{2}\bigg\{\left[\frac{(2l+1)(l+m+1)(l-m+1)}{2l+3}\right]^{1/2}J(\frac{3}{4},m,l+1,n)\\
+ & +J(\frac{3}{4},m,l,n)-\left[\frac{(2l+1)(l+m)(l-m)}{2l-1}\right]^{1/2}J(\frac{3}{4},m,l-1,n)\bigg\}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+C_{ln}=mJ(\frac{3}{4},m,l,n)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+D_{ln} & =\frac{1}{2}\left(\frac{1}{2n+1}-\frac{\epsilon}{3}\right)\bigg\{-\left[\frac{(2n+1)(n+m+1)(n-m+1)}{2n+3}\right]^{1/2}I(\frac{3}{4},m,l,n+1)\\
+ & -I(\frac{3}{4},m,l,n)+\left[\frac{(2n+1)(n+m)(n-m)}{2n-1}\right]^{1/2}I(\frac{3}{4},m,l,n-1)\bigg\}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+F_{ln}=2(1-\epsilon)^{1/2}I(\frac{3}{4},m,l,n)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+G_{ln}=-m\left(\frac{1}{2n+1}-\frac{\epsilon}{3}\right)I(\frac{4}{3},m,l,n)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+H_{ln}=\frac{1}{2}(1-\epsilon)^{1/2}\left[I(\frac{3}{4},m,l,n)+3I(\frac{7}{4},m,l,n)\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Prendre un nombre 
+\begin_inset Formula $N$
+\end_inset
+
+ d'éléments de base.
+ Need
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+I(\frac{3}{4},m,l,n)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+J(\frac{3}{4},m,l+1,n)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+J(\frac{3}{4},m,l,n)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+J(\frac{3}{4},m,l-1,n)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+J(\frac{3}{4},m,l,n)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+I(\frac{3}{4},m,l,n+1)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+I(\frac{3}{4},m,l,n)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+I(\frac{3}{4},m,l,n-1)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+I(\frac{3}{4},m,l,n)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+I(\frac{4}{3},m,l,n)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+I(\frac{3}{4},m,l,n)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+I(\frac{7}{4},m,l,n)
 \]
 
 \end_inset
