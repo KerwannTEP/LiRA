@@ -77,7 +77,7 @@
 \tableofcontents
 
 
-\section{Self-gravitating thin disk with bulb}
+\section{Self-gravitating thin disk with bulb and dark halo}
 \label{sec:sg_disk}
 
 Consider a self gravitating disk with surface density $\Sigma$ and gravitational potential $\Phi$. Let $\bv$ be its velocity field and $P$ its pression field. Then it is described by the system
@@ -175,46 +175,31 @@ Letting $X_m^p = X^1  e^{-i \omega t}$, this yields the set of equations
 where $\Omega = \vt^0/r$ is the angular velocity and $\alpha^2=4\Omega^2[1+r/(2\Omega)\cdot(\rd \Omega /\rd r)]$ is the epicyclic frequency. Using the relation 
 $$\int_{-1}^{1} \rd \xi \hPnm(\xi)\hPlm(\xi) = \delta_{nl},$$
 and defining $\Omegaref=(GMx/(a^3 q))^{1/2}$, $\Sigmaref=xM/(2\pi a^2)$   such that $\homega = \omega/\Omegaref$, $\hOmega = \Omega/\Omegaref$, $\halpha = \alpha/\Omegaref$, $\hSigma=\Sigma/\Sigmaref$ and $\lambda=\frac{|m|}{m}\homega$, we obtain the matrix equations
-
 \begin{align*}
-&\sum_{n=|m|}^{\infty}  A_{ln} \anm  +\sum_{n=|m|}^{\infty}  B_{ln}\bnm+\sum_{n=|m|}^{\infty}  C_{ln}\cnm= \lambda \alm  \end{align*}
-
-\begin{align*}
-\frac{\rd (\Psi)^1}{\rd r} + i(-\omega + m \Omega)(\vr)^1 - 2 \Omega (\vt)^1 = 0
-\end{align*}
-
-\begin{align*}
-&\frac{\rd (\frac{GMx}{a q } \bigg(\frac{1-\xi}{2}\bigg)^{1/2}\sum_{n=|m|}^{\infty} \bigg[\frac{\varepsilon}{3}  \bigg(\frac{x}{q}\bigg)^{\Gamma-2} \bigg(\frac{1-\xi}{2}\bigg)^{\frac{3\Gamma}{2}-2}  -\frac{1}{2n+1}  \bigg]\anm \hPnm(\xi))}{\rd r} \\
-&+ i( m \Omega)i \frac{m}{|m|} \bigg(\frac{GMx}{aq}\bigg)^{1/2} \bigg(\frac{1+\xi}{2}\bigg)^{-1/2} \bigg(\frac{1-\xi}{2}\bigg)^{1/4} \sum_{n=|m|}^{\infty} \bnm \hPnm(\xi)  \\
-&- 2 \Omega \bigg(\frac{GMx}{aq}\bigg)^{1/2} \bigg(\frac{1+\xi}{2}\bigg)^{-1/2} \bigg(\frac{1-\xi}{2}\bigg)^{1/4} \sum_{n=|m|}^{\infty} \cnm \hPnm(\xi) \\
-&= i(\omega )i \frac{m}{|m|} \bigg(\frac{GMx}{aq}\bigg)^{1/2} \bigg(\frac{1+\xi}{2}\bigg)^{-1/2} \bigg(\frac{1-\xi}{2}\bigg)^{1/4} \sum_{n=|m|}^{\infty} \bnm \hPnm(\xi) 
-\end{align*}
-
-\begin{align*}
-&\bigg(\frac{1+\xi}{2}\bigg)^{1/2} \bigg(\frac{1-\xi}{2}\bigg)^{-1/4} \frac{\rd ( \bigg(\frac{1-\xi}{2}\bigg)^{1/2}\sum_{n=|m|}^{\infty} \bigg[\frac{1}{2n+1}-\frac{\varepsilon}{3}  \bigg(\frac{x}{q}\bigg)^{\Gamma-2} \bigg(\frac{1-\xi}{2}\bigg)^{\frac{3\Gamma}{2}-2}    \bigg]\anm \hPnm(\xi))}{\rd (r/a)} \\
-&+( m \hOmega) \frac{m}{|m|} \sum_{n=|m|}^{\infty} \bnm \hPnm(\xi)  \\
-&+\bigg(\frac{1+\xi}{2}\bigg)^{1/2} \bigg(\frac{1-\xi}{2}\bigg)^{-1/4}  2 \hOmega \bigg(\frac{1+\xi}{2}\bigg)^{-1/2} \bigg(\frac{1-\xi}{2}\bigg)^{1/4} \sum_{n=|m|}^{\infty} \cnm \hPnm(\xi) \\
-&= \lambda  \sum_{n=|m|}^{\infty} \bnm \hPnm(\xi) 
-\end{align*}
-
-
-\begin{align*}
-&\bigg(\frac{1+\xi}{2}\bigg)^{1/2} \bigg(\frac{1-\xi}{2}\bigg)^{-1/4} \frac{\rd ( \bigg(\frac{1-\xi}{2}\bigg)^{1/2}\sum_{n=|m|}^{\infty} \bigg[\frac{1}{2n+1}-\frac{\varepsilon}{3}  \bigg(\frac{x}{q}\bigg)^{\Gamma-2} \bigg(\frac{1-\xi}{2}\bigg)^{\frac{3\Gamma}{2}-2}    \bigg]\anm \hPnm(\xi))}{\rd (r/a)} \\
-&+ \sum_{n=|m|}^{\infty}   A_{ln} \bnm+  \sum_{n=|m|}^{\infty} F_{ln} \cnm  = \lambda   \blm 
-\end{align*}
-
-
+&\sum_{n=|m|}^{\infty}  A_{ln} \anm  +\sum_{n=|m|}^{\infty}  B_{ln}\bnm+\sum_{n=|m|}^{\infty}  C_{ln}\cnm= \lambda \alm ,\\
+&\sum_{n=|m|}^{\infty}D_{ln}\anm + \sum_{n=|m|}^{\infty}   A_{ln} \bnm+  \sum_{n=|m|}^{\infty} F_{ln} \cnm  = \lambda   \blm ,\\
+&\sum_{n=|m|}^{\infty}G_{ln}\anm + \sum_{n=|m|}^{\infty}   H_{ln} \bnm+  \sum_{n=|m|}^{\infty} A_{ln} \cnm  = \lambda   \blm ,
+ \end{align*}
 where we defined
 \begin{align*}
 &A_{ln} = |m| \int_{-1}^{1} \rd \xi  \hPlm(\xi)\hOmega(\xi)\hPnm(\xi) , \\
 &B_{ln} = 4 \int_{-1}^{1} \rd \xi  \hPlm(\xi) \bigg(\frac{1-\xi}{2}\bigg)^{1/2} \frac{\rd}{\rd \xi} \bigg[\bigg(\frac{1-\xi}{2}\bigg)^{5/4}\hPnm(\xi)\bigg], \\
 &C_{ln} = |m| \int_{-1}^{1} \rd \xi \hPlm(\xi) \bigg(\frac{1-\xi}{2}\bigg)^{3/4}\bigg(\frac{1+\xi}{2}\bigg)^{-1}   \hPnm(\xi), \\
+&D_{ln} = 4 \int_{-1}^{1} \rd \xi \hPlm(\xi)  \bigg(\frac{1-\xi}{2}\bigg)^{5/4} \bigg(\frac{1+\xi}{2}\bigg) 
+\frac{\rd}{\rd \xi} \bigg[\bigg(\frac{1}{2n+1}-\frac{\varepsilon}{3}  \bigg(\frac{x}{q}\bigg)^{\Gamma-2} \bigg(\frac{1-\xi}{2}\bigg)^{\frac{3\Gamma}{2}-2}\bigg) \bigg(\frac{1-\xi}{2}\bigg)^{1/2}\hPnm(\xi) \bigg] ,\\
 &F_{ln} =2 \int_{-1}^{1} \rd \xi  \hPlm(\xi)\hOmega(\xi)\hPnm(\xi) , \\
+&G_{ln} = -|m| \int_{-1}^{1} \rd \xi \hPlm(\xi)  \bigg(\frac{1-\xi}{2}\bigg)^{3/4} 
+\bigg(\frac{1}{2n+1}-\frac{\varepsilon}{3}  \bigg(\frac{x}{q}\bigg)^{\Gamma-2} \bigg(\frac{1-\xi}{2}\bigg)^{\frac{3\Gamma}{2}-2}\bigg) \hPnm(\xi)  ,\\
+&H_{ln} =  \int_{-1}^{1} \rd \xi  \hPlm(\xi)\frac{\halpha^2(\xi)}{2\hOmega(\xi)}\hPnm(\xi) .
 \end{align*}
-
-
-
-
+with
+\begin{align*}
+&\hOmega(\xi) =\sqrt{\frac{1-\xi}{1+\xi}} \sqrt{\frac{a}{c}\frac{q(1-x)}{x}\bigg( \frac{r}{c}\bigg)^2 \bigg(\frac{1}{1+(r/c)^2}\bigg)^{3/2} 
++ \bigg(\frac{1+\xi}{2}\bigg) \bigg(\frac{1-\xi}{2}\bigg)^{1/2}  \bigg[1- \varepsilon\bigg(\frac{x}{q}\bigg)^{\Gamma-2}\bigg(\frac{1-\xi}{2}\bigg)^{\frac{3\Gamma}{2}-2} \bigg] } ,\\
+&\frac{\halpha^2(\xi)}{2\hOmega(\xi)} = 2\hOmega(\xi) \bigg[1+\frac{r}{2\hOmega}\frac{\rd \hOmega }{\rd r}\bigg] = 2\hOmega(\xi) \bigg[1+\frac{(1+\xi)(1-\xi)}{2\hOmega}\frac{\rd \hOmega }{\rd \xi} \bigg],
+\end{align*}
+where
+$$\frac{\rd(r/a)}{\rd \xi} = \frac{\rd}{\rd \xi} \bigg[\sqrt{\frac{1+\xi}{1-\xi}}\bigg] = (1-\xi)^{-3/2}(1+\xi)^{-1/2}$$
 
 
 

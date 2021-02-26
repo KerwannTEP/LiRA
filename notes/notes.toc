@@ -1,1 +1,1 @@
-\contentsline {section}{\numberline {1}Self-gravitating thin disk with bulb}{1}{section.1}%
+\contentsline {section}{\numberline {1}Self-gravitating thin disk with bulb and dark halo}{1}{section.1}%
