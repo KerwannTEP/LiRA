@@ -106,30 +106,45 @@ Let $M$ be the total mass of the galactic disk+bulb. Let $\Phib = - G M (1-x)/\s
 &\vr^0 = 0,\quad \quad (\vt^0)^2 = r \frac{\partial \Psi^0}{\partial r}, \\
 & \psi^0 = \frac{\kappa \Gamma}{\Gamma-1} (\Sigma^0)^{\Gamma-1} = \frac{\kappa \Gamma}{(\Gamma-1)q^{\Gamma-1}} (\Sigmad^0)^{\Gamma-1},\\
 & \Sigmad^0 = \frac{xM}{2\pi a^2} \frac{1}{(1+(r/a)^2)^{3/2}} ,\\
-& \Phisg^0 = -\frac{G M x}{a} \frac{1}{\sqrt{1+(r/a)^2}} .
+& \Phisg^0 = -\frac{G M x}{a q} \frac{1}{\sqrt{1+(r/a)^2}} .
 \end{align}
 
-Therefore, letting $\varepsilon = (3a \kappa \Gamma)/(GM) \cdot (M/(2\pi a^2))^{\Gamma-1}$ (CHECK THIS), 
 \begin{align}
-\Psi^0 &=  -\frac{G M (1-x)}{c} \frac{1}{\sqrt{1+(r/c)^2}}-\frac{G M x}{a} \frac{1}{\sqrt{1+(r/a)^2}} + \frac{\kappa \Gamma}{(\Gamma-1)q^{\Gamma-1}} (\Sigmad^0)^{\Gamma-1} ,\\
-{}&=  -\frac{G M }{c} \frac{1-x}{\sqrt{1+(r/c)^2}}+\frac{G M }{a} \bigg[-\frac{x}{\sqrt{1+(r/a)^2}} + \frac{\varepsilon}{3(\Gamma-1)q^{\Gamma-1}} \bigg(\frac{x}{(1+(r/a)^2)^{3/2}}\bigg)^{\Gamma-1}\bigg] ,\\
 \end{align}
+
+Therefore, letting $\xi = (r^2-a^2)/(r^2+a^2)\Leftrightarrow r/a=\sqrt{(1+\xi)/(1-\xi)}$ and  $$\varepsilon = \frac{\mathrm{sg \, internal \, energy}}{|\mathrm{total \,sg \,   energy}|} =\frac{3a \kappa \Gamma}{GM} \bigg(\frac{M}{2\pi a^2}\bigg)^{\Gamma-1},$$  we obtain
+\begin{align*}
+\Psi^0 &=  - \frac{G M (1-x)}{\sqrt{c^2+r^2}}-\frac{G M x}{a q}\bigg(\frac{1-\xi}{2}\bigg)^{1/2} + \frac{\kappa \Gamma}{(\Gamma-1)} (\Sigmad^0/q)^{\Gamma-1} ,\\
+{}&=  -\frac{G M (1-x)}{\sqrt{c^2+r^2}}+\frac{G M }{a} \bigg[-(x/q)\bigg(\frac{1-\xi}{2}\bigg)^{1/2} + \frac{\varepsilon(x/q)^{\Gamma-1}}{3(\Gamma-1)}\bigg(\frac{1-\xi}{2}\bigg)^{3(\Gamma-1)/2} \bigg] ,\\
+(\vt^0)^2 &= r \frac{\partial \Psi^0}{\partial r} =r \frac{\partial \Psi^0}{\partial \xi} \frac{\partial \xi}
+{\partial r} = 4\bigg(\frac{r}{a}\bigg)^2    \bigg(\frac{1-\xi}{2}\bigg)^2 \frac{\partial \Psi^0}{\partial \xi}= (1+\xi) (1-\xi) \frac{\partial \Psi^0}{\partial \xi}  ,\\
+&=\frac{GM}{a}\bigg[\frac{a(1-x)}{c}\bigg( \frac{r}{c}\bigg)^2 \bigg(\frac{1}{1+(r/c)^2}\bigg)^{3/2} 
++ \bigg(\frac{1+\xi}{2}\bigg) \bigg(\frac{1-\xi}{2}\bigg)^{1/2}  \bigg(\frac{x}{q}- \varepsilon\bigg(\frac{x}{q}\bigg)^{\Gamma-1}\bigg(\frac{1-\xi}{2}\bigg)^{\frac{3\Gamma}{2}-2} \bigg) \bigg],
+\end{align*}
+with
+$$\frac{1-\xi}{2}= \frac{a^2}{r^2+a^2}= \frac{1}{1+(r/a)^2}; \quad \frac{1+\xi}{2}= \frac{r^2}{r^2+a^2}= \frac{(r/a)^2}{1+(r/a)^2}.$$
+
+Note that for $x=1$ (no bulb) and $q=1$ (purely self-gravitating system), we recover the expression of Toomre
+\begin{align*}
+\vt^0 &=\bigg(\frac{GM}{a} \bigg)^{1/2}\bigg(\frac{1+\xi}{2}\bigg)^{1/2} \bigg(\frac{1-\xi}{2}\bigg)^{1/4}  \sqrt{1- \varepsilon \bigg(\frac{1-\xi}{2}\bigg)^{\frac{3\Gamma}{2}-2}} .
+\end{align*}
 
 The perturbative equation at 1st order are
-\begin{align}
-&\frac{\partial \Sigmad^p}{\partial t} + \frac{1}{r} \frac{\partial(r\Sigmad^0 \vr^p)}{\partial r} + \frac{\Sigmad^0}{r} \frac{\partial \vt^p}{\partial \theta} + \frac{\vt^0}{r} \frac{\partial \Sigmad^p}{\partial  \theta} = 0 ,\\
+\begin{align*}
 &\frac{\partial \vr^p}{\partial t} + \frac{\vt^0}{r} \frac{\partial \vr^p}{\partial \theta} - 2\frac{\vt^0 \vt^p}{r} = -\frac{\partial \Psi^p}{\partial r} ,\\
 &\frac{\partial \vt^p}{\partial t} + \vr^p \frac{\partial \vt^0}{\partial r} + \frac{\vt^0}{r} \frac{\partial \vt^p}{\partial \theta} + \frac{\vr^p\vt^0}{r} = -\frac{1}{r}\frac{\partial \Psi^p}{\partial \theta} ,\\
 & \Delta \Phisg^p = 4\pi G \frac{1}{q} \Sigmad^p \delta (z), \\
-& \psi^p =  \frac{\kappa \Gamma}{q^{\Gamma-1}} (\Sigmad^0)^{\Gamma-2} \Sigmad^p  , \\
-\end{align}
+& \psi^p =  \frac{\kappa \Gamma}{q^{\Gamma-1}} (\Sigmad^0)^{\Gamma-2} \Sigmad^p .
+\end{align*}
 
 We define $X^p(r,\theta,t) = \sum_{m\in \mathbb{Z}} X_m^p(r,t) e^{i m \theta}$ and look for a temporal dependency in $e^{-i \omega t}$.
 Aoki \& Iye say that there is this following correspondance between surface density and gravitational potential through the Poisson equation:
 \begin{align}
-(\Sigmad)_m^p (r,\theta) &= \frac{xM}{2\pi a^2} \frac{1}{(1+(r/a)^2)^{3/2}} \sum_{n=|m|}^{\infty} \anm \hPnm(\xi) e^{-i \omega t} ,\\
-(\Phisg)_m^p (r,\theta) &= -\frac{GMx}{a q} \frac{1}{\sqrt{1+(r/a)^2}} \sum_{n=|m|}^{\infty} \frac{\anm}{2n+1} \hPnm(\xi) e^{-i \omega t} ,\\
+(\Sigmad)_m^p (r,\theta) &= \frac{xM}{2\pi a^2} \bigg(\frac{1-\xi}{2}\bigg)^{3/2} \sum_{n=|m|}^{\infty} \anm \hPnm(\xi) e^{-i \omega t} ,\\
+(\Phisg)_m^p (r,\theta) &= -\frac{GMx}{a q} \bigg(\frac{1-\xi}{2}\bigg)^{1/2} \sum_{n=|m|}^{\infty} \frac{\anm}{2n+1} \hPnm(\xi) e^{-i \omega t} .
 \end{align}
-where $\xi = (r^2-a^2)/(r^2+a^2)$.
+
+
+
 
 \end{document}
