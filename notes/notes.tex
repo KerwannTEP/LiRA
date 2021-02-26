@@ -101,25 +101,26 @@ If $\Sigma_{\rm{disk}}\propto\Sigma_{\rm{DH}}$ then $q\in [0,1]$ is constant and
 & \Delta \Phisg = 4\pi G \frac{1}{q} \Sigmad \delta (z).
 \end{align}
 
-Let $M$ be the total mass of the galactic disk+bulb. Let $\Phib = - G M (1-x)/\sqrt{c^2+r^2}$ with $x\in [0,1]$. An equilibrium state is given by the Plummer equilibrium, such that
-\begin{align}
+Let $M$ be the total mass of the galactic disk+bulb. Let $\Phib = - G M (1-x)/\sqrt{c^2+r^2}$ with $x\in [0,1]$. An equilibrium state is given by the Plummer equilibrium, such that,  letting $\xi = (r^2-a^2)/(r^2+a^2) $, that is, $r/a=\sqrt{(1+\xi)/(1-\xi)}$,
+\begin{align*}
 &\vr^0 = 0,\quad \quad (\vt^0)^2 = r \frac{\partial \Psi^0}{\partial r}, \\
 & \psi^0 = \frac{\kappa \Gamma}{\Gamma-1} (\Sigma^0)^{\Gamma-1} = \frac{\kappa \Gamma}{(\Gamma-1)q^{\Gamma-1}} (\Sigmad^0)^{\Gamma-1},\\
-& \Sigmad^0 = \frac{xM}{2\pi a^2} \frac{1}{(1+(r/a)^2)^{3/2}} ,\\
-& \Phisg^0 = -\frac{G M x}{a q} \frac{1}{\sqrt{1+(r/a)^2}} .
-\end{align}
+& \Sigmad^0 = \frac{xM}{2\pi a^2} \frac{1}{(1+(r/a)^2)^{3/2}} =\frac{xM}{2\pi a^2}   \bigg(\frac{1-\xi}{2}\bigg)^{3/2},\\
+& \Phisg^0 = -\frac{G M x}{a q} \frac{1}{\sqrt{1+(r/a)^2}} = -\frac{G M x}{a q} \bigg(\frac{1-\xi}{2}\bigg)^{1/2} .
+\end{align*}
 
-\begin{align}
-\end{align}
 
-Therefore, letting $\xi = (r^2-a^2)/(r^2+a^2)\Leftrightarrow r/a=\sqrt{(1+\xi)/(1-\xi)}$ and  $$\varepsilon = \frac{\mathrm{sg \, internal \, energy}}{|\mathrm{total \,sg \,   energy}|} =\frac{3a \kappa \Gamma}{GM} \bigg(\frac{M}{2\pi a^2}\bigg)^{\Gamma-1},$$  we obtain
+Therefore, letting  $$\varepsilon = \frac{\mathrm{sg \, internal \, energy}}{|\mathrm{total \,sg \,   energy}|} =\frac{3a \kappa \Gamma}{GM} \bigg(\frac{M}{2\pi a^2}\bigg)^{\Gamma-1},$$  we obtain
 \begin{align*}
 \Psi^0 &=  - \frac{G M (1-x)}{\sqrt{c^2+r^2}}-\frac{G M x}{a q}\bigg(\frac{1-\xi}{2}\bigg)^{1/2} + \frac{\kappa \Gamma}{(\Gamma-1)} (\Sigmad^0/q)^{\Gamma-1} ,\\
 {}&=  -\frac{G M (1-x)}{\sqrt{c^2+r^2}}+\frac{G M }{a} \bigg[-(x/q)\bigg(\frac{1-\xi}{2}\bigg)^{1/2} + \frac{\varepsilon(x/q)^{\Gamma-1}}{3(\Gamma-1)}\bigg(\frac{1-\xi}{2}\bigg)^{3(\Gamma-1)/2} \bigg] ,\\
+&=  \frac{G Mx}{aq}\bigg[-\frac{a}{c}\frac{q (1-x)}{x}\frac{1}{ \sqrt{1+(r/c)^2}} -\bigg(\frac{1-\xi}{2}\bigg)^{1/2} + \frac{\varepsilon(x/q)^{\Gamma-2}}{3(\Gamma-1)}\bigg(\frac{1-\xi}{2}\bigg)^{3(\Gamma-1)/2} \bigg],\\
 (\vt^0)^2 &= r \frac{\partial \Psi^0}{\partial r} =r \frac{\partial \Psi^0}{\partial \xi} \frac{\partial \xi}
 {\partial r} = 4\bigg(\frac{r}{a}\bigg)^2    \bigg(\frac{1-\xi}{2}\bigg)^2 \frac{\partial \Psi^0}{\partial \xi}= (1+\xi) (1-\xi) \frac{\partial \Psi^0}{\partial \xi}  ,\\
 &=\frac{GM}{a}\bigg[\frac{a(1-x)}{c}\bigg( \frac{r}{c}\bigg)^2 \bigg(\frac{1}{1+(r/c)^2}\bigg)^{3/2} 
-+ \bigg(\frac{1+\xi}{2}\bigg) \bigg(\frac{1-\xi}{2}\bigg)^{1/2}  \bigg(\frac{x}{q}- \varepsilon\bigg(\frac{x}{q}\bigg)^{\Gamma-1}\bigg(\frac{1-\xi}{2}\bigg)^{\frac{3\Gamma}{2}-2} \bigg) \bigg],
++ \frac{x}{q}\bigg(\frac{1+\xi}{2}\bigg) \bigg(\frac{1-\xi}{2}\bigg)^{1/2}  \bigg(1- \varepsilon\bigg(\frac{x}{q}\bigg)^{\Gamma-2}\bigg(\frac{1-\xi}{2}\bigg)^{\frac{3\Gamma}{2}-2} \bigg) \bigg], \\
+&=\frac{GMx}{aq}\bigg[\frac{a}{c}\frac{q(1-x)}{x}\bigg( \frac{r}{c}\bigg)^2 \bigg(\frac{1}{1+(r/c)^2}\bigg)^{3/2} 
++ \bigg(\frac{1+\xi}{2}\bigg) \bigg(\frac{1-\xi}{2}\bigg)^{1/2}  \bigg(1- \varepsilon\bigg(\frac{x}{q}\bigg)^{\Gamma-2}\bigg(\frac{1-\xi}{2}\bigg)^{\frac{3\Gamma}{2}-2} \bigg) \bigg],
 \end{align*}
 with
 $$\frac{1-\xi}{2}= \frac{a^2}{r^2+a^2}= \frac{1}{1+(r/a)^2}; \quad \frac{1+\xi}{2}= \frac{r^2}{r^2+a^2}= \frac{(r/a)^2}{1+(r/a)^2}.$$
@@ -141,10 +142,22 @@ We define $X^p(r,\theta,t) = \sum_{m\in \mathbb{Z}} X_m^p(r,t) e^{i m \theta}$ a
 Aoki \& Iye say that there is this following correspondance between surface density and gravitational potential through the Poisson equation:
 \begin{align}
 (\Sigmad)_m^p (r,\theta) &= \frac{xM}{2\pi a^2} \bigg(\frac{1-\xi}{2}\bigg)^{3/2} \sum_{n=|m|}^{\infty} \anm \hPnm(\xi) e^{-i \omega t} ,\\
-(\Phisg)_m^p (r,\theta) &= -\frac{GMx}{a q} \bigg(\frac{1-\xi}{2}\bigg)^{1/2} \sum_{n=|m|}^{\infty} \frac{\anm}{2n+1} \hPnm(\xi) e^{-i \omega t} .
+(\Phisg)_m^p (r,\theta) &= -\frac{GMx}{a q} \bigg(\frac{1-\xi}{2}\bigg)^{1/2} \sum_{n=|m|}^{\infty} \frac{\anm}{2n+1} \hPnm(\xi) e^{-i \omega t} ,\\
+(\psi)_m^p (r,\theta) &= \kappa \Gamma \bigg(\frac{M}{2\pi a^2} \bigg)^{\Gamma-1} \bigg(\frac{x}{q}\bigg)^{\Gamma-1} \bigg(\frac{1-\xi}{2}\bigg)^{3/2(\Gamma-1)} \sum_{n=|m|}^{\infty} \anm \hPnm(\xi) e^{-i \omega t} ,\\
+(\Psi)_m^p (r,\theta) &= \frac{GMx}{a q } \bigg(\frac{1-\xi}{2}\bigg)^{1/2}\sum_{n=|m|}^{\infty} \bigg[\frac{\varepsilon}{3}  \bigg(\frac{x}{q}\bigg)^{\Gamma-2} \bigg(\frac{1-\xi}{2}\bigg)^{\frac{3\Gamma}{2}-2}  -\frac{1}{2n+1}  \bigg]\anm \hPnm(\xi)e^{-i \omega t} .
 \end{align}
 
+Let us decompose the velocity components based on their equilibrium expression:
+\begin{align}
+(\vr)_m^p &= i \frac{m}{|m|} \bigg(\frac{GMx}{aq}\bigg)^{1/2} \bigg(\frac{1+\xi}{2}\bigg)^{-1/2} \bigg(\frac{1-\xi}{2}\bigg)^{1/4} \sum_{n=|m|}^{\infty} \bnm \hPnm(\xi) e^{-i \omega t} ,\\
+(\vt)_m^p &=\bigg(\frac{GMx}{aq}\bigg)^{1/2} \bigg(\frac{1+\xi}{2}\bigg)^{-1/2} \bigg(\frac{1-\xi}{2}\bigg)^{1/4} \sum_{n=|m|}^{\infty} \cnm \hPnm(\xi) e^{-i \omega t} .
+\end{align}
 
-
-
+Letting $X_m^p = X^1  e^{-i \omega t}$, this yields the set of equations
+\begin{align}
+&i(-\omega + m \Omega)(\Sigmad)^1 + \frac{1}{r} \frac{\rd (r\Sigma_0 (\vr)^1)}{\rd r} + \frac{im\Sigma^0 (\vt)^1}{r} = 0,\\
+&\frac{\rd (\Psi)^1}{\rd r} + i(-\omega + m \Omega)(\vr)^1 - 2 \Omega (\vt)^1 = 0,\\
+&i m \frac{(\Psi)^1}{r} + \frac{\alpha^2}{2\Omega} (\vr)^1 + i(-\omega + m \Omega)(\vt)^1 = 0,
+\end{align}
+where $\Omega = \vt^0/r$ is the angular velocity and $\alpha^2=4\Omega^2[1+r/(2\Omega)\cdot(\rd \Omega /\rd r)]$ is the epicyclic frequency.
 \end{document}
