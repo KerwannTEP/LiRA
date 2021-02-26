@@ -1,0 +1,135 @@
+% Created 2021-01-13 mer. 22:12
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage[a4paper,bindingoffset=0.5in,%
+            left=0.5in,right=0.5in,top=1in,bottom=1in,%
+            footskip=.25in]{geometry}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xspace}
+\usepackage{commath}
+\usepackage{times}
+\usepackage{bm} 
+\usepackage{balance}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{stmaryrd}
+\usepackage{wasysym}
+
+\usepackage[toc,page]{appendix}
+
+%%%% Define Acronyms
+\usepackage{acronym}
+%
+\newacro{DF}{distribution fonction}
+
+\newcommand{\bv}{\boldsymbol{v}}
+\newcommand{\bnab}{\boldsymbol{\nabla}}
+\newcommand{\rd}{\mathrm{d}}
+\newcommand{\vr}{v_{r}}
+\newcommand{\vt}{v_{\theta}}
+\newcommand{\Sigmad}{\Sigma_{\rm{disk}}}
+\newcommand{\Sigmadh}{\Sigma_{\rm{DH}}}
+\newcommand{\Phib}{\Phi_{\rm{bulb}}}
+\newcommand{\Phid}{\Phi_{\rm{disk}}}
+\newcommand{\Phidh}{\Phi_{\rm{DH}}}
+\newcommand{\Phisg}{\Phi_{\rm{sg}}}
+
+\newcommand{\anm}{a_n^m}
+\newcommand{\bnm}{b_n^m}
+\newcommand{\cnm}{c_n^m}
+\newcommand{\Pnm}{P_n^{|m|}}
+\newcommand{\hPnm}{\widehat{\Pnm}}
+
+
+\author{Kerwann}
+\date{\today}
+\title{Notes}
+\hypersetup{
+ pdfauthor={Kerwann},
+ pdftitle={Notes},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.1 (Org mode 9.3)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+
+\section{Self-gravitating thin disk with bulb}
+\label{sec:sg_disk}
+
+Consider a self gravitating disk with surface density $\Sigma$ and gravitational potential $\Phi$. Let $\bv$ be its velocity field and $P$ its pression field. Then it is described by the system
+\begin{align}
+&\frac{\partial \Sigma}{\partial t} + \bnab \cdot (\Sigma \bv) = 0 ,\\
+&\frac{\partial \bv}{\partial t} + (\bv \cdot \bnab)(\bv) = -\frac{1}{\Sigma} \bnab P - \bnab \Phi ,\\
+& \Delta \Phi = 4\pi G \Sigma \delta (z).
+\end{align}
+Here, $\Phi =\Phib+  \Phid +  \Phidh=\Phib +  \Phisg$. Furthermore, $\Phib$  is such that it doesn't yield any contribution to the surface density, i.e. $\Delta \Phib=0$, nor the pressure field, hence $\Sigma =\Sigmad+\Sigmadh$ and $P =P_{\rm{disk}}+P_{\rm{DH}}$. Letting $q=\Sigmad/\Sigma$, we have
+
+\begin{equation}
+\Sigma=\Sigmad+\Sigma_{\rm{DH}}=\Sigmad\bigg(1+\frac{\Sigmadh}{\Sigmad}\bigg) =\frac{1}{q} \Sigmad.
+\end{equation}
+
+Suppose that we have a polytrope gas such that $P=\kappa \Sigma^{\Gamma}$ and let
+\begin{equation}
+\psi = \int \frac{\rd P(\Sigma)}{\Sigma} \Leftrightarrow \bnab \psi = \frac{\bnab P}{\Sigma}.
+\end{equation}
+ Then
+ \begin{equation}
+\psi = \frac{\kappa \Gamma}{\Gamma-1} \Sigma^{\Gamma-1}.
+\end{equation}
+ 
+ Letting $\Psi = \Phi + \psi$, we obtain
+\begin{equation}
+\frac{\partial \bv}{\partial t} + (\bv \cdot \bnab)(\bv) = - \bnab \Psi.
+\end{equation}
+
+If $\Sigma_{\rm{disk}}\propto\Sigma_{\rm{DH}}$ then $q\in [0,1]$ is constant and this system of equation can be rewritten as 
+\begin{align}
+&\frac{\partial \Sigmad}{\partial t} + \frac{1}{r} \frac{\partial(r\Sigmad \vr)}{\partial r} + \frac{1}{r} \frac{\partial(\Sigmad \vt)}{\partial \theta} = 0 ,\\
+&\frac{\partial \vr}{\partial t} + \vr \frac{\partial \vr}{\partial r} + \frac{\vt}{r} \frac{\partial \vr}{\partial \theta} - \frac{(\vt)^2}{r} = -\frac{\partial \Psi}{\partial r} ,\\
+&\frac{\partial \vt}{\partial t} + \vr \frac{\partial \vt}{\partial r} + \frac{\vt}{r} \frac{\partial \vt}{\partial \theta} + \frac{\vr\vt}{r} = -\frac{1}{r}\frac{\partial \Psi}{\partial \theta} ,\\
+& \Delta \Phisg = 4\pi G \frac{1}{q} \Sigmad \delta (z).
+\end{align}
+
+Let $M$ be the total mass of the galactic disk+bulb. Let $\Phib = - G M (1-x)/\sqrt{c^2+r^2}$ with $x\in [0,1]$. An equilibrium state is given by the Plummer equilibrium, such that
+\begin{align}
+&\vr^0 = 0,\quad \quad (\vt^0)^2 = r \frac{\partial \Psi^0}{\partial r}, \\
+& \psi^0 = \frac{\kappa \Gamma}{\Gamma-1} (\Sigma^0)^{\Gamma-1} = \frac{\kappa \Gamma}{(\Gamma-1)q^{\Gamma-1}} (\Sigmad^0)^{\Gamma-1},\\
+& \Sigmad^0 = \frac{xM}{2\pi a^2} \frac{1}{(1+(r/a)^2)^{3/2}} ,\\
+& \Phisg^0 = -\frac{G M x}{a} \frac{1}{\sqrt{1+(r/a)^2}} .
+\end{align}
+
+Therefore, letting $\varepsilon = (3a \kappa \Gamma)/(GM) \cdot (M/(2\pi a^2))^{\Gamma-1}$ (CHECK THIS), 
+\begin{align}
+\Psi^0 &=  -\frac{G M (1-x)}{c} \frac{1}{\sqrt{1+(r/c)^2}}-\frac{G M x}{a} \frac{1}{\sqrt{1+(r/a)^2}} + \frac{\kappa \Gamma}{(\Gamma-1)q^{\Gamma-1}} (\Sigmad^0)^{\Gamma-1} ,\\
+{}&=  -\frac{G M }{c} \frac{1-x}{\sqrt{1+(r/c)^2}}+\frac{G M }{a} \bigg[-\frac{x}{\sqrt{1+(r/a)^2}} + \frac{\varepsilon}{3(\Gamma-1)q^{\Gamma-1}} \bigg(\frac{x}{(1+(r/a)^2)^{3/2}}\bigg)^{\Gamma-1}\bigg] ,\\
+\end{align}
+
+The perturbative equation at 1st order are
+\begin{align}
+&\frac{\partial \Sigmad^p}{\partial t} + \frac{1}{r} \frac{\partial(r\Sigmad^0 \vr^p)}{\partial r} + \frac{\Sigmad^0}{r} \frac{\partial \vt^p}{\partial \theta} + \frac{\vt^0}{r} \frac{\partial \Sigmad^p}{\partial  \theta} = 0 ,\\
+&\frac{\partial \vr^p}{\partial t} + \frac{\vt^0}{r} \frac{\partial \vr^p}{\partial \theta} - 2\frac{\vt^0 \vt^p}{r} = -\frac{\partial \Psi^p}{\partial r} ,\\
+&\frac{\partial \vt^p}{\partial t} + \vr^p \frac{\partial \vt^0}{\partial r} + \frac{\vt^0}{r} \frac{\partial \vt^p}{\partial \theta} + \frac{\vr^p\vt^0}{r} = -\frac{1}{r}\frac{\partial \Psi^p}{\partial \theta} ,\\
+& \Delta \Phisg^p = 4\pi G \frac{1}{q} \Sigmad^p \delta (z), \\
+& \psi^p =  \frac{\kappa \Gamma}{q^{\Gamma-1}} (\Sigmad^0)^{\Gamma-2} \Sigmad^p  , \\
+\end{align}
+
+We define $X^p(r,\theta,t) = \sum_{m\in \mathbb{Z}} X_m^p(r,t) e^{i m \theta}$ and look for a temporal dependency in $e^{-i \omega t}$.
+Aoki \& Iye say that there is this following correspondance between surface density and gravitational potential through the Poisson equation:
+\begin{align}
+(\Sigmad)_m^p (r,\theta) &= \frac{xM}{2\pi a^2} \frac{1}{(1+(r/a)^2)^{3/2}} \sum_{n=|m|}^{\infty} \anm \hPnm(\xi) e^{-i \omega t} ,\\
+(\Phisg)_m^p (r,\theta) &= -\frac{GMx}{a q} \frac{1}{\sqrt{1+(r/a)^2}} \sum_{n=|m|}^{\infty} \frac{\anm}{2n+1} \hPnm(\xi) e^{-i \omega t} ,\\
+\end{align}
+where $\xi = (r^2-a^2)/(r^2+a^2)$.
+
+\end{document}
