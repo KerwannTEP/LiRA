@@ -50,6 +50,10 @@
 \newcommand{\Plm}{P_l^{|m|}}
 \newcommand{\hPnm}{\widehat{\Pnm}}
 \newcommand{\hPlm}{\widehat{\Plm}}
+\newcommand{\hI}{\widehat{I}}
+\newcommand{\hJ}{\widehat{J}}
+\newcommand{\hIp}{\widehat{I'}}
+\newcommand{\hJp}{\widehat{J'}}
 
 \newcommand{\homega}{\widehat{\omega}}
 \newcommand{\hOmega}{\widehat{\Omega}}
@@ -123,7 +127,7 @@ Let $M$ be the total mass of the galactic disk+bulb. Let $\Phib = - G M (1-x)/\s
 \end{align*}
 
 
-Therefore, letting  $$\varepsilon = \frac{\mathrm{sg \, internal \, energy}}{|\mathrm{total \,sg \,   energy}|} =\frac{3a \kappa \Gamma}{GM} \bigg(\frac{M}{2\pi a^2}\bigg)^{\Gamma-1},$$  we obtain
+Therefore, letting  $$\varepsilon = \frac{U(x=1,q=1)}{|E(x=1,q=1)|} =\frac{3a \kappa \Gamma}{GM} \bigg(\frac{M}{2\pi a^2}\bigg)^{\Gamma-1},$$  we obtain
 \begin{align*}
 \Psi^0 &=  - \frac{G M (1-x)}{\sqrt{c^2+r^2}}-\frac{G M x}{a q}\bigg(\frac{1-\xi}{2}\bigg)^{1/2} + \frac{\kappa \Gamma}{(\Gamma-1)} (\Sigmad^0/q)^{\Gamma-1} ,\\
 {}&=  -\frac{G M (1-x)}{\sqrt{c^2+r^2}}+\frac{G M }{a} \bigg[-(x/q)\bigg(\frac{1-\xi}{2}\bigg)^{1/2} + \frac{\varepsilon(x/q)^{\Gamma-1}}{3(\Gamma-1)}\bigg(\frac{1-\xi}{2}\bigg)^{3(\Gamma-1)/2} \bigg] ,\\
@@ -182,26 +186,104 @@ and defining $\Omegaref=(GMx/(a^3 q))^{1/2}$, $\Sigmaref=xM/(2\pi a^2)$   such t
  \end{align*}
 where we defined
 \begin{align*}
-&A_{ln} = |m| \int_{-1}^{1} \rd \xi  \hPlm(\xi)\hOmega(\xi)\hPnm(\xi) , \\
-&B_{ln} = 4 \int_{-1}^{1} \rd \xi  \hPlm(\xi) \bigg(\frac{1-\xi}{2}\bigg)^{1/2} \frac{\rd}{\rd \xi} \bigg[\bigg(\frac{1-\xi}{2}\bigg)^{5/4}\hPnm(\xi)\bigg], \\
-&C_{ln} = |m| \int_{-1}^{1} \rd \xi \hPlm(\xi) \bigg(\frac{1-\xi}{2}\bigg)^{3/4}\bigg(\frac{1+\xi}{2}\bigg)^{-1}   \hPnm(\xi), \\
-&D_{ln} = 4 \int_{-1}^{1} \rd \xi \hPlm(\xi)  \bigg(\frac{1-\xi}{2}\bigg)^{5/4} \bigg(\frac{1+\xi}{2}\bigg) 
+A_{ln} &= |m| \int_{-1}^{1} \rd \xi  \hPlm(\xi)\hOmega(\xi)\hPnm(\xi) , \\
+B_{ln} &= 4 \int_{-1}^{1} \rd \xi  \hPlm(\xi) \bigg(\frac{1-\xi}{2}\bigg)^{1/2} \frac{\rd}{\rd \xi} \bigg[\bigg(\frac{1-\xi}{2}\bigg)^{5/4}\hPnm(\xi)\bigg], \\
+C_{ln} &= |m| \int_{-1}^{1} \rd \xi \hPlm(\xi) \bigg(\frac{1-\xi}{2}\bigg)^{3/4}\bigg(\frac{1+\xi}{2}\bigg)^{-1}   \hPnm(\xi), \\
+D_{ln} &= 4 \int_{-1}^{1} \rd \xi \hPlm(\xi)  \bigg(\frac{1-\xi}{2}\bigg)^{5/4} \bigg(\frac{1+\xi}{2}\bigg) 
 \frac{\rd}{\rd \xi} \bigg[\bigg(\frac{1}{2n+1}-\frac{\varepsilon}{3}  \bigg(\frac{x}{q}\bigg)^{\Gamma-2} \bigg(\frac{1-\xi}{2}\bigg)^{\frac{3\Gamma}{2}-2}\bigg) \bigg(\frac{1-\xi}{2}\bigg)^{1/2}\hPnm(\xi) \bigg] ,\\
-&F_{ln} =2 \int_{-1}^{1} \rd \xi  \hPlm(\xi)\hOmega(\xi)\hPnm(\xi) , \\
-&G_{ln} = -|m| \int_{-1}^{1} \rd \xi \hPlm(\xi)  \bigg(\frac{1-\xi}{2}\bigg)^{3/4} 
+F_{ln} &=2 \int_{-1}^{1} \rd \xi  \hPlm(\xi)\hOmega(\xi)\hPnm(\xi) , \\
+G_{ln} &= -|m| \int_{-1}^{1} \rd \xi \hPlm(\xi)  \bigg(\frac{1-\xi}{2}\bigg)^{3/4} 
 \bigg(\frac{1}{2n+1}-\frac{\varepsilon}{3}  \bigg(\frac{x}{q}\bigg)^{\Gamma-2} \bigg(\frac{1-\xi}{2}\bigg)^{\frac{3\Gamma}{2}-2}\bigg) \hPnm(\xi)  ,\\
-&H_{ln} =  \int_{-1}^{1} \rd \xi  \hPlm(\xi)\frac{\halpha^2(\xi)}{2\hOmega(\xi)}\hPnm(\xi) .
+H_{ln} &=  \int_{-1}^{1} \rd \xi  \hPlm(\xi)\frac{\halpha^2(\xi)}{2\hOmega(\xi)}\hPnm(\xi) .
 \end{align*}
 with
 \begin{align*}
-&\hOmega(\xi) =\sqrt{\frac{1-\xi}{1+\xi}} \sqrt{\frac{a}{c}\frac{q(1-x)}{x}\bigg( \frac{r}{c}\bigg)^2 \bigg(\frac{1}{1+(r/c)^2}\bigg)^{3/2} 
+\hOmega(\xi) &=\sqrt{\frac{1-\xi}{1+\xi}} \sqrt{\frac{a}{c}\frac{q(1-x)}{x}\bigg( \frac{r}{c}\bigg)^2 \bigg(\frac{1}{1+(r/c)^2}\bigg)^{3/2} 
 + \bigg(\frac{1+\xi}{2}\bigg) \bigg(\frac{1-\xi}{2}\bigg)^{1/2}  \bigg[1- \varepsilon\bigg(\frac{x}{q}\bigg)^{\Gamma-2}\bigg(\frac{1-\xi}{2}\bigg)^{\frac{3\Gamma}{2}-2} \bigg] } ,\\
-&\frac{\halpha^2(\xi)}{2\hOmega(\xi)} = 2\hOmega(\xi) \bigg[1+\frac{r}{2\hOmega}\frac{\rd \hOmega }{\rd r}\bigg] = 2\hOmega(\xi) \bigg[1+\frac{(1+\xi)(1-\xi)}{2\hOmega}\frac{\rd \hOmega }{\rd \xi} \bigg],
+\frac{\halpha^2(\xi)}{2\hOmega(\xi)} &= 2\hOmega(\xi) \bigg[1+\frac{r}{2\hOmega}\frac{\rd \hOmega }{\rd r}\bigg] = 2\hOmega(\xi) \bigg[1+\frac{(1+\xi)(1-\xi)}{2\hOmega}\frac{\rd \hOmega }{\rd \xi} \bigg],
 \end{align*}
 where
 $$\frac{\rd(r/a)}{\rd \xi} = \frac{\rd}{\rd \xi} \bigg[\sqrt{\frac{1+\xi}{1-\xi}}\bigg] = (1-\xi)^{-3/2}(1+\xi)^{-1/2}$$
 
+Since $(r/c)^2 = (a/c)^2 \cdot (r/a)^2 =  (a/c)^2 \cdot (1+\xi)/(1-\xi)$, we have that
+\begin{align*}
+\hOmega(\xi) &=\bigg(\frac{1-\xi}{2}\bigg)^{3/4}  \sqrt{\bigg( \frac{a}{c}\bigg)^3\frac{q(1-x)}{x} \bigg(\frac{1-\xi}{2}\bigg)^{-3/2} \bigg(\frac{1}{1+(r/c)^2}\bigg)^{3/2} 
++   \bigg[1- \varepsilon\bigg(\frac{x}{q}\bigg)^{\Gamma-2}\bigg(\frac{1-\xi}{2}\bigg)^{\frac{3\Gamma}{2}-2} \bigg] } .
+\end{align*}
 
+\section{Case $\Gamma=4/3$}
+
+The expressions become
+\begin{align*}
+\hOmega(\xi) &=\bigg(\frac{1-\xi}{2}\bigg)^{3/4}  \sqrt{\bigg( \frac{a}{c}\bigg)^3\frac{q(1-x)}{x} \bigg(\frac{1-\xi}{2}\bigg)^{-3/2} \bigg(\frac{1}{1+(r/c)^2}\bigg)^{3/2} 
++   \bigg[1- \varepsilon\bigg(\frac{q}{x}\bigg)^{\frac{2}{3}} \bigg]  } , \\
+\frac{\halpha^2(\xi)}{2\hOmega(\xi)} & = 2\hOmega(\xi) \bigg[1+\frac{(1+\xi)(1-\xi)}{2\hOmega}\frac{\rd \hOmega }{\rd \xi} \bigg],
+\end{align*}
+with the matrix elements
+\begin{align*}
+A_{ln} &= |m| \int_{-1}^{1} \rd \xi  \hPlm(\xi)\hOmega(\xi)\hPnm(\xi) , \\
+B_{ln} &= 4 \int_{-1}^{1} \rd \xi  \hPlm(\xi) \bigg(\frac{1-\xi}{2}\bigg)^{1/2} \frac{\rd}{\rd \xi} \bigg[\bigg(\frac{1-\xi}{2}\bigg)^{5/4}\hPnm(\xi)\bigg], \\
+C_{ln} &= |m| \int_{-1}^{1} \rd \xi \hPlm(\xi) \bigg(\frac{1-\xi}{2}\bigg)^{3/4}\bigg(\frac{1+\xi}{2}\bigg)^{-1}   \hPnm(\xi), \\
+D_{ln} &= 4 \bigg(\frac{1}{2n+1}-\frac{\varepsilon}{3}  \bigg(\frac{q}{x}\bigg)^{\frac{2}{3}} \bigg) \int_{-1}^{1} \rd \xi \hPlm(\xi)  \bigg(\frac{1-\xi}{2}\bigg)^{5/4} \bigg(\frac{1+\xi}{2}\bigg) 
+\frac{\rd}{\rd \xi} \bigg[ \bigg(\frac{1-\xi}{2}\bigg)^{1/2}\hPnm(\xi) \bigg] ,\\
+F_{ln} &=2 \int_{-1}^{1} \rd \xi  \hPlm(\xi)\hOmega(\xi)\hPnm(\xi) , \\
+G_{ln} &= -|m| \bigg(\frac{1}{2n+1}-\frac{\varepsilon}{3}  \bigg(\frac{q}{x}\bigg)^{\frac{2}{3}} \bigg)  \int_{-1}^{1} \rd \xi \hPlm(\xi)  \bigg(\frac{1-\xi}{2}\bigg)^{3/4} 
+\hPnm(\xi)  ,\\
+H_{ln} &=  \int_{-1}^{1} \rd \xi  \hPlm(\xi)\frac{\halpha^2(\xi)}{2\hOmega(\xi)}\hPnm(\xi) .
+\end{align*}
+
+Integrals $A_{ln}$ and  $F_{ln}$ are proportional. With the addition of $H_{ln}$, those 3 integrals must be computed numerically because of the non-trivial shift in their expression induced by the bulb potential. As for $B_{ln}$, $C_{ln}$, $D_{ln}$ and $G_{ln}$, their can be can expressed in terms of the two following integrals 
+\begin{align}
+\hI(l,n) &= \int_{-1}^{1} \rd \xi  \bigg(\frac{1-\xi}{2}\bigg)^{3/4} \hPlm(\xi)  \hPnm(\xi), \\
+\hJ(l,n) &= \int_{-1}^{1} \rd \xi  \bigg(\frac{1-\xi}{2}\bigg)^{3/4}  \bigg(\frac{1+\xi}{2}\bigg)^{-1}\hPlm(\xi)  \hPnm(\xi) ,
+\end{align}
+as
+\begin{align*}
+B_{ln} &= \frac{1}{2} \bigg[ \sqrt{\frac{(2l+1)(l+m+1)(l-m+1)}{2l+3}} \hJ(l+1,n)+ \hJ(l,n)\\
+&\quad \quad  +\sqrt{\frac{(2l+1)(l+m)(l-m)}{2l-1}} \hJ(l-1,n)\bigg] ,\\
+C_{ln} &= m \hJ(l,n) ,\\
+D_{ln} &= \frac{1}{2}  \bigg(\frac{1}{2n+1}-\frac{\varepsilon}{3}  \bigg(\frac{q}{x}\bigg)^{\frac{2}{3}} \bigg)
+\bigg[ -\sqrt{\frac{(2n+1)(n+m+1)(n-m+1)}{2n+3}} \hI(l,n+1) \\
+&\quad \quad \quad \quad \quad \quad\quad \quad\quad \quad \quad \quad+ \hI(l,n) \\
+&\quad \quad \quad \quad \quad \quad\quad \quad\quad \quad \quad \quad  +\sqrt{\frac{(2n+1)(n+m)(n-m)}{2n-1}} \hI(l,n-1)\bigg] ,\\
+G_{ln} &= -|m| \bigg(\frac{1}{2n+1}-\frac{\varepsilon}{3}  \bigg(\frac{q}{x}\bigg)^{\frac{2}{3}} \bigg)  \hI(l,n) .
+\end{align*}
+where $\hI(l,n)$ and $\hJ(l,n)$ can be computed by recursion and using the symmetry $l\leftrightarrow n$. Defining
+\begin{align}
+\hIp(l,n) &= \int_{-1}^{1} \rd \xi \, \xi \bigg(\frac{1-\xi}{2}\bigg)^{3/4} \hPlm(\xi)  \hPnm(\xi), \\
+\hJp(l,n) &= \int_{-1}^{1} \rd \xi \, \xi \bigg(\frac{1-\xi}{2}\bigg)^{3/4}  \bigg(\frac{1+\xi}{2}\bigg)^{-1}\hPlm(\xi)  \hPnm(\xi) ,
+\end{align}
+Starting from(Aoki79, A16)
+\begin{align*}
+\hI(l,n) &= \sqrt{\frac{(2n+1)(2n-1)}{(n+m)(n-m)}} \hIp(l,n-1)+\sqrt{\frac{(n+m-1)(n-m-1)(2n+1)}{(n+m)(n-m)(2n-3)}} \hI(l,n-2) ,\\
+\hIp(l,n-1) &= \sqrt{\frac{(l+m+1)(l-m+1)}{(2l+1)(2l+3)}} \hI(l+1,n-1)+\sqrt{\frac{(l+m)(l-m)}{(2l+1)(2l-1)}} \hI(l-1,n-1) ,
+\end{align*}
+hence to compute until $l,n=m+N$, we need to compute $\hI(l',m)$ until $l'=m+2N$. By convention (for the recursion), we have set $\hI(l',n')=0$ for $l'<m$ or  $n'<m$.
+We initialize with
+\begin{align*}
+\hI(l,m) &= \frac{l-4/3-m-1}{l+4/3+m+1} \sqrt{\frac{(l+m)(2l+1)}{(l-m)(2l-1)}} \hI(l-1,m) ,\\
+\hI(m,m) &= 2^m \prod_{k=0}^{m} \frac{2k+1}{\alpha + m + 1 + k} .
+\end{align*}
+
+We proceed as follows:
+
+- Compute the line $n=m$: $\hI(m,m)$, $\hI(m+1,m)$ , ... , $\hI(m+2N,m)$
+
+- Complete the line $l=m$ by symmetry
+
+- Compute the line $n=m+1$: $\hI(m+1,m+1)$, $\hI(m+2,m+1)$ , ... , $\hI(m+2N-1,m+1)$
+
+- Complete the line $l=m+1$ by symmetry
+
+- Compute the line $n=m+2$: $\hI(m+2,m+2)$, $\hI(m+3,m+2)$ , ... , $\hI(m+2N-2,m+2)$
+
+- ...
+
+- Compute the line $n=m+N-1$: $\hI(m+N-1,m+N-1)$, $\hI(m+N+1,m+N-1)$.
+
+- Complete the line $l=m+N-1$ by symmetry
+
+- Compute the line $n=m+N$: $\hI(m+N,m+N)$.
 
 
 \end{document}
