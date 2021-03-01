@@ -313,7 +313,7 @@ As for the numerical integral, we use a simple midpoint rule with $K$ points. Th
 \begin{align*}
 I_{ln} &= \int_{-1}^{1} \rd \xi \hPlm(\xi) \phi(\xi) \hPnm(\xi) \approx \frac{2}{K} \sum_{k=1}^{K} \hPlm(\xi_{k}) \phi(\xi_{k}) \hPnm(\xi_{k}),
 \end{align*}
-where $\xi_{k} = -1 + (2/K)(k-0.5)$. As we with to compute those elements for $m \leq l,n \leq m+N$, we have to compute the $\hPnm(\xi_{k})$ for $n=m,...,m+N$ and $k=1,...,K$. To that end, We compute before hand a table of the values $\{\hPnm(\xi_{k})\}_{(n,k)}$ and of the values $\{\phi(\xi_{k})\}_{k}$. The Legendre associated functions can be efficiently computed by using the Julia library "", in which we use the function "" which compute $\Pnm(\cos(\theta))$ for all $n=0,...,n_{\max}$ at a given $m$.
+where $\xi_{k} = -1 + (2/K)(k-1/2)$. As we with to compute those elements for $m \leq l,n \leq m+N$, we have to compute the $\hPlm(\xi_{k})$ for $n=m,...,m+N$ and $k=1,...,K$. To that end, We compute before hand a table of the values $\{\hPlm(\xi_{k})\}_{(n,k)}$ and of the values $\{\phi(\xi_{k})\}_{k}$. The Legendre associated functions can be efficiently computed by using the Julia library "SphericalHarmomics", in which we use the function "computePlmcostheta($\theta,l_{\max},m$)" which compute $\hPlm(\cos(\theta))/\sqrt{\pi}$ for all $n=0,...,l_{\max}$ at a given $m$.
 
 
 \end{document}
