@@ -261,8 +261,8 @@ Starting from(Aoki79, A16)
 hence to compute until $l,n=m+N$, we need to compute $\hI(l',m)$ until $l'=m+2N$. By convention (for the recursion), we have set $\hI(l',n')=0$ for $l'<m$ or  $n'<m$.
 We initialize with
 \begin{align*}
-\hI(l,m) &= \frac{l-4/3-m-1}{l+4/3+m+1} \sqrt{\frac{(l+m)(2l+1)}{(l-m)(2l-1)}} \hI(l-1,m) ,\\
-\hI(m,m) &= 2^m \prod_{k=0}^{m} \frac{2k+1}{\alpha + m + 1 + k} .
+\hI(l,m) &= \frac{l-3/4-m-1}{l+3/4+m+1} \sqrt{\frac{(l+m)(2l+1)}{(l-m)(2l-1)}} \hI(l-1,m) ,\\
+\hI(m,m) &= 2^m \prod_{k=0}^{m} \frac{2k+1}{3/4 + m + 1 + k} .
 \end{align*}
 
 We proceed as follows:
@@ -284,6 +284,36 @@ We proceed as follows:
 - Complete the line $l=m+N-1$ by symmetry
 
 - Compute the line $n=m+N$: $\hI(m+N,m+N)$.
+
+As for $\hJ$, let
+\begin{align}
+\hI_{\alpha}(l,m) &= \frac{(-1)^{l-m}(2m-1)!!2^{m+1}\Gamma(\alpha+1)\Gamma(\alpha+m+1)(l+m)!}{\Gamma(\alpha+1-l+m)\Gamma(\alpha+m+l+2)(l-m)!} 
+\end{align}
+with $\hI_{3/4}(l,m) =\hI(l,m)$. We can also compute it by recursion using the formulae
+\begin{align*}
+\hJ(l,n) &= \sqrt{\frac{(2n+1)(2n-1)}{(n+m)(n-m)}} \hJp(l,n-1)+\sqrt{\frac{(n+m-1)(n-m-1)(2n+1)}{(n+m)(n-m)(2n-3)}} \hJ(l,n-2) ,\\
+\hJp(l,n-1) &= \sqrt{\frac{(l+m+1)(l-m+1)}{(2l+1)(2l+3)}} \hJ(l+1,n-1)+\sqrt{\frac{(l+m)(l-m)}{(2l+1)(2l-1)}} \hJ(l-1,n-1) ,
+\end{align*}
+hence to compute until $l,n=m+N$, we need to compute $\hI(l',m)$ until $l'=m+2N$. By convention (for the recursion), we have set $\hI(l',n')=0$ for $l'<m$ or  $n'<m$.
+We initialize with
+\begin{align*}
+\hJ(l,m) &=\sqrt{\frac{(l-m)(l-m-1)(2l+1)}{(l+m)(l+m-1)(2l-3)}} \hJ(l-2,m)+ 4 \sqrt{\frac{(2m+1)(2l+1)(2l-1)}{2m(l+m)(l+m-1)}} \hI_{7/3}(l-1,m-1) ,\\
+\hJ(m,m) &= \frac{2^m}{m} \prod_{k=1}^{m} \frac{2k+1}{3/4 + m + k} ,\\
+\hJ(m+1,m) &= -\frac{7}{4}\frac{2^m\sqrt{2m+3}}{m} \prod_{k=0}^{m} \frac{2k+1}{3/4 + m + 1 +k} = -\frac{7\sqrt{2m+3}}{4(3/4+2m+1)} \hJ(m,m).
+\end{align*}
+We can compute the $\hI_{7/4}$ part by recursion. Indeed,
+\begin{align}
+\hI_{\alpha}(l,m) &= \frac{l-\alpha-m-1}{l+\alpha+m+1} \sqrt{\frac{(l+m)(2l+1)}{(l-m)(2l-1)}} \hI_{\alpha}(l-1,m) ,\\
+\hI_{\alpha}(m,m) &= 2^m \prod_{k=0}^{m} \frac{2k+1}{\alpha + m + 1 + k} .
+\end{align}
+
+Hence, we need to compute beforehand the values $\hI_{\alpha}(l',m-1)$ for $l=m-1,...,m+2N-1$, and then apply the same process as for $\hI$. 
+
+As for the numerical integral, we use a simple midpoint rule with $K$ points. Those integrals have the form
+\begin{align*}
+I_{ln} &= \int_{-1}^{1} \rd \xi \hPlm(\xi) \phi(\xi) \hPnm(\xi) \approx \frac{2}{K} \sum_{k=1}^{K} \hPlm(\xi_{k}) \phi(\xi_{k}) \hPnm(\xi_{k}),
+\end{align*}
+where $\xi_{k} = -1 + (2/K)(k-0.5)$. As we with to compute those elements for $m \leq l,n \leq m+N$, we have to compute the $\hPnm(\xi_{k})$ for $n=m,...,m+N$ and $k=1,...,K$. To that end, We compute before hand a table of the values $\{\hPnm(\xi_{k})\}_{(n,k)}$ and of the values $\{\phi(\xi_{k})\}_{k}$. The Legendre associated functions can be efficiently computed by using the Julia library "", in which we use the function "" which compute $\Pnm(\cos(\theta))$ for all $n=0,...,n_{\max}$ at a given $m$.
 
 
 \end{document}

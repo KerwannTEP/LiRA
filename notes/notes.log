@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.1.6)  27 FEB 2021 13:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.1.6)  1 MAR 2021 12:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -521,24 +521,29 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 214.
 
 [4] [5]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 289.
- [6]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 289.
+Overfull \hbox (7.73082pt too wide) detected at line 303
+[]
+ []
+
+[6]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 319.
+ [7]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 319.
  (./notes.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 289.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 289.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 319.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 319.
 Package rerunfilecheck Info: File `notes.out' has not changed.
 (rerunfilecheck)             Checksum: 97AAD85269420B5E24627D0EB7BDD57E;129.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 289.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 319.
  ) 
 Here is how much of TeX's memory you used:
- 8981 strings out of 480608
- 129335 string characters out of 5903631
+ 8985 strings out of 480608
+ 129380 string characters out of 5903631
  420792 words of memory out of 5000000
  24630 multiletter control sequences out of 15000+600000
  566728 words of font info for 106 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,13n,31p,342b,388s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 34i,13n,31p,530b,388s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/t
 exlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
@@ -555,10 +560,10 @@ f-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2020/texmf-
 dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2020/te
 xmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/f
 onts/type1/urw/times/utmr8a.pfb>
-Output written on notes.pdf (6 pages, 165472 bytes).
+Output written on notes.pdf (7 pages, 174208 bytes).
 PDF statistics:
- 137 PDF objects out of 1000 (max. 8388607)
- 112 compressed objects within 2 object streams
- 34 named destinations out of 1000 (max. 500000)
+ 149 PDF objects out of 1000 (max. 8388607)
+ 123 compressed objects within 2 object streams
+ 38 named destinations out of 1000 (max. 500000)
  17 words of extra memory for PDF output out of 10000 (max. 10000000)
 
