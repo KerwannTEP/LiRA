@@ -1101,7 +1101,7 @@ F_{ln}=2(1-\epsilon)^{1/2}I(\frac{3}{4},m,l,n)
 
 \begin_inset Formula 
 \[
-G_{ln}=-m\left(\frac{1}{2n+1}-\frac{\epsilon}{3}\right)I(\frac{4}{3},m,l,n)
+G_{ln}=-m\left(\frac{1}{2n+1}-\frac{\epsilon}{3}\right)I(\frac{3}{4},m,l,n)
 \]
 
 \end_inset
@@ -1151,22 +1151,6 @@ I(\frac{3}{4},m,l,n)
 
 \begin_inset Formula 
 \[
-J(\frac{3}{4},m,l+1,n)
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-J(\frac{3}{4},m,l,n)
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
 J(\frac{3}{4},m,l-1,n)
 \]
 
@@ -1183,15 +1167,7 @@ J(\frac{3}{4},m,l,n)
 
 \begin_inset Formula 
 \[
-I(\frac{3}{4},m,l,n+1)
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-I(\frac{3}{4},m,l,n)
+J(\frac{3}{4},m,l+1,n)
 \]
 
 \end_inset
@@ -1215,15 +1191,7 @@ I(\frac{3}{4},m,l,n)
 
 \begin_inset Formula 
 \[
-I(\frac{4}{3},m,l,n)
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-I(\frac{3}{4},m,l,n)
+I(\frac{3}{4},m,l,n+1)
 \]
 
 \end_inset
@@ -1232,6 +1200,473 @@ I(\frac{3}{4},m,l,n)
 \begin_inset Formula 
 \[
 I(\frac{7}{4},m,l,n)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\epsilon=\frac{3aq\kappa\Gamma}{GM}\left(\frac{M}{2\pi a}\right)^{\Gamma-1}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\epsilon-q=(\frac{3a\kappa\Gamma}{GM}\left(\frac{M}{2\pi a}\right)^{\Gamma-1}-1)q
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\epsilon/q=\frac{U_{0,{\rm sg}}}{|E_{0,{\rm sg}}|}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Section
+Avec bulbe fixe
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Delta\phi_{*}=4\pi G\Sigma_{*}\delta(z)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Delta\phi_{{\rm dh}}=4\pi G\Sigma_{{\rm dh}}\delta(z)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Delta\phi_{{\rm bulb}}^{0}=4\pi G\Sigma_{{\rm bulb}}^{0}\delta(z)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Delta\phi=4\pi G\delta(\Sigma_{*}+\Sigma_{{\rm bulb}}^{0}+\Sigma_{{\rm dh}})
+\]
+
+\end_inset
+
+donc 
+\begin_inset Formula 
+\[
+\Delta(\phi+\phi_{{\rm bulb}}^{0})=4\pi G\delta\left[\frac{1}{q}\Sigma_{*}+\Sigma_{{\rm bulb}}^{0}\right]
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Sigma_{*}(r)=\frac{M_{*}}{2\pi a^{2}}\left(\frac{1-\xi}{2}\right)^{3/2}\rightarrow\phi(r)=-\frac{GM_{*}}{qa}\left(\frac{1-\xi}{2}\right)^{1/2}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Sigma_{{\rm bulb}}^{0}(r)=\frac{M_{b}}{2\pi b^{2}}\left(\frac{1-\xi}{2}\right)^{3/2}\rightarrow\phi_{{\rm bulb}}^{0}(r)=-\frac{GM_{b}}{b}\left(\frac{1-\xi}{2}\right)^{1/2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Equations
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial\Sigma_{*}}{\partial t}+\nabla\cdot(\Sigma_{*}\mathbf{v})=0
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\partial\mathbf{v}}{\partial t}+(\mathbf{v}\cdot\nabla)(\mathbf{v})=-\frac{1}{\Sigma_{*}}\nabla P_{*}-\nabla(\phi+\phi_{{\rm bulb}}^{0})
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Delta(\phi+\phi_{{\rm bulb}}^{0})=4\pi G\delta\left[\frac{1}{q}\Sigma_{*}+\Sigma_{{\rm bulb}}^{0}\right]
+\]
+
+\end_inset
+
+Let 
+\begin_inset Formula $P_{*}=\kappa\Sigma_{*}^{\Gamma}$
+\end_inset
+
+ and 
+\begin_inset Formula 
+\[
+\frac{\nabla P_{*}}{\Sigma_{*}}=\nabla\psi\Leftrightarrow\psi=\int\frac{dP_{*}}{\Sigma_{*}}.
+\]
+
+\end_inset
+
+Then 
+\begin_inset Formula 
+\[
+\psi=\int\frac{dP_{*}}{\Sigma_{*}}=\frac{\kappa\Gamma}{\Gamma-1}\Sigma_{*}^{\Gamma-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and letting 
+\begin_inset Formula $\Psi=\phi+\phi_{{\rm bulb}}^{0}+\psi$
+\end_inset
+
+, we have the set of equations
+\begin_inset Formula 
+\[
+\frac{\partial\Sigma_{*}}{\partial t}+\nabla\cdot(\Sigma_{*}\mathbf{v})=0
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\partial\mathbf{v}}{\partial t}+(\mathbf{v}\cdot\nabla)(\mathbf{v})=-\nabla\Psi
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Delta(\phi+\phi_{{\rm bulb}}^{0})=4\pi G\delta\left[\frac{1}{q}\Sigma_{*}+\Sigma_{{\rm bulb}}^{0}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+thus
+\begin_inset Formula 
+\[
+\phi_{0}=-\frac{GM_{*}}{aq}(\frac{1-\xi}{2})^{1/2}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Sigma_{0}=\frac{M_{*}}{2\pi a^{2}}(\frac{1-\xi}{2})^{3/2}
+\]
+
+\end_inset
+
+Then 
+\begin_inset Formula 
+\[
+\Psi_{0}=\phi_{0}+\phi_{{\rm bulb}}^{0}+\psi_{0}=-\frac{GM_{*}}{aq}(1+(\frac{r}{a})^{2})^{-1/2}-\frac{GM_{b}}{b}(1+(\frac{r}{b})^{2})^{-1/2}+\frac{\kappa\Gamma}{\Gamma-1}\left(\frac{M_{*}}{2\pi a^{2}}\right)^{\Gamma-1}(1+(\frac{r}{a})^{2})^{-3(\Gamma-1)/2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+And 
+\begin_inset Formula 
+\[
+v_{r}^{0}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Psi_{0}=-\frac{GM_{*}}{aq}(1+(\frac{r}{a})^{2})^{-1/2}-\frac{GM_{b}}{b}(1+(\frac{r}{b})^{2})^{-1/2}+\frac{\kappa\Gamma}{\Gamma-1}\left(\frac{M_{*}}{2\pi a^{2}}\right)^{\Gamma-1}(1+(\frac{r}{a})^{2})^{-3(\Gamma-1)/2}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\partial\Psi_{0}}{\partial r}=-\frac{GM_{*}}{aq}(-\frac{1}{2}\frac{2r}{a^{2}})(1+(\frac{r}{a})^{2})^{-3/2}-\frac{GM_{b}}{b}(-\frac{1}{2}\frac{2r}{b^{2}})(1+(\frac{r}{b})^{2})^{-3/2}+\frac{\kappa\Gamma}{\Gamma-1}\left(\frac{M_{*}}{2\pi a^{2}}\right)^{\Gamma-1}\left(-\frac{3(\Gamma-1)}{2}\frac{2r}{a^{2}}\right)(1+(\frac{r}{a})^{2})^{-3(\Gamma-1)/2-1}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\partial\Psi_{0}}{\partial r}=-\frac{GM_{*}}{aq}(-\frac{1}{2}\frac{2r}{a^{2}})(\frac{1}{1+(\frac{r}{a})^{2}})^{3/2}-\frac{GM_{b}}{b}(-\frac{1}{2}\frac{2r}{b^{2}})(\frac{1}{1+(\frac{r}{b})^{2}})^{3/2}+\kappa\Gamma\left(\frac{M_{*}}{2\pi a^{2}}\right)^{\Gamma-1}\left(-\frac{3}{2}\frac{2r}{a^{2}}\right)(\frac{1}{1+(\frac{r}{a})^{2}})^{3(\Gamma-1)/2+1}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\partial\Psi_{0}}{\partial r}=-\frac{GM_{*}}{aq}\left[(-\frac{1}{2}\frac{2r}{a^{2}})(\frac{1}{1+(\frac{r}{a})^{2}})^{3/2}+\frac{aq}{GM_{*}}\frac{GM_{b}}{b}(-\frac{1}{2}\frac{2r}{b^{2}})(\frac{1}{1+(\frac{r}{b})^{2}})^{3/2}-\frac{aq}{GM_{*}}\kappa\Gamma\left(\frac{M_{*}}{2\pi a^{2}}\right)^{\Gamma-1}\left(-\frac{3}{2}\frac{2r}{a^{2}}\right)(\frac{1}{1+(\frac{r}{a})^{2}})^{3(\Gamma-1)/2+1}\right]
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial\Psi_{0}}{\partial r} & =-\frac{GM_{*}}{aq}\left(\frac{1}{1+(\frac{r}{a})^{2}}\right)^{1/2}\bigg[(-\frac{1}{2}\frac{2r}{a^{2}})(\frac{1}{1+(\frac{r}{a})^{2}})+\frac{aq}{GM_{*}}\frac{GM_{b}}{b}(-\frac{1}{2}\frac{2r}{b^{2}})(\frac{1}{1+(\frac{r}{b})^{2}})^{3/2}\left(\frac{1}{1+(\frac{r}{a})^{2}}\right)^{-1/2}\\
+ & -\frac{aq}{GM_{*}}\kappa\Gamma\left(\frac{M_{*}}{2\pi a^{2}}\right)^{\Gamma-1}\left(-\frac{3}{2}\frac{2r}{a^{2}}\right)\left(\frac{1}{1+(\frac{r}{a})^{2}}\right)^{-1/2}(\frac{1}{1+(\frac{r}{a})^{2}})^{3(\Gamma-1)/2+1}\bigg]
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial\Psi_{0}}{\partial r} & =-\frac{GM_{*}}{aq}\left(\frac{1}{1+(\frac{r}{a})^{2}}\right)^{1/2}\bigg[(-\frac{r}{a^{2}})(\frac{1}{1+(\frac{r}{a})^{2}})+q\frac{aM_{b}}{bM_{*}}(-\frac{r}{b^{2}})(\frac{1}{1+(\frac{r}{b})^{2}})^{3/2}\left(\frac{1}{1+(\frac{r}{a})^{2}}\right)^{-1/2}\\
+ & +\epsilon\left(\frac{r}{a^{2}}\right)(\frac{1}{1+(\frac{r}{a})^{2}})^{3(\Gamma-1)/2+1/2}\bigg]
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial\Psi_{0}}{\partial r} & =-\frac{GM_{*}}{aq}\left(\frac{1-\xi}{2}\right)^{1/2}\bigg[(-\frac{r^{2}}{})\frac{1}{r}\left(\frac{1+\xi}{2}\right)+q\frac{aM_{b}}{bM_{*}}(-\frac{r}{b^{2}})(\frac{1}{b^{2}+(r)^{2}})^{3/2}\left(\frac{1}{1+(\frac{r}{a})^{2}}\right)^{-1/2}\\
+ & +\epsilon\left(\frac{r}{a^{2}}\right)(\frac{1}{1+(\frac{r}{a})^{2}})^{3(\Gamma-1)/2+1/2}\bigg]
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\epsilon=\frac{3aq\kappa\Gamma}{GM}\left(\frac{M}{2\pi a^{2}}\right)^{\Gamma-1}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+r/a=\sqrt{\frac{1+\xi}{1-\xi}}\Leftrightarrow\frac{r}{b}=\frac{a}{b}\sqrt{\frac{1+\xi}{1-\xi}}\Leftrightarrow\frac{1}{1+(\frac{b}{r})^{2}}=\frac{1}{1+(\frac{b}{a})^{2}\frac{1+\xi}{1-\xi}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{1-\xi}{2}=\frac{a^{2}}{r^{2}+a^{2}}=\frac{1}{1+(\frac{r}{a})^{2}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{1+\xi}{2}=\frac{r^{2}}{r^{2}+a^{2}}=\frac{1}{1+(\frac{a}{r})^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(v_{\theta}^{0}\right)^{2}=V^{2}=r\frac{\partial\Psi_{0}}{\partial r}=\frac{GM}{aq}(\frac{1}{1+(\frac{r}{a})^{2}})^{1/2}(\frac{1+\xi}{2})\left[1-\epsilon(\frac{1-\xi}{2})^{3\Gamma/2-2}\right]
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\epsilon=\frac{3aq\kappa\Gamma}{GM}\left(\frac{M}{2\pi a}\right)^{\Gamma-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+T_{0}=\int_{0}^{2\pi}\int_{0}^{\infty}\frac{1}{2}V^{2}\Sigma_{0}rdrd\theta=\frac{(1-\epsilon)GM^{2}}{8aq}
+\]
+
+\end_inset
+
+Total pot energy:
+\begin_inset Formula 
+\[
+W_{0}=\frac{1}{2}\int_{0}^{2\pi}\int_{0}^{\infty}\Phi_{0}\Sigma_{0}rdrd\theta=-\frac{GM^{2}}{4aq}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+two degree of freedom:
+\end_layout
+
+\begin_layout Standard
+total internal energy is
+\begin_inset Formula 
+\[
+U_{0}=\int_{0}^{2\pi}\int_{0}^{\infty}P_{0}rdrd\theta=\frac{\epsilon GM^{2}}{8aq}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+total energy: 
+\begin_inset Formula 
+\[
+E_{0}=T_{0}+U_{0}+W_{0}=-\frac{qGM^{2}}{8aq}
+\]
+
+\end_inset
+
+Et donc 
+\begin_inset Formula 
+\[
+\epsilon=\frac{U_{0}}{|E_{0}|}=\frac{\mathrm{internal\,energy}}{|\mathrm{total\,energy}|}
 \]
 
 \end_inset
