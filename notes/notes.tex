@@ -240,11 +240,11 @@ Integrals $A_{ln}$ and  $F_{ln}$ are proportional. With the addition of $H_{ln}$
 as
 \begin{align*}
 B_{ln} &= \frac{1}{2} \bigg[ \sqrt{\frac{(2l+1)(l+m+1)(l-m+1)}{2l+3}} \hJ(l+1,n)+ \hJ(l,n)\\
-&\quad \quad  +\sqrt{\frac{(2l+1)(l+m)(l-m)}{2l-1}} \hJ(l-1,n)\bigg] ,\\
+&\quad \quad  -\sqrt{\frac{(2l+1)(l+m)(l-m)}{2l-1}} \hJ(l-1,n)\bigg] ,\\
 C_{ln} &= m \hJ(l,n) ,\\
 D_{ln} &= \frac{1}{2}  \bigg(\frac{1}{2n+1}-\frac{\varepsilon}{3}  \bigg(\frac{q}{x}\bigg)^{\frac{2}{3}} \bigg)
 \bigg[ -\sqrt{\frac{(2n+1)(n+m+1)(n-m+1)}{2n+3}} \hI(l,n+1) \\
-&\quad \quad \quad \quad \quad \quad\quad \quad\quad \quad \quad \quad+ \hI(l,n) \\
+&\quad \quad \quad \quad \quad \quad\quad \quad\quad \quad \quad \quad- \hI(l,n) \\
 &\quad \quad \quad \quad \quad \quad\quad \quad\quad \quad \quad \quad  +\sqrt{\frac{(2n+1)(n+m)(n-m)}{2n-1}} \hI(l,n-1)\bigg] ,\\
 G_{ln} &= -|m| \bigg(\frac{1}{2n+1}-\frac{\varepsilon}{3}  \bigg(\frac{q}{x}\bigg)^{\frac{2}{3}} \bigg)  \hI(l,n) .
 \end{align*}
@@ -255,7 +255,7 @@ where $\hI(l,n)$ and $\hJ(l,n)$ can be computed by recursion and using the symme
 \end{align}
 Starting from(Aoki79, A16)
 \begin{align*}
-\hI(l,n) &= \sqrt{\frac{(2n+1)(2n-1)}{(n+m)(n-m)}} \hIp(l,n-1)+\sqrt{\frac{(n+m-1)(n-m-1)(2n+1)}{(n+m)(n-m)(2n-3)}} \hI(l,n-2) ,\\
+\hI(l,n) &= \sqrt{\frac{(2n+1)(2n-1)}{(n+m)(n-m)}} \hIp(l,n-1)-\sqrt{\frac{(n+m-1)(n-m-1)(2n+1)}{(n+m)(n-m)(2n-3)}} \hI(l,n-2) ,\\
 \hIp(l,n-1) &= \sqrt{\frac{(l+m+1)(l-m+1)}{(2l+1)(2l+3)}} \hI(l+1,n-1)+\sqrt{\frac{(l+m)(l-m)}{(2l+1)(2l-1)}} \hI(l-1,n-1) ,
 \end{align*}
 hence to compute until $l,n=m+N$, we need to compute $\hI(l',m)$ until $l'=m+2N$. By convention (for the recursion), we have set $\hI(l',n')=0$ for $l'<m$ or  $n'<m$.
@@ -291,7 +291,7 @@ As for $\hJ$, let
 \end{align}
 with $\hI_{3/4}(l,m) =\hI(l,m)$. We can also compute it by recursion using the formulae
 \begin{align*}
-\hJ(l,n) &= \sqrt{\frac{(2n+1)(2n-1)}{(n+m)(n-m)}} \hJp(l,n-1)+\sqrt{\frac{(n+m-1)(n-m-1)(2n+1)}{(n+m)(n-m)(2n-3)}} \hJ(l,n-2) ,\\
+\hJ(l,n) &= \sqrt{\frac{(2n+1)(2n-1)}{(n+m)(n-m)}} \hJp(l,n-1)-\sqrt{\frac{(n+m-1)(n-m-1)(2n+1)}{(n+m)(n-m)(2n-3)}} \hJ(l,n-2) ,\\
 \hJp(l,n-1) &= \sqrt{\frac{(l+m+1)(l-m+1)}{(2l+1)(2l+3)}} \hJ(l+1,n-1)+\sqrt{\frac{(l+m)(l-m)}{(2l+1)(2l-1)}} \hJ(l-1,n-1) ,
 \end{align*}
 hence to compute until $l,n=m+N$, we need to compute $\hI(l',m)$ until $l'=m+2N$. By convention (for the recursion), we have set $\hI(l',n')=0$ for $l'<m$ or  $n'<m$.

@@ -1,6 +1,6 @@
-using SphericalHarmomics
+using SphericalHarmonics
 using StaticArrays
- 
+
 # Tables shifted by 1
 const tabIln = zeros(Float64,2*N+1,2*N+1)
 const tabIaln = zeros(Float64,2*N+1)
@@ -27,7 +27,7 @@ const tabHln = zeros(Float64,N+1,N+1)
 function I_seed!()
     prod = 1/(3/4+m+1)
     for k=1:m
-        prod *= 2*(2*k+1)/(3/4+m+1+l)
+        prod *= 2*(2*k+1)/(3/4+m+1+k)
     end
     tabIln[1,1] = prod
 end
@@ -49,7 +49,7 @@ function I_fill!()
                  + sqrt(((l+m)*(l-m))/((2*l+1)*(2*l-1))) *tabIln[l-m+1-1,n-m+1-1])
             tabIln[l-m+1,n-m+1] = sqrt(((2*n+1)*(2*n-1))/((n+m)*(n-m)))*Ip
             if (n>=m+2)
-                tabIln[l-m+1,n-m+1] += sqrt(((n+m-1)*(n-m-1)*(2*n+1))/((n+m)*(n-m)*(2*n-3)))*tabIln[l-m+1,n-m+1-2]
+                tabIln[l-m+1,n-m+1] -= sqrt(((n+m-1)*(n-m-1)*(2*n+1))/((n+m)*(n-m)*(2*n-3)))*tabIln[l-m+1,n-m+1-2]
             end
             tabIln[n-m+1,l-m+1] = tabIln[l-m+1,n-m+1] #symmetry
         end
@@ -68,9 +68,9 @@ end
 
 # initialize Ia(m-1,m-1) (a=7/4)
 function Ia_seed!()
-    prod = 1/(7/4+m+1)
+    prod = 1/(7/4+m-1+1)
     for k=1:m
-        prod *= 2*(2*k+1)/(7/4+m+1+l)
+        prod *= 2*(2*k+1)/(7/4+m-1+1+k)
     end
     tabIaln[1] = prod
 end
@@ -79,7 +79,7 @@ end
 function Ia_firstLine!()
     current = tabIaln[1]
     for l=m:m+2*N-1
-        current *= (l-7/4-m-1)/(l+7/4+m+1)*sqrt(((l+m)*(2*l+1))/((l-m)*(2*l-1)))
+        current *= (l-7/4-m-1-1)/(l+7/4+m-1+1)*sqrt(((l+m-1)*(2*l+1))/((l-m+1)*(2*l-1)))
         tabIaln[l-m+2] = current
    end
 end
@@ -97,7 +97,7 @@ end
 function J_seed!()
     prod = 1
     for k=1:m
-        prod *= 2*(2*k+1)/(3/4+m+l)
+        prod *= 2*(2*k+1)/(3/4+m+k)
     end
     tabJln[1,1] = prod/m
     prod *= -(7/4)*sqrt(2*m+3)/(3/4+2*m+1)
@@ -122,7 +122,7 @@ function J_fill!()
                  + sqrt(((l+m)*(l-m))/((2*l+1)*(2*l-1))) *tabJln[l-m+1-1,n-m+1-1])
             tabJln[l-m+1,n-m+1] = sqrt(((2*n+1)*(2*n-1))/((n+m)*(n-m)))*Jp
             if (n>=m+2)
-                tabJln[l-m+1,n-m+1] += sqrt(((n+m-1)*(n-m-1)*(2*n+1))/((n+m)*(n-m)*(2*n-3)))*tabJln[l-m+1,n-m+1-2]
+                tabJln[l-m+1,n-m+1] -= sqrt(((n+m-1)*(n-m-1)*(2*n+1))/((n+m)*(n-m)*(2*n-3)))*tabJln[l-m+1,n-m+1-2]
             end
             tabJln[n-m+1,l-m+1] = tabJln[l-m+1,n-m+1] #symmetry
         end
@@ -198,7 +198,10 @@ function tabBln!()
     for l=m:m+N
         for n=l:m+N
             tabBln[l-m+1,n-m+1] = (1/2)*(sqrt(((2*l+1)*(l+m+1)*(l-m+1))/(2*l+3))*tabJln[l-m+1+1,n-m+1]
-                                + tabJln[l-m+1,n-m+1] + sqrt(((2*l+1)*(l+m)*(l-m))/(2*l-1))*tabJln[l-m+1-1,n-m+1]) 
+                                + tabJln[l-m+1,n-m+1] )
+            if (l>m)
+                tabBln[l-m+1,n-m+1] -= (1/2)*sqrt(((2*l+1)*(l+m)*(l-m))/(2*l-1))*tabJln[l-m+1-1,n-m+1]
+            end
             if (n>l)
                 tabBln[n-m+1,l-m+1] = tabBln[l-m+1,n-m+1]
             end
@@ -222,7 +225,10 @@ function tabDln!()
     for l=m:m+N
         for n=l:m+N
             tabDln[l-m+1,n-m+1] = (1/2)*(1/(2*n+1)-(eps/3)*(q/x)^(2/3))*(-sqrt(((2*n+1)*(n+m+1)*(n-m+1))/(2*n+3))*tabIln[l-m+1+1,n-m+1]
-                                + tabIln[l-m+1,n-m+1] + sqrt(((2*n+1)*(n+m)*(n-m))/(2*n-1))*tabIln[l-m+1-1,n-m+1]) 
+                                - tabIln[l-m+1,n-m+1] )
+            if (l>m)
+                tabDln[l-m+1,n-m+1] += (1/2)*(1/(2*n+1)-(eps/3)*(q/x)^(2/3))* sqrt(((2*n+1)*(n+m)*(n-m))/(2*n-1))*tabIln[l-m+1-1,n-m+1]
+            end
             if (n>l)
                 tabDln[n-m+1,l-m+1] = tabDln[l-m+1,n-m+1]
             end
@@ -255,4 +261,24 @@ function tabHln!()
             end
         end
     end
+end
+
+# do in order
+
+function table_fill!()
+    tabIln!()
+    tabIaln!()
+    tabJln!()
+    tabOmega!()
+    tabAlphaSqOverTwoOmega!()
+    tabLegendre!()
+end
+
+function matrix_fill!()
+    tabAlnFln!()
+    tabBln!()
+    tabCln!()
+    tabDln!()
+    tabGln!()
+    tabHln!()
 end
