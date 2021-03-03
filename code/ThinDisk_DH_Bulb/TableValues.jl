@@ -2,20 +2,24 @@ using SphericalHarmonics
 using StaticArrays
 
 # Tables shifted by 1
+
+# tables which don't depend on x,q
 const tabIln = zeros(Float64,2*N+1,2*N+1)
 const tabIaln = zeros(Float64,2*N+1)
 const tabJln = zeros(Float64,2*N+1,2*N+1)
-const tabOmega = zeros(Float64,nbK)
-const tabAlphaSqOverTwoOmega = zeros(Float64,nbK)
 const tabLegendre = zeros(Float64,N+1,nbK)
 
-const tabAln = zeros(Float64,N+1,N+1)
-const tabBln = zeros(Float64,N+1,N+1)
-const tabCln = zeros(Float64,N+1,N+1)
-const tabDln = zeros(Float64,N+1,N+1)
-const tabFln = zeros(Float64,N+1,N+1)
-const tabGln = zeros(Float64,N+1,N+1)
-const tabHln = zeros(Float64,N+1,N+1)
+# tables which depend on x,q
+tabOmega = zeros(Float64,nbK)
+tabAlphaSqOverTwoOmega = zeros(Float64,nbK)
+
+tabAln = zeros(Float64,N+1,N+1)
+tabBln = zeros(Float64,N+1,N+1)
+tabCln = zeros(Float64,N+1,N+1)
+tabDln = zeros(Float64,N+1,N+1)
+tabFln = zeros(Float64,N+1,N+1)
+tabGln = zeros(Float64,N+1,N+1)
+tabHln = zeros(Float64,N+1,N+1)
 
 # apply in correct order
 
@@ -62,6 +66,14 @@ function tabIln!()
     I_fill!()
 end
 
+function tabIln_clear!()
+    for i=1:2*N+1
+        for j=1:2*N+1
+            tabIln[i,j] = 0.0
+        end
+    end
+end
+
 ###############################################
 # Fill Ialm table : Ia(l,m-1) with l=m-1,...,m+2N-1
 ###############################################
@@ -87,6 +99,12 @@ end
 function tabIaln!()
     Ia_seed!()
     Ia_firstLine!()
+end
+
+function tabIaln_clear!()
+    for i=1:2*N+1
+        tabIaln[i] = 0.0
+    end
 end
 
 ###############################################
@@ -135,25 +153,11 @@ function tabJln!()
     J_fill!()
 end
 
-###############################################
-# Fill tabOmega table
-###############################################
-
-function tabOmega!()
-    for k=1:nbK
-        xik = -1 +(2/nbK)*(k-0.5)
-        tabOmega[k] = Omega(xik)
-    end
-end
-
-###############################################
-# Fill tabAlphaSqOverTwoOmega table
-###############################################
-
-function tabAlphaSqOverTwoOmega!()
-    for k=1:nbK
-        xik = -1 +(2/nbK)*(k-0.5)
-        tabAlphaSqOverTwoOmega[k] = alphaSqOverTwoOmega(xik)
+function tabJln_clear!()
+    for i=1:2*N+1
+        for j=1:2*N+1
+            tabJln[i,j] = 0.0
+        end
     end
 end
 
@@ -171,6 +175,49 @@ function tabLegendre!()
         end
     end
 end
+
+function tabLegendre_clear!()
+    for i=1:N+1
+        for k=1:nbK
+            tabLegendre[i,k] = 0.0
+        end
+    end
+end
+
+###############################################
+# Fill tabOmega table
+###############################################
+
+function tabOmega!(x::Float64=1.0, q::Float64=1.0)
+    for k=1:nbK
+        xik = -1 +(2/nbK)*(k-0.5)
+        tabOmega[k] = Omega(xik,x,q)
+    end
+end
+
+function tabOmega_clear!()
+    for k=1:nbK
+        tabOmega[k] = 0.0
+    end
+end
+
+###############################################
+# Fill tabAlphaSqOverTwoOmega table
+###############################################
+
+function tabAlphaSqOverTwoOmega!(x::Float64=1.0, q::Float64=1.0)
+    for k=1:nbK
+        xik = -1 +(2/nbK)*(k-0.5)
+        tabAlphaSqOverTwoOmega[k] = alphaSqOverTwoOmega(xik,x,q)
+    end
+end
+
+function tabAlphaSqOverTwoOmega_clear!()
+    for k=1:nbK
+        tabAlphaSqOverTwoOmega[k] = 0.0
+    end
+end
+
 
 ###############################################
 # Fill matrix elements table
@@ -221,7 +268,7 @@ function tabCln!()
 end
 
 
-function tabDln!()
+function tabDln!(x::Float64=1.0, q::Float64=1.0)
     for l=m:m+N
         for n=l:m+N
             tabDln[l-m+1,n-m+1] = (1/2)*(1/(2*n+1)-(eps/3)*(q/x)^(2/3))*(-sqrt(((2*n+1)*(n+m+1)*(n-m+1))/(2*n+3))*tabIln[l-m+1+1,n-m+1]
@@ -236,7 +283,7 @@ function tabDln!()
     end
 end
 
-function tabGln!()
+function tabGln!(x::Float64=1.0, q::Float64=1.0)
     for l=m:m+N
         for n=l:m+N
             tabGln[l-m+1,n-m+1] = (1/2)*(1/(2*n+1)-(eps/3)*(q/x)^(2/3))*tabIln[l-m+1,n-m+1]
@@ -265,20 +312,104 @@ end
 
 # do in order
 
-function table_fill!()
+function table_constant_fill!()
     tabIln!()
     tabIaln!()
     tabJln!()
-    tabOmega!()
-    tabAlphaSqOverTwoOmega!()
     tabLegendre!()
 end
 
-function matrix_fill!()
+function table_function_fill!(x::Float64=1.0, q::Float64=1.0)
+    tabOmega!(x,q)
+    tabAlphaSqOverTwoOmega!(x,q)
+end
+
+function matrix_fill!(x::Float64=1.0, q::Float64=1.0)
     tabAlnFln!()
     tabBln!()
     tabCln!()
-    tabDln!()
-    tabGln!()
+    tabDln!(x,q)
+    tabGln!(x,q)
     tabHln!()
 end
+
+######################################
+# Clear table
+######################################
+
+function tabAln_clear!()
+    for i=1:N+1
+        for j=1:N+1
+            tabAln[i,j] = 0.0
+        end
+    end
+end
+
+function tabBln_clear!()
+    for i=1:N+1
+        for j=1:N+1
+            tabBln[i,j] = 0.0
+        end
+    end
+end
+
+function tabCln_clear!()
+    for i=1:N+1
+        for j=1:N+1
+            tabCln[i,j] = 0.0
+        end
+    end
+end
+
+function tabDln_clear!()
+    for i=1:N+1
+        for j=1:N+1
+            tabDln[i,j] = 0.0
+        end
+    end
+end
+
+function tabFln_clear!()
+    for i=1:N+1
+        for j=1:N+1
+            tabFln[i,j] = 0.0
+        end
+    end
+end
+
+function tabGln_clear!()
+    for i=1:N+1
+        for j=1:N+1
+            tabGln[i,j] = 0.0
+        end
+    end
+end
+
+function tabHln_clear!()
+    for i=1:N+1
+        for j=1:N+1
+            tabHln[i,j] = 0.0
+        end
+    end
+end
+
+function table_function_clear!()
+    tabOmega_clear!()
+    tabAlphaSqOverTwoOmega_clear!()
+end
+
+function matrix_clear!()
+    tabAln_clear!()
+    tabBln_clear!()
+    tabCln_clear!()
+    tabDln_clear!()
+    tabFln_clear!()
+    tabGln_clear!()
+    tabHln_clear!()
+end
+
+######################################
+# Initialize constant Tables
+######################################
+
+table_constant_fill!()
