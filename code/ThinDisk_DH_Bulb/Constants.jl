@@ -2,6 +2,10 @@ const N = 40
 const nbK = 1000
 const m = 2
 
+const error_dis = 0.01
+const error_var = 0.01
+const threshold_nb_egv = 3
+
 const a = 1.0
 const c = 1/10
 const x = 0.5
