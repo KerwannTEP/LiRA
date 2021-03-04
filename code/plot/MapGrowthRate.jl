@@ -5,8 +5,8 @@ include("../sources/Main.jl") # Loading the main code
 ########################################
 qminMeasure, qmaxMeasure = 0.1,1.0 # Range in q where the GR are computed
 xminMeasure, xmaxMeasure = 0.8,1.0 # Range in x where the GR are computed
-nbqMeasure = 50 # Number of q for which the GR are computed
-nbxMeasure = 50 # Number of x for which the GR are computed
+nbqMeasure = 100 # Number of q for which the GR are computed
+nbxMeasure = 100 # Number of x for which the GR are computed
 nbqxGrid = nbqMeasure*nbxMeasure # Number of (a,j) for which the Djj are computed
 tabqMeasure = collect(range(qminMeasure,length=nbqMeasure,qmaxMeasure))
 tabxMeasure = collect(range(xminMeasure,length=nbxMeasure,xmaxMeasure))
@@ -43,7 +43,7 @@ end
 
 
 ########################################
-namefile = "../data/Dump_Growth_Rate.hf5"
+namefile = "../data/Dump_Growth_Rate_zoom.hf5"
 ########################################
 # Function that writes to .hf5 files
 ########################################

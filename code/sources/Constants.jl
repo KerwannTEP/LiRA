@@ -1,9 +1,9 @@
-const N = 40
+const N = 60
 const nbK = 1000
 const m = 2
 
-const error_dis = 0.1
-const error_var = 0.1
+const error_dis = 0.05
+const error_var = 0.05
 const threshold_nb_egv = 10
 
 const a = 1.0
