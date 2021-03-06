@@ -143,9 +143,9 @@ end
 
 # initialize Ia(m-1,m-1) (a=7/4)
 function Ia_seed!()
-    prod = 1/(7/4+m)
+    prod = 1/(7/4+m-1+1)
     for k=1:m-1
-        prod *= 2*(2*k+1)/(7/4+m+k)
+        prod *= 2*(2*k+1)/(7/4+m-1+1+k)
     end
     tabIaln[1] = prod
 end
@@ -326,7 +326,7 @@ function tabAlnFln!()
 end
 
 # tester ces valeurs
-
+#ERROR
 function tabBln!()
     for l=m:m+N
         for n=l:m+N
