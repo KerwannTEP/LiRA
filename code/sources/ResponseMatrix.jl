@@ -1,4 +1,5 @@
 using LinearAlgebra
+using HDF5
 
 tabTruncMln = Vector{Array{Float64,2}}([zeros(Float64,3*k,3*k) for k=1:N+1])
 tabEigValsMln = Vector{Vector{Complex{Float64}}}([zeros(Float64,k) for k=1:N+1])
@@ -22,6 +23,14 @@ function tabTruncMln!()
         end
     end
 end
+
+function saveMatrix!()
+    namefile = "../data/Dump_Matrix.hf5"
+    file = h5open(namefile,"w") # Opening the file
+    write(file,"tabMln",tabTruncMln[N+1])
+    close(file) # Closing the file
+end
+
 
 function tabEigValsMln!(x::Float64=1.0, q::Float64=1.0)
     for k=1:N+1

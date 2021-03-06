@@ -314,13 +314,13 @@ end
 
 function tabAlnFln!()
     for l=m:m+N
-        for n=l:m+N
+        for n=m:m+N
             tabAln[l-m+1,n-m+1] = m*sqrt(1-eps)*tabIln[l-m+1,n-m+1]
             tabFln[l-m+1,n-m+1] = 2*sqrt(1-eps)*tabIln[l-m+1,n-m+1]
-            if (n>l)
-                tabAln[n-m+1,l-m+1] = tabAln[l-m+1,n-m+1]
-                tabFln[n-m+1,l-m+1] = tabFln[l-m+1,n-m+1]
-            end
+            # if (n>l)
+            #     tabAln[n-m+1,l-m+1] = tabAln[l-m+1,n-m+1]
+            #     tabFln[n-m+1,l-m+1] = tabFln[l-m+1,n-m+1]
+            # end
         end
     end
 end
@@ -329,15 +329,15 @@ end
 #ERROR
 function tabBln!()
     for l=m:m+N
-        for n=l:m+N
+        for n=m:m+N
             tabBln[l-m+1,n-m+1] = ((1/2)*(sqrt(((2*l+1)*(l+m+1)*(l-m+1))/(2*l+3))*tabJln[l-m+1+1,n-m+1]
                                 + tabJln[l-m+1,n-m+1] ))
             if (l>m)
                 tabBln[l-m+1,n-m+1] -= (1/2)*sqrt(((2*l+1)*(l+m)*(l-m))/(2*l-1))*tabJln[l-m+1-1,n-m+1]
             end
-            if (n>l)
-                tabBln[n-m+1,l-m+1] = tabBln[l-m+1,n-m+1]
-            end
+            # if (n>l)
+            #     tabBln[n-m+1,l-m+1] = tabBln[l-m+1,n-m+1]
+            # end
         end
     end
 end
@@ -356,27 +356,27 @@ end
 
 function tabDln!(x::Float64=1.0, q::Float64=1.0)
     for l=m:m+N
-        for n=l:m+N
-            tabDln[l-m+1,n-m+1] = ((1/2)*(1/(2*n+1)-(eps/3)*(q/x)^(2/3))*(-sqrt(((2*n+1)*(n+m+1)*(n-m+1))/(2*n+3))
-                                *tabIln[l-m+1,n-m+1+1]- tabIln[l-m+1,n-m+1] ))
+        for n=m:m+N
+            tabDln[l-m+1,n-m+1] = ((1/2)*(1/(2*n+1)-(eps/3)*(q/x)^(2/3))*(-(sqrt(((2*n+1)*(n+m+1)*(n-m+1))/(2*n+3))
+                                *tabIln[l-m+1,n-m+1+1])- tabIln[l-m+1,n-m+1] ))
             if (n>m)
-                tabDln[l-m+1,n-m+1] += ((1/2)*(1/(2*n+1)-(eps/3)*(q/x)^(2/3))* sqrt(((2*n+1)*(n+m)*(n-m))/(2*n-1))
-                                       *tabIln[l-m+1,n-m+1-1])
+                tabDln[l-m+1,n-m+1] += ((1/2)*(1/(2*n+1)-(eps/3)*(q/x)^(2/3))* (sqrt(((2*n+1)*(n+m)*(n-m))/(2*n-1))
+                                       *tabIln[l-m+1,n-m+1-1]))
             end
-            if (n>l)
-                tabDln[n-m+1,l-m+1] = tabDln[l-m+1,n-m+1]
-            end
+            # if (n>l)
+            #     tabDln[n-m+1,l-m+1] = tabDln[l-m+1,n-m+1]
+            # end
         end
     end
 end
 
 function tabGln!(x::Float64=1.0, q::Float64=1.0)
     for l=m:m+N
-        for n=l:m+N
+        for n=m:m+N
             tabGln[l-m+1,n-m+1] = -m*(1/(2*n+1)-(eps/3)*(q/x)^(2/3))*tabIln[l-m+1,n-m+1]
-            if (n>l)
-                tabGln[n-m+1,l-m+1] = tabGln[l-m+1,n-m+1]
-            end
+            # if (n>l)
+            #     tabGln[n-m+1,l-m+1] = tabGln[l-m+1,n-m+1]
+            # end
         end
     end
 end
@@ -400,11 +400,11 @@ end
 
 function tabHln!()
     for l=m:m+N
-        for n=l:m+N
+        for n=m:m+N
             tabHln[l-m+1,n-m+1] = (1/2)*sqrt(1-eps)*(tabIln[l-m+1,n-m+1]+3*tabI7ln[l-m+1,n-m+1])
-            if (n>l)
-                tabHln[n-m+1,l-m+1] = tabHln[l-m+1,n-m+1]
-            end
+            # if (n>l)
+            #     tabHln[n-m+1,l-m+1] = tabHln[l-m+1,n-m+1]
+            # end
         end
     end
 end
