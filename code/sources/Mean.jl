@@ -11,8 +11,8 @@ function Omega(xi::Float64,x::Float64=1.0, q::Float64=1.0)
     r = radius(xi)
     bulb = (a/c)^3*q*(1-x)/x*((1-xi)/2)^(-3/2)*(1+(r/c)^2)^(-3/2)
     disk = 1-eps*(q/x)^(2/3)
-    return (1-eps)*((1-xi)/2)^(3/4)
-#    return ((1-xi)/2)^(3/4)*sqrt(bulb+disk)
+#    return sqrt(1-eps)*((1-xi)/2)^(3/4)
+    return ((1-xi)/2)^(3/4)*sqrt(bulb+disk)
 end
 
 function dOmegadxi(xi::Float64,x::Float64=1.0, q::Float64=1.0)
@@ -33,8 +33,8 @@ end
 function alphaSqOverTwoOmega(xi::Float64,x::Float64=1.0, q::Float64=1.0)
     omega = Omega(xi,x,q)
     domega = dOmegadxi(xi,x,q)
-    return (1-eps)^(1/2)*((1-xi)/2)^(3/4)*(1/2+(3/2)*(1-xi)/2)
-#    return 2*omega*(1+(1+xi)*(1-xi)*domega/(2*omega))
+#    return (1-eps)^(1/2)*((1-xi)/2)^(3/4)*(1/2+(3/2)*(1-xi)/2)
+    return 2*omega*(1+(1+xi)*(1-xi)*domega/(2*omega))
 end
 
 ##############################

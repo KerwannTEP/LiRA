@@ -4,9 +4,9 @@ using HDF5 # To have access to .hf5 files
 include("../sources/Main.jl") # Loading the main code
 ########################################
 qminMeasure, qmaxMeasure = 0.1,1.0 # Range in q where the GR are computed
-xminMeasure, xmaxMeasure = 0.8,1.0 # Range in x where the GR are computed
-nbqMeasure = 100 # Number of q for which the GR are computed
-nbxMeasure = 100 # Number of x for which the GR are computed
+xminMeasure, xmaxMeasure = 0.7,1.0 # Range in x where the GR are computed
+nbqMeasure = 200 # Number of q for which the GR are computed
+nbxMeasure = 60 # Number of x for which the GR are computed
 nbqxGrid = nbqMeasure*nbxMeasure # Number of (a,j) for which the Djj are computed
 tabqMeasure = collect(range(qminMeasure,length=nbqMeasure,qmaxMeasure))
 tabxMeasure = collect(range(xminMeasure,length=nbxMeasure,xmaxMeasure))

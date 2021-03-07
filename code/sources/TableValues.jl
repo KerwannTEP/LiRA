@@ -175,7 +175,7 @@ end
 ###############################################
 
 
-# THIS IS FALSE
+
 
 # initialize J(m,m) and J(m+1,m)
 function J_seed!()
@@ -240,7 +240,7 @@ function tabLegendre!()
     for k=1:nbK
         xik = -1 +(2/nbK)*(k-0.5)
         thk = acos(xik)
-        P = computePlmcostheta(thk,m+N,m)
+        P = computePlmcostheta(thk,m+N)
         for l=m:m+N
             tabLegendre[l-m+1,k] = sqrt(pi)*P[(l,m)]
         end
@@ -294,39 +294,38 @@ end
 # Fill matrix elements table
 ###############################################
 
-# function tabAlnFln!()
-#     for l=m:m+N
-#         for n=l:m+N
-#             integral = 0
-#             for k=1:nbK
-#                 integral += tabLegendre[l-m+1,k]*tabOmega[k]*tabLegendre[n-m+1,k]
-#             end
-#             integral *= 2/nbK
-#             tabAln[l-m+1,n-m+1] = abs(m)*integral
-#             tabFln[l-m+1,n-m+1] = 2*integral
-#             if (n>l)
-#                 tabAln[n-m+1,l-m+1] = tabAln[l-m+1,n-m+1]
-#                 tabFln[n-m+1,l-m+1] = tabFln[l-m+1,n-m+1]
-#             end
-#         end
-#     end
-# end
-
 function tabAlnFln!()
     for l=m:m+N
-        for n=m:m+N
-            tabAln[l-m+1,n-m+1] = m*sqrt(1-eps)*tabIln[l-m+1,n-m+1]
-            tabFln[l-m+1,n-m+1] = 2*sqrt(1-eps)*tabIln[l-m+1,n-m+1]
-            # if (n>l)
-            #     tabAln[n-m+1,l-m+1] = tabAln[l-m+1,n-m+1]
-            #     tabFln[n-m+1,l-m+1] = tabFln[l-m+1,n-m+1]
-            # end
+        for n=l:m+N
+            integral = 0
+            for k=1:nbK
+                integral += tabLegendre[l-m+1,k]*tabOmega[k]*tabLegendre[n-m+1,k]
+            end
+            integral *= 2/nbK
+            tabAln[l-m+1,n-m+1] = abs(m)*integral
+            tabFln[l-m+1,n-m+1] = 2*integral
+            if (n>l)
+                tabAln[n-m+1,l-m+1] = tabAln[l-m+1,n-m+1]
+                tabFln[n-m+1,l-m+1] = tabFln[l-m+1,n-m+1]
+            end
         end
     end
 end
 
+# function tabAlnFln!()
+#     for l=m:m+N
+#         for n=m:m+N
+#             tabAln[l-m+1,n-m+1] = m*sqrt(1-eps)*tabIln[l-m+1,n-m+1]
+#             tabFln[l-m+1,n-m+1] = 2*sqrt(1-eps)*tabIln[l-m+1,n-m+1]
+#             # if (n>l)
+#             #     tabAln[n-m+1,l-m+1] = tabAln[l-m+1,n-m+1]
+#             #     tabFln[n-m+1,l-m+1] = tabFln[l-m+1,n-m+1]
+#             # end
+#         end
+#     end
+# end
+
 # tester ces valeurs
-#ERROR
 function tabBln!()
     for l=m:m+N
         for n=m:m+N
@@ -344,11 +343,11 @@ end
 
 function tabCln!()
     for l=m:m+N
-        for n=l:m+N
+        for n=m:m+N
             tabCln[l-m+1,n-m+1] = m*tabJln[l-m+1,n-m+1]
-            if (n>l)
-                tabCln[n-m+1,l-m+1] = tabCln[l-m+1,n-m+1]
-            end
+            # if (n>l)
+            #     tabCln[n-m+1,l-m+1] = tabCln[l-m+1,n-m+1]
+            # end
         end
     end
 end
@@ -357,7 +356,7 @@ end
 function tabDln!(x::Float64=1.0, q::Float64=1.0)
     for l=m:m+N
         for n=m:m+N
-            tabDln[l-m+1,n-m+1] = ((1/2)*(1/(2*n+1)-(eps/3)*(q/x)^(2/3))*(-(sqrt(((2*n+1)*(n+m+1)*(n-m+1))/(2*n+3))
+            tabDln[l-m+1,n-m+1] = ((1/2)*(1/(2*n+1)-(eps/3)*(q/x)^(2/3))*((-sqrt(((2*n+1)*(n+m+1)*(n-m+1))/(2*n+3))
                                 *tabIln[l-m+1,n-m+1+1])- tabIln[l-m+1,n-m+1] ))
             if (n>m)
                 tabDln[l-m+1,n-m+1] += ((1/2)*(1/(2*n+1)-(eps/3)*(q/x)^(2/3))* (sqrt(((2*n+1)*(n+m)*(n-m))/(2*n-1))
@@ -381,33 +380,33 @@ function tabGln!(x::Float64=1.0, q::Float64=1.0)
     end
 end
 
-# function tabHln!()
-#     for l=m:m+N
-#         for n=l:m+N
-#             integral = 0
-#             for k=1:nbK
-#                 integral += tabLegendre[l-m+1,k]*tabAlphaSqOverTwoOmega[k]*tabLegendre[n-m+1,k]
-#             end
-#             integral *= 2/nbK
-#             tabHln[l-m+1,n-m+1] = integral
-#             if (n>l)
-#                 tabHln[n-m+1,l-m+1] = tabHln[l-m+1,n-m+1]
-#             end
-#         end
-#     end
-# end
-
-
 function tabHln!()
     for l=m:m+N
-        for n=m:m+N
-            tabHln[l-m+1,n-m+1] = (1/2)*sqrt(1-eps)*(tabIln[l-m+1,n-m+1]+3*tabI7ln[l-m+1,n-m+1])
-            # if (n>l)
-            #     tabHln[n-m+1,l-m+1] = tabHln[l-m+1,n-m+1]
-            # end
+        for n=l:m+N
+            integral = 0
+            for k=1:nbK
+                integral += tabLegendre[l-m+1,k]*tabAlphaSqOverTwoOmega[k]*tabLegendre[n-m+1,k]
+            end
+            integral *= 2/nbK
+            tabHln[l-m+1,n-m+1] = integral
+            if (n>l)
+                tabHln[n-m+1,l-m+1] = tabHln[l-m+1,n-m+1]
+            end
         end
     end
 end
+
+
+# function tabHln!()
+#     for l=m:m+N
+#         for n=m:m+N
+#             tabHln[l-m+1,n-m+1] = (1/2)*sqrt(1-eps)*(tabIln[l-m+1,n-m+1]+3*tabI7ln[l-m+1,n-m+1])
+#             # if (n>l)
+#             #     tabHln[n-m+1,l-m+1] = tabHln[l-m+1,n-m+1]
+#             # end
+#         end
+#     end
+# end
 
 ###############################################
 # Fill matrix elements table numerically integration
