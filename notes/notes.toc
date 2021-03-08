@@ -1,3 +1,7 @@
 \contentsline {section}{\numberline {1}Self-gravitating thin disk with bulb and dark halo}{1}{section.1}%
 \contentsline {section}{\numberline {2}Case $\Gamma =4/3$}{5}{section.2}%
-\contentsline {section}{\numberline {3}Parameter space}{7}{section.3}%
+\contentsline {section}{\numberline {3}Eigenmodes}{7}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Physical eigenvalues}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Fastest eigenmode}{7}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Self-gravitating thin disk with constant total mass}{8}{section.4}%
+\contentsline {section}{\numberline {5}Case $\Gamma =4/3$}{11}{section.5}%

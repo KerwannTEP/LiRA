@@ -2,7 +2,7 @@ using LinearAlgebra
 using HDF5
 
 tabTruncMln_serial = Vector{Array{Float64,2}}([zeros(Float64,3*k,3*k) for k=1:N+1])
-tabEigValsMln_serial = Vector{Vector{Complex{Float64}}}([zeros(Float64,k) for k=1:N+1])
+tabEigValsMln_serial = Vector{Vector{Complex{Float64}}}([zeros(Float64,3*k) for k=1:N+1])
 
 # Apply table_function_fill!() and matrix_fill!() beforehand.
 function tabTruncMln!(tabTruncMln=tabTruncMln_serial, tabAln=tabAln_serial,
@@ -31,6 +31,15 @@ function tabEigValsMln!(x::Float64=1.0, q::Float64=1.0,
         tabEigValsMln[k] = sqrt(x/q)*eigvals(tabTruncMln[k])
     end
 end
+
+function tabEigVecsMln(x::Float64=1.0, q::Float64=1.0,
+    tabTruncMln=tabTruncMln_serial)
+
+    return eigvecs(tabTruncMln[N+1])
+
+end
+
+# Compute eigenvectors
 
 function getPhysicalEigvals(tabEigValsMln=tabEigValsMln_serial)
     liEgv = zeros(Complex{Float64},3*(N+1))
@@ -118,13 +127,15 @@ function get_max(li)
     len = length(li)
     max = -Inf
     egv = -Inf
+    kEgv = 0
     for k=1:len
         if (imag(li[k])>max)
             egv = li[k]
             max = imag(egv)
+            kEgv = k
         end
     end
-    return egv
+    return kEgv, egv
 end
 
 ######################################

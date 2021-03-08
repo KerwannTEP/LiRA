@@ -7,6 +7,10 @@ function radius(xi::Float64)
     return a*sqrt((1+xi)/(1-xi))
 end
 
+function _q(alpha::Float64)
+    return 1/(1+alpha)
+end
+
 function Omega(xi::Float64,x::Float64=1.0, q::Float64=1.0)
     r = radius(xi)
     bulb = (a/c)^3*q*(1-x)/x*((1-xi)/2)^(-3/2)*(1+(r/c)^2)^(-3/2)

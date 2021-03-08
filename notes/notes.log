@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.1.6)  7 MAR 2021 16:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.1.6)  8 MAR 2021 18:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -365,23 +365,23 @@ File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
 (./notes.aux)
 \openout1 = `notes.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 77
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 81
 .
  (/usr/local/texlive/2020/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
@@ -444,7 +444,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box50
-Package hyperref Info: Link coloring OFF on input line 77.
+Package hyperref Info: Link coloring OFF on input line 81.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -458,30 +458,30 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count282
 )
-LaTeX Info: Redefining \ref on input line 77.
-LaTeX Info: Redefining \pageref on input line 77.
-LaTeX Info: Redefining \nameref on input line 77.
+LaTeX Info: Redefining \ref on input line 81.
+LaTeX Info: Redefining \pageref on input line 81.
+LaTeX Info: Redefining \nameref on input line 81.
  (./notes.out) (./notes.out)
 \@outlinefile=\write3
 \openout3 = `notes.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 80.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 84.
 
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 80.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 84.
 
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for U+stmry on input line 8
-0.
+4.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
-LaTeX Font Info:    Trying to load font information for U+wasy on input line 80
+LaTeX Font Info:    Trying to load font information for U+wasy on input line 84
 .
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/wasysym/uwasy.fd
@@ -494,56 +494,88 @@ File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
 [1
 
 {/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (8.409pt too wide) detected at line 141
+Overfull \hbox (8.409pt too wide) detected at line 145
 []
  []
 
 [2] [3]
-Overfull \hbox (10.6979pt too wide) detected at line 198
+Overfull \hbox (10.6979pt too wide) detected at line 202
 []
  []
 
 
-Overfull \hbox (17.53337pt too wide) detected at line 204
+Overfull \hbox (17.53337pt too wide) detected at line 208
 []
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 214.
+(hyperref)                removing `math shift' on input line 218.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\Gamma' on input line 214.
+(hyperref)                removing `\Gamma' on input line 218.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 214.
+(hyperref)                removing `math shift' on input line 218.
 
 [4] [5]
-Overfull \hbox (7.73082pt too wide) detected at line 303
+Overfull \hbox (7.73082pt too wide) detected at line 307
 []
  []
 
-[6] [7]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 340.
- [8]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 340.
+[6] [7] [8]
+Overfull \hbox (6.56702pt too wide) detected at line 414
+[]
+ []
+
+[9]
+Overfull \hbox (5.97482pt too wide) detected at line 471
+[]
+ []
+
+[10]
+Overfull \hbox (4.2936pt too wide) detected at line 477
+[]
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 487.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\Gamma' on input line 487.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 487.
+
+[11] [12]
+Overfull \hbox (7.73082pt too wide) detected at line 576
+[]
+ []
+
+[13]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 592.
+ [14]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 592.
  (./notes.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 340.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 340.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 592.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 592.
 Package rerunfilecheck Info: File `notes.out' has not changed.
-(rerunfilecheck)             Checksum: 99AC5867739BF6646BF2FB800B47EC1D;179.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 340.
+(rerunfilecheck)             Checksum: 395B9ECF4CDA69A8AE250DA74FB2CF65;439.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 592.
  ) 
 Here is how much of TeX's memory you used:
- 8988 strings out of 480608
- 129406 string characters out of 5903631
- 419792 words of memory out of 5000000
- 24631 multiletter control sequences out of 15000+600000
- 566728 words of font info for 106 fonts, out of 8000000 for 9000
+ 9037 strings out of 480608
+ 129972 string characters out of 5903631
+ 420903 words of memory out of 5000000
+ 24640 multiletter control sequences out of 15000+600000
+ 569531 words of font info for 108 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,13n,31p,599b,384s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 34i,13n,31p,599b,382s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/t
 exlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
@@ -560,10 +592,10 @@ f-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2020/texmf-
 dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2020/te
 xmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/f
 onts/type1/urw/times/utmr8a.pfb>
-Output written on notes.pdf (8 pages, 178072 bytes).
+Output written on notes.pdf (14 pages, 206389 bytes).
 PDF statistics:
- 158 PDF objects out of 1000 (max. 8388607)
- 131 compressed objects within 2 object streams
- 40 named destinations out of 1000 (max. 500000)
- 25 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 241 PDF objects out of 1000 (max. 8388607)
+ 207 compressed objects within 3 object streams
+ 79 named destinations out of 1000 (max. 500000)
+ 57 words of extra memory for PDF output out of 10000 (max. 10000000)
 
