@@ -4,15 +4,17 @@ using HDF5 # To have access to .hf5 files
 include("../sources/Main.jl") # Loading the main code
 ########################################
 qminMeasure, qmaxMeasure = 0.1,1.0 # Range in q where the GR are computed
-xminMeasure, xmaxMeasure = 0.7,1.0 # Range in x where the GR are computed
-nbqMeasure = 200 # Number of q for which the GR are computed
-nbxMeasure = 60 # Number of x for which the GR are computed
+xminMeasure, xmaxMeasure = 0.9,1.0 # Range in x where the GR are computed
+nbqMeasure = 400 # Number of q for which the GR are computed
+nbxMeasure = 100 # Number of x for which the GR are computed
 nbqxGrid = nbqMeasure*nbxMeasure # Number of (a,j) for which the Djj are computed
 tabqMeasure = collect(range(qminMeasure,length=nbqMeasure,qmaxMeasure))
 tabxMeasure = collect(range(xminMeasure,length=nbxMeasure,xmaxMeasure))
 
 const tabqxGrid = zeros(Float64,2,nbqxGrid) # Location (q,x) of the grid points where the diffusion coefficients are computed
 const tabGRGrid = zeros(Float64,nbqxGrid)
+
+PARALLEL = "yes"
 
 
 function tabqxGrid!()
@@ -35,10 +37,52 @@ end
 
 function tabGRGrid!()
     init_tabGRGrid!() # Making sure that the grid is initially set to 0
-    for iGrid=1:nbqxGrid # Loop over the elements of the (a,j)-grid
-        q, x = tabqxGrid[1,iGrid], tabqxGrid[2,iGrid] # Current (a,j) location
-        tabGRGrid[iGrid] = grow_rate(x,q)
+    # for iGrid=1:nbqxGrid # Loop over the elements of the (a,j)-grid
+    #     q, x = tabqxGrid[1,iGrid], tabqxGrid[2,iGrid] # Current (a,j) location
+    #     tabGRGrid[iGrid] = grow_rate(x,q)
+    # end
+
+
+    if (PARALLEL == "yes") # Computation is made in parallel
+        println("parallel")
+        Threads.@threads for iGrid=1:nbqxGrid # Loop over the elements of the (a,j)-grid
+            q, x = tabqxGrid[1,iGrid], tabqxGrid[2,iGrid] # Current (a,j) location
+
+            tabOmega_parallel = zeros(Float64,nbK)
+            tabAlphaSqOverTwoOmega_parallel = zeros(Float64,nbK)
+
+            tabAln_parallel = zeros(Float64,N+1,N+1)
+            tabBln_parallel = zeros(Float64,N+1,N+1)
+            tabCln_parallel = zeros(Float64,N+1,N+1)
+            tabDln_parallel = zeros(Float64,N+1,N+1)
+            tabFln_parallel = zeros(Float64,N+1,N+1)
+            tabGln_parallel = zeros(Float64,N+1,N+1)
+            tabHln_parallel = zeros(Float64,N+1,N+1)
+
+            tabTruncMln_parallel = Vector{Array{Float64,2}}([zeros(Float64,3*k,3*k) for k=1:N+1])
+            tabEigValsMln_parallel = Vector{Vector{Complex{Float64}}}([zeros(Float64,k) for k=1:N+1])
+
+            tabGRGrid[iGrid] = grow_rate(x,q,tabOmega_parallel,tabAlphaSqOverTwoOmega_parallel,
+            tabAln_parallel,tabBln_parallel,tabCln_parallel,tabDln_parallel,
+            tabFln_parallel,tabGln_parallel,tabHln_parallel,tabTruncMln_parallel,
+            tabEigValsMln_parallel)
+
+
+        end
+    else # Computation is not made in parallel
+        println("not parallel")
+
+        for iGrid=1:nbqxGrid # Loop over the elements of the (a,j)-grid
+            q, x = tabqxGrid[1,iGrid], tabqxGrid[2,iGrid] # Current (a,j) location
+
+
+            tabGRGrid[iGrid] = grow_rate(x,q)
+        end
     end
+
+
+
+
 end
 
 

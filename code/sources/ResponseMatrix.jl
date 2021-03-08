@@ -1,12 +1,13 @@
 using LinearAlgebra
 using HDF5
 
-tabTruncMln = Vector{Array{Float64,2}}([zeros(Float64,3*k,3*k) for k=1:N+1])
-tabEigValsMln = Vector{Vector{Complex{Float64}}}([zeros(Float64,k) for k=1:N+1])
+tabTruncMln_serial = Vector{Array{Float64,2}}([zeros(Float64,3*k,3*k) for k=1:N+1])
+tabEigValsMln_serial = Vector{Vector{Complex{Float64}}}([zeros(Float64,k) for k=1:N+1])
 
-# Apply table_fill!() and matrix_fill!() beforehand.
-
-function tabTruncMln!()
+# Apply table_function_fill!() and matrix_fill!() beforehand.
+function tabTruncMln!(tabTruncMln=tabTruncMln_serial, tabAln=tabAln_serial,
+    tabBln=tabBln_serial, tabCln=tabCln_serial, tabDln=tabDln_serial,
+    tabFln=tabFln_serial, tabGln=tabGln_serial, tabHln=tabHln_serial)
     for k=1:N+1
         for l=1:k
             for n=1:k
@@ -24,21 +25,14 @@ function tabTruncMln!()
     end
 end
 
-function saveMatrix!()
-    namefile = "../data/Dump_Matrix.hf5"
-    file = h5open(namefile,"w") # Opening the file
-    write(file,"tabMln",tabTruncMln[N+1])
-    close(file) # Closing the file
-end
-
-
-function tabEigValsMln!(x::Float64=1.0, q::Float64=1.0)
+function tabEigValsMln!(x::Float64=1.0, q::Float64=1.0,
+    tabTruncMln=tabTruncMln_serial, tabEigValsMln=tabEigValsMln_serial)
     for k=1:N+1
         tabEigValsMln[k] = sqrt(x/q)*eigvals(tabTruncMln[k])
     end
 end
 
-function getPhysicalEigvals()
+function getPhysicalEigvals(tabEigValsMln=tabEigValsMln_serial)
     liEgv = zeros(Complex{Float64},3*(N+1))
     liEigvals = tabEigValsMln[N+1]
     liEgvCvCurrent = zeros(Complex{Float64},N)
@@ -119,8 +113,61 @@ function getPhysicalEigvals()
     return liPhysicalEgv
 end
 
+# Gets the element of the list li with maximum imaginary part
+function get_max(li)
+    len = length(li)
+    max = -Inf
+    egv = -Inf
+    for k=1:len
+        if (imag(li[k])>max)
+            egv = li[k]
+            max = imag(egv)
+        end
+    end
+    return egv
+end
+
+######################################
+# Clear table
+######################################
+
+function tabTruncMln_clear!(tabTruncMln=tabTruncMln_serial)
+    for k=1:N+1
+        for l=1:k
+            for n=1:k
+                tabTruncMln[k][l,n] = 0.0
+                tabTruncMln[k][l,k+n] = 0.0
+                tabTruncMln[k][l,2*k+n] = 0.0
+                tabTruncMln[k][k+l,n] = 0.0
+                tabTruncMln[k][k+l,k+n] = 0.0
+                tabTruncMln[k][k+l,2*k+n] = 0.0
+                tabTruncMln[k][2*k+l,n] = 0.0
+                tabTruncMln[k][2*k+l,k+n] = 0.0
+                tabTruncMln[k][2*k+l,2*k+n] = 0.0
+            end
+        end
+    end
+end
+
+function tabEigValsMln_clear!(tabEigValsMln=tabEigValsMln_serial)
+    for k=1:N+1
+        tabEigValsMln[k] = zeros(Float64,k)
+    end
+end
+
+######################################
+# Test functions
+######################################
+
+function saveMatrix!(tabTruncMln=tabTruncMln_serial)
+    namefile = "../data/Dump_Matrix.hf5"
+    file = h5open(namefile,"w") # Opening the file
+    write(file,"tabMln",tabTruncMln[N+1])
+    close(file) # Closing the file
+end
+
 # DOESN'T WORK
-function get_max_Im()
+function get_max_Im(tabEigValsMln=tabEigValsMln_serial)
 #    liEgv = zeros(Complex{Float64},3*(N+1))
     liEigvals = tabEigValsMln[N+1]
     maxGR = -Inf # max growth rate
@@ -185,47 +232,4 @@ function get_max_Im()
     end
         println(maxGR)
     return maxGR
-end
-
-
-# Gets the element of the list li with maximum imaginary part
-function get_max(li)
-    len = length(li)
-    max = -Inf
-    egv = -Inf
-    for k=1:len
-        if (imag(li[k])>max)
-            egv = li[k]
-            max = imag(egv)
-        end
-    end
-    return egv
-end
-
-######################################
-# Clear table
-######################################
-
-function tabTruncMln_clear!()
-    for k=1:N+1
-        for l=1:k
-            for n=1:k
-                tabTruncMln[k][l,n] = 0.0
-                tabTruncMln[k][l,k+n] = 0.0
-                tabTruncMln[k][l,2*k+n] = 0.0
-                tabTruncMln[k][k+l,n] = 0.0
-                tabTruncMln[k][k+l,k+n] = 0.0
-                tabTruncMln[k][k+l,2*k+n] = 0.0
-                tabTruncMln[k][2*k+l,n] = 0.0
-                tabTruncMln[k][2*k+l,k+n] = 0.0
-                tabTruncMln[k][2*k+l,2*k+n] = 0.0
-            end
-        end
-    end
-end
-
-function tabEigValsMln_clear!()
-    for k=1:N+1
-        tabEigValsMln[k] = zeros(Float64,k)
-    end
 end
