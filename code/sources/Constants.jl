@@ -10,5 +10,5 @@ const a = 1.0
 const c = 1/10
 #const x = 0.5
 #const q = 0.8
-const eps = 0.2
+const eps = 0.1
 const Gamma = 4/3

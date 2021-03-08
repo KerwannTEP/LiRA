@@ -4,9 +4,9 @@ using HDF5 # To have access to .hf5 files
 include("../sources/Main.jl") # Loading the main code
 ########################################
 qminMeasure, qmaxMeasure = 0.1,1.0 # Range in q where the GR are computed
-xminMeasure, xmaxMeasure = 0.9,1.0 # Range in x where the GR are computed
-nbqMeasure = 400 # Number of q for which the GR are computed
-nbxMeasure = 100 # Number of x for which the GR are computed
+xminMeasure, xmaxMeasure = 0.1,1.0 # Range in x where the GR are computed
+nbqMeasure = 200 # Number of q for which the GR are computed
+nbxMeasure = 200 # Number of x for which the GR are computed
 nbqxGrid = nbqMeasure*nbxMeasure # Number of (a,j) for which the Djj are computed
 tabqMeasure = collect(range(qminMeasure,length=nbqMeasure,qmaxMeasure))
 tabxMeasure = collect(range(xminMeasure,length=nbxMeasure,xmaxMeasure))
@@ -37,11 +37,6 @@ end
 
 function tabGRGrid!()
     init_tabGRGrid!() # Making sure that the grid is initially set to 0
-    # for iGrid=1:nbqxGrid # Loop over the elements of the (a,j)-grid
-    #     q, x = tabqxGrid[1,iGrid], tabqxGrid[2,iGrid] # Current (a,j) location
-    #     tabGRGrid[iGrid] = grow_rate(x,q)
-    # end
-
 
     if (PARALLEL == "yes") # Computation is made in parallel
         println("parallel")
@@ -63,10 +58,9 @@ function tabGRGrid!()
             tabEigValsMln_parallel = Vector{Vector{Complex{Float64}}}([zeros(Float64,k) for k=1:N+1])
 
             tabGRGrid[iGrid] = grow_rate(x,q,tabOmega_parallel,tabAlphaSqOverTwoOmega_parallel,
-            tabAln_parallel,tabBln_parallel,tabCln_parallel,tabDln_parallel,
-            tabFln_parallel,tabGln_parallel,tabHln_parallel,tabTruncMln_parallel,
-            tabEigValsMln_parallel)
-
+                            tabAln_parallel,tabBln_parallel,tabCln_parallel,tabDln_parallel,
+                            tabFln_parallel,tabGln_parallel,tabHln_parallel,tabTruncMln_parallel,
+                            tabEigValsMln_parallel)
 
         end
     else # Computation is not made in parallel
@@ -75,19 +69,14 @@ function tabGRGrid!()
         for iGrid=1:nbqxGrid # Loop over the elements of the (a,j)-grid
             q, x = tabqxGrid[1,iGrid], tabqxGrid[2,iGrid] # Current (a,j) location
 
-
             tabGRGrid[iGrid] = grow_rate(x,q)
         end
     end
-
-
-
-
 end
 
 
 ########################################
-namefile = "../data/Dump_Growth_Rate_zoom.hf5"
+namefile = "../data/Dump_Growth_Rate_eps0_1.hf5"
 ########################################
 # Function that writes to .hf5 files
 ########################################
