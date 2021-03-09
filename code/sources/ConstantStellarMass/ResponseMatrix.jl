@@ -28,7 +28,7 @@ end
 function tabEigValsMln!(x::Float64=1.0, q::Float64=1.0,
     tabTruncMln=tabTruncMln_serial, tabEigValsMln=tabEigValsMln_serial)
     for k=1:N+1
-        tabEigValsMln[k] = sqrt(x/q)*eigvals(tabTruncMln[k])
+        tabEigValsMln[k] = sqrt(x*q)*eigvals(tabTruncMln[k])
     end
 end
 

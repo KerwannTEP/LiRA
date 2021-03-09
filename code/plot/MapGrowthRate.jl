@@ -3,7 +3,7 @@ using HDF5 # To have access to .hf5 files
 ########################################
 include("../sources/Main.jl") # Loading the main code
 ########################################
-qminMeasure, qmaxMeasure = 0.1,1.0 # Range in q where the GR are computed
+qminMeasure, qmaxMeasure = 1.0,10.0 # Range in q where the GR are computed
 xminMeasure, xmaxMeasure = 0.1,1.0 # Range in x where the GR are computed
 nbqMeasure = 200 # Number of q for which the GR are computed
 nbxMeasure = 200 # Number of x for which the GR are computed
