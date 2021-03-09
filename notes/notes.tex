@@ -43,6 +43,7 @@
 \newcommand{\Mb}{M_{\rm{bulb}}}
 \newcommand{\Md}{M_{\rm{disk}}}
 \newcommand{\Mdh}{M_{\rm{DH}}}
+\newcommand{\Msg}{M_{\rm{sg}}}
 
 \newcommand{\anm}{a_n^m}
 \newcommand{\bnm}{b_n^m}
@@ -341,33 +342,7 @@ where $\xi_{k} = -1 + (2/K)(k-1/2)$. As we with to compute those elements for $m
 
 \subsection{General setting}
 
-Consider a self gravitating disk with surface density $\Sigma$ and gravitational potential $\Phi$. Let $\bv$ be its velocity field and $P$ its pression field. Then it is described by the system
-\begin{align}
-&\frac{\partial \Sigma}{\partial t} + \bnab \cdot (\Sigma \bv) = 0 ,\\
-&\frac{\partial \bv}{\partial t} + (\bv \cdot \bnab)(\bv) = -\frac{1}{\Sigma} \bnab P - \bnab \Phi ,\\
-& \Delta \Phi = 4\pi G \Sigma \delta (z).
-\end{align}
-Here, $\Phi =\Phib+  \Phid +  \Phidh=\Phib +  \Phisg$. Furthermore, $\Phib$  is such that it doesn't yield any contribution to the surface density, i.e. $\Delta \Phib=0$, nor the pressure field, hence $\Sigma =\Sigmad+\Sigmadh$ and $P =P_{\rm{disk}}+P_{\rm{DH}}$. Letting $q=\Sigma/\Sigmad$, we have
-
-\begin{equation}
-\Sigma=\Sigmad+\Sigma_{\rm{DH}}=\Sigmad\bigg(1+\frac{\Sigmadh}{\Sigmad}\bigg) =q \Sigmad.
-\end{equation}
-
-Suppose that we have a polytrope gas such that $P=\kappa \Sigma^{\Gamma}$ and let
-\begin{equation}
-\psi = \int \frac{\rd P(\Sigma)}{\Sigma} \Leftrightarrow \bnab \psi = \frac{\bnab P}{\Sigma}.
-\end{equation}
- Then
- \begin{equation}
-\psi = \frac{\kappa \Gamma}{\Gamma-1} \Sigma^{\Gamma-1}.
-\end{equation}
- 
- Letting $\Psi = \Phi + \psi$, we obtain
-\begin{equation}
-\frac{\partial \bv}{\partial t} + (\bv \cdot \bnab)(\bv) = - \bnab \Psi.
-\end{equation}
-
-If $\Sigma_{\rm{disk}}\propto\Sigma_{\rm{DH}}$ then $q\in [1,+\infty[$ is constant and $q=1+\Mdh/\Md$. Let  $M$ be the total stellar mass of the galactic disk+bulb. Let $x=\Md/M$.  Then
+Consider the same system with $q=1+\Mdh/\Md$. Let $M$ be the total stellar mass of the galactic disk+bulb. Let $x=\Md/M$.  Then
 
 \begin{align*}
 \Md &= x M,\\
@@ -379,25 +354,9 @@ Therefore from the mass fractions we can obtain $x$ and $q$ by taking
 x&=  \frac{\Md }{M},\\
 q &= 1+\frac{\Mdh/M}{\Md/M}  .
 \end{align*}
+with in particular $\Msg = \Md +\Mdh  = qx M$.
 
-The system of equation can be rewritten as 
-\begin{align}
-&\frac{\partial \Sigmad}{\partial t} + \frac{1}{r} \frac{\partial(r\Sigmad \vr)}{\partial r} + \frac{1}{r} \frac{\partial(\Sigmad \vt)}{\partial \theta} = 0 ,\\
-&\frac{\partial \vr}{\partial t} + \vr \frac{\partial \vr}{\partial r} + \frac{\vt}{r} \frac{\partial \vr}{\partial \theta} - \frac{(\vt)^2}{r} = -\frac{\partial \Psi}{\partial r} ,\\
-&\frac{\partial \vt}{\partial t} + \vr \frac{\partial \vt}{\partial r} + \frac{\vt}{r} \frac{\partial \vt}{\partial \theta} + \frac{\vr\vt}{r} = -\frac{1}{r}\frac{\partial \Psi}{\partial \theta} ,\\
-& \Delta \Phisg = 4\pi G q\Sigmad \delta (z).
-\end{align}
-
- Let $\Phib = - G M (1-q x)/\sqrt{c^2+r^2}$ with $x\in [0,1]$. An equilibrium state is given by the Plummer equilibrium, such that,  letting $\xi = (r^2-a^2)/(r^2+a^2) $, that is, $r/a=\sqrt{(1+\xi)/(1-\xi)}$,
-\begin{align*}
-&\vr^0 = 0,\quad \quad (\vt^0)^2 = r \frac{\partial \Psi^0}{\partial r}, \\
-& \psi^0 = \frac{\kappa \Gamma}{\Gamma-1} (\Sigma^0)^{\Gamma-1} = \frac{\kappa \Gamma q^{\Gamma-1}}{(\Gamma-1)} (\Sigmad^0)^{\Gamma-1},\\
-& \Sigmad^0 = \frac{xM}{2\pi a^2} \frac{1}{(1+(r/a)^2)^{3/2}} =\frac{xM}{2\pi a^2}   \bigg(\frac{1-\xi}{2}\bigg)^{3/2},\\
-& \Phisg^0 = -\frac{G Mqx}{a } \frac{1}{\sqrt{1+(r/a)^2}} = -\frac{G M qx}{a } \bigg(\frac{1-\xi}{2}\bigg)^{1/2} .
-\end{align*}
-
-
-Therefore, letting  $$\varepsilon = \frac{U(x=1,q=1)}{|E(x=1,q=1)|} =\frac{3a \kappa \Gamma}{GM} \bigg(\frac{M}{2\pi a^2}\bigg)^{\Gamma-1},$$  we obtain
+Letting  $$\varepsilon = \frac{U(x=1,q=1)}{|E(x=1,q=1)|} =\frac{3a \kappa \Gamma}{GM} \bigg(\frac{M}{2\pi a^2}\bigg)^{\Gamma-1},$$  we obtain
 \begin{align*}
 \Psi^0 &=  - \frac{G M (1-x)}{\sqrt{c^2+r^2}}-\frac{G M qx}{a }\bigg(\frac{1-\xi}{2}\bigg)^{1/2} + \frac{\kappa \Gamma}{(\Gamma-1)} (q\Sigmad^0)^{\Gamma-1} ,\\
 {}&=  -\frac{G M (1-x)}{\sqrt{c^2+r^2}}+\frac{G M }{a} \bigg[-(qx)\bigg(\frac{1-\xi}{2}\bigg)^{1/2} + \frac{\varepsilon(qx)^{\Gamma-1}}{3(\Gamma-1)}\bigg(\frac{1-\xi}{2}\bigg)^{3(\Gamma-1)/2} \bigg] ,\\
@@ -417,38 +376,7 @@ Note that for $x=1$ (only disk) and $q=1$ (purely self-gravitating system), we r
 \vt^0 &=\bigg(\frac{GM}{a} \bigg)^{1/2}\bigg(\frac{1+\xi}{2}\bigg)^{1/2} \bigg(\frac{1-\xi}{2}\bigg)^{1/4}  \sqrt{1- \varepsilon \bigg(\frac{1-\xi}{2}\bigg)^{\frac{3\Gamma}{2}-2}} .
 \end{align*}
 
-The perturbative equation at 1st order are
-\begin{align*}
-&\frac{\partial \vr^p}{\partial t} + \frac{\vt^0}{r} \frac{\partial \vr^p}{\partial \theta} - 2\frac{\vt^0 \vt^p}{r} = -\frac{\partial \Psi^p}{\partial r} ,\\
-&\frac{\partial \vt^p}{\partial t} + \vr^p \frac{\partial \vt^0}{\partial r} + \frac{\vt^0}{r} \frac{\partial \vt^p}{\partial \theta} + \frac{\vr^p\vt^0}{r} = -\frac{1}{r}\frac{\partial \Psi^p}{\partial \theta} ,\\
-& \Delta \Phisg^p = 4\pi G q \Sigmad^p \delta (z), \\
-& \psi^p =  \kappa \Gamma q^{\Gamma-1} (\Sigmad^0)^{\Gamma-2} \Sigmad^p .
-\end{align*}
-
-We define $X^p(r,\theta,t) = \sum_{m\in \mathbb{Z}} X_m^p(r,t) e^{i m \theta}$ and look for a temporal dependency in $e^{-i \omega t}$.
-Aoki \& Iye say that there is this following correspondance between surface density and gravitational potential through the Poisson equation:
-\begin{align}
-(\Sigmad)_m^p (r,\theta) &= \frac{xM}{2\pi a^2} \bigg(\frac{1-\xi}{2}\bigg)^{3/2} \sum_{n=|m|}^{\infty} \anm \hPnm(\xi) e^{-i \omega t} ,\\
-(\Phisg)_m^p (r,\theta) &= -\frac{GMqx}{a} \bigg(\frac{1-\xi}{2}\bigg)^{1/2} \sum_{n=|m|}^{\infty} \frac{\anm}{2n+1} \hPnm(\xi) e^{-i \omega t} ,\\
-(\psi)_m^p (r,\theta) &= \kappa \Gamma \bigg(\frac{M}{2\pi a^2} \bigg)^{\Gamma-1} (qx)^{\Gamma-1} \bigg(\frac{1-\xi}{2}\bigg)^{3/2(\Gamma-1)} \sum_{n=|m|}^{\infty} \anm \hPnm(\xi) e^{-i \omega t} ,\\
-(\Psi)_m^p (r,\theta) &= \frac{GMqx}{a } \bigg(\frac{1-\xi}{2}\bigg)^{1/2}\sum_{n=|m|}^{\infty} \bigg[\frac{\varepsilon}{3} (qx)^{\Gamma-2} \bigg(\frac{1-\xi}{2}\bigg)^{\frac{3\Gamma}{2}-2}  -\frac{1}{2n+1}  \bigg]\anm \hPnm(\xi)e^{-i \omega t} .
-\end{align}
-
-Let us decompose the velocity components based on their equilibrium expression:
-\begin{align}
-(\vr)_m^p &= i \frac{m}{|m|} \bigg(\frac{GMqx}{a}\bigg)^{1/2} \bigg(\frac{1+\xi}{2}\bigg)^{-1/2} \bigg(\frac{1-\xi}{2}\bigg)^{1/4} \sum_{n=|m|}^{\infty} \bnm \hPnm(\xi) e^{-i \omega t} ,\\
-(\vt)_m^p &=\bigg(\frac{GMqx}{a}\bigg)^{1/2} \bigg(\frac{1+\xi}{2}\bigg)^{-1/2} \bigg(\frac{1-\xi}{2}\bigg)^{1/4} \sum_{n=|m|}^{\infty} \cnm \hPnm(\xi) e^{-i \omega t} .
-\end{align}
-
-Letting $X_m^p = X^1  e^{-i \omega t}$, this yields the set of equations
-\begin{align}
-&i(-\omega + m \Omega)(\Sigmad)^1 + \frac{1}{r} \frac{\rd (r\Sigma_0 (\vr)^1)}{\rd r} + \frac{im\Sigma^0 (\vt)^1}{r} = 0,\\
-&\frac{\rd (\Psi)^1}{\rd r} + i(-\omega + m \Omega)(\vr)^1 - 2 \Omega (\vt)^1 = 0,\\
-&i m \frac{(\Psi)^1}{r} + \frac{\alpha^2}{2\Omega} (\vr)^1 + i(-\omega + m \Omega)(\vt)^1 = 0,
-\end{align}
-where $\Omega = \vt^0/r$ is the angular velocity and $\alpha^2=4\Omega^2[1+r/(2\Omega)\cdot(\rd \Omega /\rd r)]$ is the epicyclic frequency. Using the relation 
-$$\int_{-1}^{1} \rd \xi \hPnm(\xi)\hPlm(\xi) = \delta_{nl},$$
-and defining $\Omegaref=(GMqx/(a^3 ))^{1/2}$, $\Sigmaref=xM/(2\pi a^2)$   such that $\homega = \omega/\Omegaref$, $\hOmega = \Omega/\Omegaref$, $\halpha = \alpha/\Omegaref$, $\hSigma=\Sigma/\Sigmaref$ and $\lambda=\frac{|m|}{m}\homega$, we obtain the matrix equations
+Defining $\Omegaref=(GMqx/(a^3 ))^{1/2}$, $\Sigmaref=xM/(2\pi a^2)$   such that $\homega = \omega/\Omegaref$, $\hOmega = \Omega/\Omegaref$, $\halpha = \alpha/\Omegaref$, $\hSigma=\Sigma/\Sigmaref$ and $\lambda=\frac{|m|}{m}\homega$, we obtain the matrix equations
 \begin{align*}
 &\sum_{n=|m|}^{\infty}  A_{ln} \anm  +\sum_{n=|m|}^{\infty}  B_{ln}\bnm+\sum_{n=|m|}^{\infty}  C_{ln}\cnm= \lambda \alm ,\\
 &\sum_{n=|m|}^{\infty}D_{ln}\anm + \sum_{n=|m|}^{\infty}   A_{ln} \bnm+  \sum_{n=|m|}^{\infty} F_{ln} \cnm  = \lambda   \blm ,\\
@@ -502,7 +430,28 @@ G_{ln} &= -|m| \bigg(\frac{1}{2n+1}-\frac{\varepsilon}{3}  \bigg(\frac{1}{qx}\bi
 H_{ln} &=  \int_{-1}^{1} \rd \xi  \hPlm(\xi)\frac{\halpha^2(\xi)}{2\hOmega(\xi)}\hPnm(\xi) .
 \end{align*}
 
+\subsection{Case $x=1$}
 
+The angular frequency simplifies to
+\begin{align*}
+\hOmega(\xi) &=\bigg(\frac{1-\xi}{2}\bigg)^{3/4}  \sqrt{1- \varepsilon/q^{2/3} } , \\
+\frac{\halpha^2(\xi)}{2\hOmega(\xi)} & = 2\hOmega(\xi) \bigg[1+\frac{(1+\xi)(1-\xi)}{2\hOmega}\frac{\rd \hOmega }{\rd \xi} \bigg],
+\end{align*}
+with the response matrix $M(x,q,\varepsilon)$ elements
+\begin{align*}
+A_{ln} &= |m| \int_{-1}^{1} \rd \xi  \hPlm(\xi)\hOmega(\xi)\hPnm(\xi) , \\
+B_{ln} &= 4 \int_{-1}^{1} \rd \xi  \hPlm(\xi) \bigg(\frac{1-\xi}{2}\bigg)^{1/2} \frac{\rd}{\rd \xi} \bigg[\bigg(\frac{1-\xi}{2}\bigg)^{5/4}\hPnm(\xi)\bigg], \\
+C_{ln} &= |m| \int_{-1}^{1} \rd \xi \hPlm(\xi) \bigg(\frac{1-\xi}{2}\bigg)^{3/4}\bigg(\frac{1+\xi}{2}\bigg)^{-1}   \hPnm(\xi), \\
+D_{ln} &= 4 \bigg(\frac{1}{2n+1}-\frac{\varepsilon/q^{2/3}}{3}  \bigg) \int_{-1}^{1} \rd \xi \hPlm(\xi)  \bigg(\frac{1-\xi}{2}\bigg)^{5/4} \bigg(\frac{1+\xi}{2}\bigg) 
+\frac{\rd}{\rd \xi} \bigg[ \bigg(\frac{1-\xi}{2}\bigg)^{1/2}\hPnm(\xi) \bigg] ,\\
+F_{ln} &=2 \int_{-1}^{1} \rd \xi  \hPlm(\xi)\hOmega(\xi)\hPnm(\xi) , \\
+G_{ln} &= -|m| \bigg(\frac{1}{2n+1}-\frac{\varepsilon/q^{2/3}}{3} \bigg)  \int_{-1}^{1} \rd \xi \hPlm(\xi)  \bigg(\frac{1-\xi}{2}\bigg)^{3/4} 
+\hPnm(\xi)  ,\\
+H_{ln} &=  \int_{-1}^{1} \rd \xi  \hPlm(\xi)\frac{\halpha^2(\xi)}{2\hOmega(\xi)}\hPnm(\xi) .
+\end{align*}
+
+The total response matrix $M(1,q,\varepsilon)$ is equal to the total response matrix $M(1,1,\varepsilon/q^{2/3})$. We know that the sg disk $(x=1,q=1)$ is completely stabilised (i.e. no physical eigenvalues is non-vanishing imaginary part) above a certain threshold $\varepsilon_0 \sim 0.5$. Therefore, for a disk with no bulb $(x=1)$ but with a dark halo $(q>1)$and with temperature $\varepsilon$, it is stable when $\varepsilon/q^{2/3} > \varepsilon_0$, hence below the threshold $q_0 = (\varepsilon/\varepsilon_0)^{3/2}$.
+On the other hand, increasing $\Mdh$ has the effect of increasing $q$, meaning that $\varepsilon/q^{2/3} \rightarrow 0$. The disk becomes colder and becomes more sensible to fluctuation, with an increasing growth rate.
 
 
 

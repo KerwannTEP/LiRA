@@ -1,7 +1,7 @@
 ##################################################
 using HDF5 # To have access to .hf5 files
 ########################################
-include("../sources/Main.jl") # Loading the main code
+include("../../sources/ConstantStellarMass/Main.jl") # Loading the main code
 ########################################
 xminMeasure, xmaxMeasure = 0.95,1.0 # Range in x where the GR are computed
 qMeasure = 1.0 # Number of q for which the GR are computed
@@ -29,6 +29,6 @@ println("Computing the maximum growth rate...")
 println("Plotting the data...")
 #p = Plots.plot(tabGR,xaxis="x",yaxis="GR")
 p = Plots.plot(tabxMeasure,tabGR,xaxis="x",yaxis="GR")
-Plots.savefig(p,"../graphs/growth_rate_cut.png") # Saves the figure
+Plots.savefig(p,"../../graphs/growth_rate_cut.png") # Saves the figure
 Plots.display(p)
 readline()

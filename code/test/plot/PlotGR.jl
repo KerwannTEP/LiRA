@@ -5,7 +5,7 @@ using Plots # To be able to plot data
 # Function that read the .hf5 file
 ########################################
 
-namefile = "../data/Dump_Growth_Rate.hf5"
+namefile = "../../data/Dump_Growth_Rate.hf5"
 
 """
     openData(namefile)
@@ -40,6 +40,6 @@ nbq, nbx, tabqx, tabq, tabx, tabGR = openData(namefile)
 ########################################
 println("Plotting the data...")
 p = Plots.contourf(tabq,tabx,tabGR,xaxis="q",yaxis="x")
-Plots.savefig(p,"../graphs/growth_rate.png") # Saves the figure
+Plots.savefig(p,"../../graphs/growth_rate.png") # Saves the figure
 Plots.display(p)
 readline()

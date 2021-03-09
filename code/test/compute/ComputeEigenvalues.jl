@@ -1,7 +1,7 @@
 ##################################################
 using HDF5 # To have access to .hf5 files
 ########################################
-include("../sources/Main.jl") # Loading the main code
+include("../../sources/constant_stellar_mass/Main.jl") # Loading the main code
 
 x = 1.0 # Mdisk/(Mdisk+Mbulb)
 q = 1.0 # Mdisk/(Mdisk+Mdarkhalo)
@@ -15,7 +15,7 @@ tabEigValsMln!(x,q)
 physical_eig = getPhysicalEigvals()
 
 ########################################
-namefile = "../data/Dump_Eigenvalues.hf5"
+namefile = "../../data/Dump_Eigenvalues.hf5"
 ########################################
 # Function that writes to .hf5 files
 ########################################

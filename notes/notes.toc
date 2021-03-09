@@ -3,4 +3,5 @@
 \contentsline {subsection}{\numberline {1.2}Case $\Gamma =4/3$}{5}{subsection.1.2}%
 \contentsline {section}{\numberline {2}Self-gravitating thin disk with constant stellar total}{7}{section.2}%
 \contentsline {subsection}{\numberline {2.1}General setting}{7}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Case $\Gamma =4/3$}{11}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.2}Case $\Gamma =4/3$}{9}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Case $x=1$}{10}{subsection.2.3}%
