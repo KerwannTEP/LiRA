@@ -5,8 +5,8 @@ include("../../sources/constant_stellar_mass/Main.jl") # Loading the main code
 ########################################
 qminMeasure, qmaxMeasure = 1.0,10.0 # Range in q where the GR are computed
 xminMeasure, xmaxMeasure = 0.001,1.0 # Range in x where the GR are computed
-nbqMeasure = 20 # Number of q for which the GR are computed
-nbxMeasure = 20 # Number of x for which the GR are computed
+nbqMeasure = 100 # Number of q for which the GR are computed
+nbxMeasure = 100 # Number of x for which the GR are computed
 nbqxGrid = nbqMeasure*nbxMeasure # Number of (a,j) for which the Djj are computed
 tabqMeasure = collect(range(qminMeasure,length=nbqMeasure,qmaxMeasure))
 tabxMeasure = collect(range(xminMeasure,length=nbxMeasure,xmaxMeasure))

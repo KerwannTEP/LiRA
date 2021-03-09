@@ -18,7 +18,7 @@ tabargs = ArgParseSettings()
     arg_type = Int64
     default = 100
     "--m"
-    help = "Mode number"
+    help = "Azimutal wavenumber"
     arg_type = Int64
     default = 2
 end
@@ -43,7 +43,7 @@ end
     eps
 
 Temperature of the disk, defined as the ratio of the internal
-energy over the absole total energy.
+energy over the absolut total energy.
 
 A low temperature means that pressure predominates, while a high
 temperature means that self-gravity predominates.
@@ -64,7 +64,7 @@ const N = parsed_args["N"]
 """
     m
 
-Mode number in the Fourier expansion in angles.
+Azimutal wavenumber in the Fourier expansion in angles.
 
 Is '2' by default (mode with fastest growth rates).
 """
