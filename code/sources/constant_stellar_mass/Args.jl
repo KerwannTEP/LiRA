@@ -13,6 +13,10 @@ tabargs = ArgParseSettings()
     help = "Disk temperature"
     arg_type = Float64
     default = 0.1
+    "--nbK"
+    help = "Sampling number for integration"
+    arg_type = Int64
+    default = 5000
     "--N"
     help = "Number of basis elements"
     arg_type = Int64
@@ -60,6 +64,15 @@ Number of basis elements in the linear expansion.
 Is '100' by default.
 """
 const N = parsed_args["N"]
+
+"""
+    nbK
+
+Sampling number for numerical integration.
+
+Is '5000' by default.
+"""
+const nbK = parsed_args["nbK"]
 
 """
     m
