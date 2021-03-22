@@ -1,6 +1,6 @@
 include("../../sources/constant_stellar_mass/Main.jl") # Loading the main code
 
-x = 1.0
+x = 0.0
 q = 1.0
 
 

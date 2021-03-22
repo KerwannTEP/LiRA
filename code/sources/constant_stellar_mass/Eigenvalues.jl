@@ -1,13 +1,13 @@
 using Plots
 
-function physical_eigenvalues(x::Float64=1.0, q::Float64=1.0,
-    tabOmega=tabOmega_serial, tabAlphaSqOverTwoOmega=tabAlphaSqOverTwoOmega_serial,
+function physical_eigenvalues(x::Float64=0.0, q::Float64=1.0,
+    tabOmega=tabOmega_serial, tabKappaSqOverTwoOmega=tabKappaSqOverTwoOmega_serial,
         tabAln=tabAln_serial, tabBln=tabBln_serial, tabCln=tabCln_serial,
         tabDln=tabDln_serial, tabFln=tabFln_serial, tabGln=tabGln_serial,
         tabHln=tabHln_serial, tabTruncMln=tabTruncMln_serial,
         tabEigValsMln=tabEigValsMln_serial)
-    table_function_fill!(x,q,tabOmega,tabAlphaSqOverTwoOmega)
-    matrix_fill!(x,q,tabAln,tabBln,tabCln,tabDln,tabFln,tabGln,tabHln,tabOmega,tabAlphaSqOverTwoOmega)
+    table_function_fill!(x,q,tabOmega,tabKappaSqOverTwoOmega)
+    matrix_fill!(x,q,tabAln,tabBln,tabCln,tabDln,tabFln,tabGln,tabHln,tabOmega,tabKappaSqOverTwoOmega)
     tabTruncMln!(tabTruncMln,tabAln,tabBln,tabCln,tabDln,tabFln,tabGln,tabHln)
     tabEigValsMln!(x,q,tabTruncMln,tabEigValsMln)
     physical_eig = getPhysicalEigvals(tabEigValsMln)
@@ -16,20 +16,20 @@ function physical_eigenvalues(x::Float64=1.0, q::Float64=1.0,
     tabEigValsMln_clear!(tabEigValsMln)
     tabTruncMln_clear!(tabTruncMln)
     matrix_clear!(tabAln,tabBln,tabCln,tabDln,tabFln,tabGln,tabHln)
-    table_function_clear!(tabOmega,tabAlphaSqOverTwoOmega)
+    table_function_clear!(tabOmega,tabKappaSqOverTwoOmega)
 
     # return maximum growth rate
     return physical_eig
 end
 
-function plot_eigenvalues(x::Float64=1.0,q::Float64=1.0,
-    tabOmega=tabOmega_serial, tabAlphaSqOverTwoOmega=tabAlphaSqOverTwoOmega_serial,
+function plot_eigenvalues(x::Float64=0.0,q::Float64=1.0,
+    tabOmega=tabOmega_serial, tabKappaSqOverTwoOmega=tabKappaSqOverTwoOmega_serial,
         tabAln=tabAln_serial, tabBln=tabBln_serial, tabCln=tabCln_serial,
         tabDln=tabDln_serial, tabFln=tabFln_serial, tabGln=tabGln_serial,
         tabHln=tabHln_serial, tabTruncMln=tabTruncMln_serial,
         tabEigValsMln=tabEigValsMln_serial)
-    table_function_fill!(x,q,tabOmega,tabAlphaSqOverTwoOmega)
-    matrix_fill!(x,q,tabAln,tabBln,tabCln,tabDln,tabFln,tabGln,tabHln,tabOmega,tabAlphaSqOverTwoOmega)
+    table_function_fill!(x,q,tabOmega,tabKappaSqOverTwoOmega)
+    matrix_fill!(x,q,tabAln,tabBln,tabCln,tabDln,tabFln,tabGln,tabHln,tabOmega,tabKappaSqOverTwoOmega)
     tabTruncMln!(tabTruncMln,tabAln,tabBln,tabCln,tabDln,tabFln,tabGln,tabHln)
     tabEigValsMln!(x,q,tabTruncMln,tabEigValsMln)
     eig = tabEigValsMln[N+1]
@@ -44,23 +44,25 @@ function plot_eigenvalues(x::Float64=1.0,q::Float64=1.0,
     tabEigValsMln_clear!(tabEigValsMln)
     tabTruncMln_clear!(tabTruncMln)
     matrix_clear!(tabAln,tabBln,tabCln,tabDln,tabFln,tabGln,tabHln)
-    table_function_clear!(tabOmega,tabAlphaSqOverTwoOmega)
+    table_function_clear!(tabOmega,tabKappaSqOverTwoOmega)
 
     # plot
-    p = Plots.scatter(loci_egv_real, [loci_egv_imag])
+    p = Plots.scatter(loci_egv_real, [loci_egv_imag]
+    ,xlim=(-5,10),ylim=(-2.0,2.0))
+
     Plots.display(p)
     readline()
 #    return loci_egv
 end
 
-function plot_phys_eigenvalues(x::Float64=1.0,q::Float64=1.0,
-    tabOmega=tabOmega_serial, tabAlphaSqOverTwoOmega=tabAlphaSqOverTwoOmega_serial,
+function plot_phys_eigenvalues(x::Float64=0.0,q::Float64=1.0,
+    tabOmega=tabOmega_serial, tabKappaSqOverTwoOmega=tabKappaSqOverTwoOmega_serial,
         tabAln=tabAln_serial, tabBln=tabBln_serial, tabCln=tabCln_serial,
         tabDln=tabDln_serial, tabFln=tabFln_serial, tabGln=tabGln_serial,
         tabHln=tabHln_serial, tabTruncMln=tabTruncMln_serial,
         tabEigValsMln=tabEigValsMln_serial)
-    table_function_fill!(x,q,tabOmega,tabAlphaSqOverTwoOmega)
-    matrix_fill!(x,q,tabAln,tabBln,tabCln,tabDln,tabFln,tabGln,tabHln,tabOmega,tabAlphaSqOverTwoOmega)
+    table_function_fill!(x,q,tabOmega,tabKappaSqOverTwoOmega)
+    matrix_fill!(x,q,tabAln,tabBln,tabCln,tabDln,tabFln,tabGln,tabHln,tabOmega,tabKappaSqOverTwoOmega)
     tabTruncMln!(tabTruncMln,tabAln,tabBln,tabCln,tabDln,tabFln,tabGln,tabHln)
     tabEigValsMln!(x,q,tabTruncMln,tabEigValsMln)
     physical_eig = getPhysicalEigvals(tabEigValsMln)
@@ -76,10 +78,11 @@ function plot_phys_eigenvalues(x::Float64=1.0,q::Float64=1.0,
     tabEigValsMln_clear!(tabEigValsMln)
     tabTruncMln_clear!(tabTruncMln)
     matrix_clear!(tabAln,tabBln,tabCln,tabDln,tabFln,tabGln,tabHln)
-    table_function_clear!(tabOmega,tabAlphaSqOverTwoOmega)
+    table_function_clear!(tabOmega,tabKappaSqOverTwoOmega)
 
     # plot
-    p = Plots.scatter(loci_egv_real, [loci_egv_imag])
+    p = Plots.scatter(loci_egv_real, [loci_egv_imag]
+    )#,xlim=(-5,10),ylim=(-0.25,0.25))
     Plots.display(p)
     readline()
 #    return loci_egv

@@ -3,7 +3,7 @@ using HDF5 # To have access to .hf5 files
 ########################################
 include("../../sources/constant_stellar_mass/Main.jl") # Loading the main code
 
-x = 1.0 # Mdisk/(Mdisk+Mbulb)
+x = 1.0 # Mbulge/(Mdisk+Mbulb)
 q = 1.0 # Mdisk/(Mdisk+Mdarkhalo)
 
 println("Computing the eigenvalues...")

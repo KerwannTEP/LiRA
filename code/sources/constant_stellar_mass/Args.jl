@@ -20,7 +20,7 @@ tabargs = ArgParseSettings()
     "--N"
     help = "Number of basis elements"
     arg_type = Int64
-    default = 100
+    default = 120 #100
     "--m"
     help = "Azimutal wavenumber"
     arg_type = Int64

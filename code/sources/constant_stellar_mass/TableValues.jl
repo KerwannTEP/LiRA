@@ -13,7 +13,7 @@ const tabLegendre = zeros(Float64,N+1,nbK)
 
 # tables which depend on x,q
 tabOmega_serial = zeros(Float64,nbK)
-tabAlphaSqOverTwoOmega_serial = zeros(Float64,nbK)
+tabKappaSqOverTwoOmega_serial = zeros(Float64,nbK)
 
 tabAln_serial = zeros(Float64,N+1,N+1)
 tabBln_serial = zeros(Float64,N+1,N+1)
@@ -259,7 +259,7 @@ end
 # Fill tabOmega table
 ###############################################
 
-function tabOmega!(x::Float64=1.0, q::Float64=1.0,tabOmega=tabOmega_serial)
+function tabOmega!(x::Float64=0.0, q::Float64=1.0,tabOmega=tabOmega_serial)
     for k=1:nbK
         xik = -1 +(2/nbK)*(k-0.5)
         tabOmega[k] = Omega(xik,x,q)
@@ -276,16 +276,16 @@ end
 # Fill tabAlphaSqOverTwoOmega table
 ###############################################
 
-function tabAlphaSqOverTwoOmega!(x::Float64=1.0, q::Float64=1.0,tabAlphaSqOverTwoOmega=tabAlphaSqOverTwoOmega_serial)
+function tabKappaSqOverTwoOmega!(x::Float64=0.0, q::Float64=1.0,tabKappaSqOverTwoOmega=tabKappaSqOverTwoOmega_serial)
     for k=1:nbK
         xik = -1 +(2/nbK)*(k-0.5)
-        tabAlphaSqOverTwoOmega[k] = alphaSqOverTwoOmega(xik,x,q)
+        tabKappaSqOverTwoOmega[k] = kappaSqOverTwoOmega(xik,x,q)
     end
 end
 
-function tabAlphaSqOverTwoOmega_clear!(tabAlphaSqOverTwoOmega=tabAlphaSqOverTwoOmega_serial)
+function tabKappaSqOverTwoOmega_clear!(tabKappaSqOverTwoOmega=tabKappaSqOverTwoOmega_serial)
     for k=1:nbK
-        tabAlphaSqOverTwoOmega[k] = 0.0
+        tabKappaSqOverTwoOmega[k] = 0.0
     end
 end
 
@@ -326,13 +326,13 @@ end
 # end
 
 # tester ces valeurs
-function tabBln!(tabBln=tabBln_serial)
+function tabBln!(x::Float64=0.0,tabBln=tabBln_serial)
     for l=m:m+N
         for n=m:m+N
-            tabBln[l-m+1,n-m+1] = ((1/2)*(sqrt(((2*l+1)*(l+m+1)*(l-m+1))/(2*l+3))*tabJln[l-m+1+1,n-m+1]
+            tabBln[l-m+1,n-m+1] = sqrt(1-x)*((1/2)*(sqrt(((2*l+1)*(l+m+1)*(l-m+1))/(2*l+3))*tabJln[l-m+1+1,n-m+1]
                                 + tabJln[l-m+1,n-m+1] ))
             if (l>m)
-                tabBln[l-m+1,n-m+1] -= (1/2)*sqrt(((2*l+1)*(l+m)*(l-m))/(2*l-1))*tabJln[l-m+1-1,n-m+1]
+                tabBln[l-m+1,n-m+1] -= sqrt(1-x)*(1/2)*sqrt(((2*l+1)*(l+m)*(l-m))/(2*l-1))*tabJln[l-m+1-1,n-m+1]
             end
             # if (n>l)
             #     tabBln[n-m+1,l-m+1] = tabBln[l-m+1,n-m+1]
@@ -341,10 +341,10 @@ function tabBln!(tabBln=tabBln_serial)
     end
 end
 
-function tabCln!(tabCln=tabCln_serial)
+function tabCln!(x::Float64=0.0,tabCln=tabCln_serial)
     for l=m:m+N
         for n=m:m+N
-            tabCln[l-m+1,n-m+1] = m*tabJln[l-m+1,n-m+1]
+            tabCln[l-m+1,n-m+1] = m*sqrt(1-x)*tabJln[l-m+1,n-m+1]
             # if (n>l)
             #     tabCln[n-m+1,l-m+1] = tabCln[l-m+1,n-m+1]
             # end
@@ -353,13 +353,13 @@ function tabCln!(tabCln=tabCln_serial)
 end
 
 
-function tabDln!(x::Float64=1.0, q::Float64=1.0,tabDln=tabDln_serial)
+function tabDln!(x::Float64=0.0, q::Float64=1.0,tabDln=tabDln_serial)
     for l=m:m+N
         for n=m:m+N
-            tabDln[l-m+1,n-m+1] = ((1/2)*(1/(2*n+1)-(eps/3)/(q*x)^(2/3))*((-sqrt(((2*n+1)*(n+m+1)*(n-m+1))/(2*n+3))
+            tabDln[l-m+1,n-m+1] = sqrt(1-x)*((1/2)*(1/(2*n+1)-(eps/3)/((1-x)^(2/3)))*((-sqrt(((2*n+1)*(n+m+1)*(n-m+1))/(2*n+3))
                                 *tabIln[l-m+1,n-m+1+1])- tabIln[l-m+1,n-m+1] ))
             if (n>m)
-                tabDln[l-m+1,n-m+1] += ((1/2)*(1/(2*n+1)-(eps/3)/(q*x)^(2/3))* (sqrt(((2*n+1)*(n+m)*(n-m))/(2*n-1))
+                tabDln[l-m+1,n-m+1] += sqrt(1-x)*((1/2)*(1/(2*n+1)-(eps/3)/((1-x)^(2/3)))* (sqrt(((2*n+1)*(n+m)*(n-m))/(2*n-1))
                                        *tabIln[l-m+1,n-m+1-1]))
             end
             # if (n>l)
@@ -369,10 +369,10 @@ function tabDln!(x::Float64=1.0, q::Float64=1.0,tabDln=tabDln_serial)
     end
 end
 
-function tabGln!(x::Float64=1.0, q::Float64=1.0,tabGln=tabGln_serial)
+function tabGln!(x::Float64=0.0, q::Float64=1.0,tabGln=tabGln_serial)
     for l=m:m+N
         for n=m:m+N
-            tabGln[l-m+1,n-m+1] = -m*(1/(2*n+1)-(eps/3)/(q*x)^(2/3))*tabIln[l-m+1,n-m+1]
+            tabGln[l-m+1,n-m+1] = -m*sqrt(1-x)*(1/(2*n+1)-(eps/3)/((1-x)^(2/3)))*tabIln[l-m+1,n-m+1]
             # if (n>l)
             #     tabGln[n-m+1,l-m+1] = tabGln[l-m+1,n-m+1]
             # end
@@ -380,12 +380,12 @@ function tabGln!(x::Float64=1.0, q::Float64=1.0,tabGln=tabGln_serial)
     end
 end
 
-function tabHln!(tabHln=tabHln_serial,tabAlphaSqOverTwoOmega=tabAlphaSqOverTwoOmega_serial)
+function tabHln!(tabHln=tabHln_serial,tabKappaSqOverTwoOmega=tabKappaSqOverTwoOmega_serial)
     for l=m:m+N
         for n=l:m+N
             integral = 0
             for k=1:nbK
-                integral += tabLegendre[l-m+1,k]*tabAlphaSqOverTwoOmega[k]*tabLegendre[n-m+1,k]
+                integral += tabLegendre[l-m+1,k]*tabKappaSqOverTwoOmega[k]*tabLegendre[n-m+1,k]
             end
             integral *= 2/nbK
             tabHln[l-m+1,n-m+1] = integral
@@ -488,23 +488,23 @@ function table_constant_fill!()
     # tabI7ln!()
 end
 
-function table_function_fill!(x::Float64=1.0, q::Float64=1.0,
-    tabOmega=tabOmega_serial, tabAlphaSqOverTwoOmega=tabAlphaSqOverTwoOmega_serial)
+function table_function_fill!(x::Float64=0.0, q::Float64=1.0,
+    tabOmega=tabOmega_serial, tabKappaSqOverTwoOmega=tabKappaSqOverTwoOmega_serial)
     tabOmega!(x,q,tabOmega)
-    tabAlphaSqOverTwoOmega!(x,q,tabAlphaSqOverTwoOmega)
+    tabKappaSqOverTwoOmega!(x,q,tabKappaSqOverTwoOmega)
 end
 
-function matrix_fill!(x::Float64=1.0, q::Float64=1.0,
+function matrix_fill!(x::Float64=0.0, q::Float64=1.0,
     tabAln=tabAln_serial, tabBln=tabBln_serial, tabCln=tabCln_serial,
     tabDln=tabDln_serial, tabFln=tabFln_serial, tabGln=tabGln_serial,
     tabHln=tabHln_serial, tabOmega=tabOmega_serial,
-    tabAlphaSqOverTwoOmega=tabAlphaSqOverTwoOmega_serial)
+    tabKappaSqOverTwoOmega=tabKappaSqOverTwoOmega_serial)
     tabAlnFln!(tabAln,tabFln,tabOmega)
-    tabBln!(tabBln)
-    tabCln!(tabCln)
+    tabBln!(x,tabBln)
+    tabCln!(x,tabCln)
     tabDln!(x,q,tabDln)
     tabGln!(x,q,tabGln)
-    tabHln!(tabHln,tabAlphaSqOverTwoOmega)
+    tabHln!(tabHln,tabKappaSqOverTwoOmega)
 end
 
 ######################################
@@ -568,9 +568,9 @@ function tabHln_clear!(tabHln=tabHln_serial)
 end
 
 function table_function_clear!(tabOmega=tabOmega_serial,
-    tabAlphaSqOverTwoOmega=tabAlphaSqOverTwoOmega_serial)
+    tabKappaSqOverTwoOmega=tabKappaSqOverTwoOmega_serial)
     tabOmega_clear!(tabOmega)
-    tabAlphaSqOverTwoOmega_clear!(tabAlphaSqOverTwoOmega)
+    tabKappaSqOverTwoOmega_clear!(tabKappaSqOverTwoOmega)
 end
 
 function matrix_clear!(tabAln=tabAln_serial, tabBln=tabBln_serial,

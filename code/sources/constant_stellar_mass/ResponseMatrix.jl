@@ -25,14 +25,15 @@ function tabTruncMln!(tabTruncMln=tabTruncMln_serial, tabAln=tabAln_serial,
     end
 end
 
-function tabEigValsMln!(x::Float64=1.0, q::Float64=1.0,
+function tabEigValsMln!(x::Float64=0.0, q::Float64=1.0,
     tabTruncMln=tabTruncMln_serial, tabEigValsMln=tabEigValsMln_serial)
     for k=1:N+1
-        tabEigValsMln[k] = sqrt(x*q)*eigvals(tabTruncMln[k])
+#        tabEigValsMln[k] = sqrt(1-x)*eigvals(tabTruncMln[k])
+        tabEigValsMln[k] = eigvals(tabTruncMln[k])
     end
 end
 
-function tabEigVecsMln(x::Float64=1.0, q::Float64=1.0,
+function tabEigVecsMln(x::Float64=0.0, q::Float64=1.0,
     tabTruncMln=tabTruncMln_serial)
 
     return eigvecs(tabTruncMln[N+1])
@@ -92,7 +93,7 @@ function getPhysicalEigvals(tabEigValsMln=tabEigValsMln_serial)
         var_egv = (var_egv+abs2(egv-moy_egv))/nb_egv
 
         if ((var_egv < error_var) && (nb_egv >= threshold_nb_egv)) # recover mean physical eigenvalue
-            liEgv[iegv] = moy_egv
+            liEgv[iegv] = egv#moy_egv
         else
             liEgv[iegv] = Inf
         end
