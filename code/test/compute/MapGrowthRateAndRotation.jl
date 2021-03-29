@@ -3,13 +3,27 @@ using HDF5 # To have access to .hf5 files
 ########################################
 include("../../sources/constant_stellar_mass/Main.jl") # Loading the main code
 ########################################
-qminMeasure, qmaxMeasure = 0.5,1.0 # Range in q where the GR are computed
+# z=1.3
+qminMeasure, qmaxMeasure = 0.01,1.0#1.0 # Range in q where the GR are computed
 xminMeasure, xmaxMeasure = 0.0,0.4 # Range in x where the GR are computed
-nbqMeasure = 100 # Number of q for which the GR are computed
-nbxMeasure = 100 # Number of x for which the GR are computed
+
+# # z=0.25
+# qminMeasure, qmaxMeasure = 0.01,1.0#1.0 # Range in q where the GR are computed
+# xminMeasure, xmaxMeasure = 0.0,0.2 # Range in x where the GR are computed
+
+
+
+nbqMeasure = 10 # Number of q for which the GR are computed
+nbxMeasure = 10 # Number of x for which the GR are computed
 nbqxGrid = nbqMeasure*nbxMeasure # Number of (a,j) for which the Djj are computed
-tabqMeasure = collect(range(qminMeasure,length=nbqMeasure,qmaxMeasure))
+#tabqMeasure = collect(range(qminMeasure,length=nbqMeasure,qmaxMeasure))
+tabqMeasure = exp.(range(log(qminMeasure),length=nbqMeasure,log(qmaxMeasure)))
 tabxMeasure = collect(range(xminMeasure,length=nbxMeasure,xmaxMeasure))
+#tabxMeasure = exp.(range(log(xminMeasure),length=nbxMeasure,log(xmaxMeasure)))
+
+#
+# Maybe log-sampling in q?
+#
 
 const tabqxGrid = zeros(Float64,2,nbqxGrid) # Location (q,x) of the grid points where the diffusion coefficients are computed
 const tabGRGrid = zeros(Float64,nbqxGrid)
@@ -80,7 +94,8 @@ end
 
 
 ########################################
-namefile = "../../data/Dump_Growth_Rate_Rotation_eps0_1.hf5"
+#namefile = "../../data/Dump_Growth_Rate_Rotation_eps0_1_test_z1dot3.hf5"
+namefile = "../../data/Dump_Growth_Rate_Rotation_eps0_1_test.hf5"
 ########################################
 # Function that writes to .hf5 files
 ########################################
