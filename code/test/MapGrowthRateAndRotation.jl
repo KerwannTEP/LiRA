@@ -94,8 +94,7 @@ end
 
 
 ########################################
-#namefile = "../../data/Dump_Growth_Rate_Rotation_eps0_1_test_z1dot3.hf5"
-namefile = "../../data/Dump_Growth_Rate_Rotation_eps0_1_test.hf5"
+namefile = "../data/Dump_Growth_Rate_Rotation_eps0_1_test.hf5"
 ########################################
 # Function that writes to .hf5 files
 ########################################
