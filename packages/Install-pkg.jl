@@ -1,0 +1,6 @@
+import Pkg; Pkg.add("HDF5")
+import Pkg; Pkg.add("ArgParse")
+import Pkg; Pkg.add("Plots")
+import Pkg; Pkg.add("LinearAlgebra")
+import Pkg; Pkg.add("StaticArrays")
+import Pkg; Pkg.add("SphericalHarmonics")
