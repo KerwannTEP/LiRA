@@ -4,26 +4,15 @@ using HDF5 # To have access to .hf5 files
 include("../sources/Main.jl") # Loading the main code
 ########################################
 # z=1.3
-qminMeasure, qmaxMeasure = 0.01,1.0#1.0 # Range in q where the GR are computed
+qminMeasure, qmaxMeasure = 0.01,1.0 # Range in q where the GR are computed
 xminMeasure, xmaxMeasure = 0.0,0.4 # Range in x where the GR are computed
-
-# # z=0.25
-# qminMeasure, qmaxMeasure = 0.01,1.0#1.0 # Range in q where the GR are computed
-# xminMeasure, xmaxMeasure = 0.0,0.2 # Range in x where the GR are computed
-
-
 
 nbqMeasure = 10 # Number of q for which the GR are computed
 nbxMeasure = 10 # Number of x for which the GR are computed
-nbqxGrid = nbqMeasure*nbxMeasure # Number of (a,j) for which the Djj are computed
-#tabqMeasure = collect(range(qminMeasure,length=nbqMeasure,qmaxMeasure))
+nbqxGrid = nbqMeasure*nbxMeasure
 tabqMeasure = exp.(range(log(qminMeasure),length=nbqMeasure,log(qmaxMeasure)))
 tabxMeasure = collect(range(xminMeasure,length=nbxMeasure,xmaxMeasure))
-#tabxMeasure = exp.(range(log(xminMeasure),length=nbxMeasure,log(xmaxMeasure)))
 
-#
-# Maybe log-sampling in q?
-#
 
 const tabqxGrid = zeros(Float64,2,nbqxGrid) # Location (q,x) of the grid points where the diffusion coefficients are computed
 const tabGRGrid = zeros(Float64,nbqxGrid)
@@ -47,8 +36,8 @@ function tabGRRotGrid!()
 
     if (PARALLEL == "yes") # Computation is made in parallel
         println("parallel")
-        Threads.@threads for iGrid=1:nbqxGrid # Loop over the elements of the (a,j)-grid
-            q, x = tabqxGrid[1,iGrid], tabqxGrid[2,iGrid] # Current (a,j) location
+        Threads.@threads for iGrid=1:nbqxGrid
+            q, x = tabqxGrid[1,iGrid], tabqxGrid[2,iGrid]
 
             tabOmega_parallel = zeros(Float64,nbK)
             tabKappaSqOverTwoOmega_parallel = zeros(Float64,nbK)
@@ -94,13 +83,14 @@ end
 
 
 ########################################
-namefile = "../data/Dump_Growth_Rate_Rotation_eps0_1_test.hf5"
+namefile = "../data/Dump_Growth_Rate_Precession.hf5"
 ########################################
 # Function that writes to .hf5 files
 ########################################
 function writedump!(namefile)
     file = h5open(namefile,"w") # Opening the file
     write(file,"a",a) # Characteristic length of disk
+    write(file,"b",b) # Characteristic length of halo
     write(file,"c",c) # Characteristic length of bulge
     write(file,"eps",eps)
     write(file,"nbq",nbqMeasure) # Dumping the grid of (q,x)

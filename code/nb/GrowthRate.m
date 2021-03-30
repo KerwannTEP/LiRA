@@ -9,8 +9,8 @@
 
 
 (* ::Input:: *)
-(*tabqx=Import["../data/Dump_Growth_Rate_Rotation_eps0_1_test_z1dot3.hf5",{"Datasets","tabqx"}];*)
-(*tabGR=Import["../data/Dump_Growth_Rate_Rotation_eps0_1_test_z1dot3.hf5",{"Datasets","tabGR"}];*)
+(*tabqx=Import["../data/Dump_Growth_Rate_Precession.hf5",{"Datasets","tabqx"}];*)
+(*tabGR=Import["../data/Dump_Growth_Rate_Precession.hf5",{"Datasets","tabGR"}];*)
 (**)
 (*GRTable=Partition[{tabqx,tabGR}//Transpose//Flatten,3];*)
 (*a=Log10[GRTable[[All,1]]];*)
@@ -95,7 +95,7 @@
 
 
 (* ::Section:: *)
-(*Rotation frequency associated with the fastest mode *)
+(*Precession frequency associated with the fastest mode *)
 
 
 (* ::Subsubsection:: *)
@@ -107,8 +107,8 @@
 
 
 (* ::Input:: *)
-(*tabqx=Import["../data/Dump_Growth_Rate_Rotation_eps0_1_test_z1dot3.hf5",{"Datasets","tabqx"}];*)
-(*tabRot=Import["../data/Dump_Growth_Rate_Rotation_eps0_1_test_z1dot3.hf5",{"Datasets","tabRot"}]; *)
+(*tabqx=Import["../data/Dump_Growth_Rate_Precession.hf5",{"Datasets","tabqx"}];*)
+(*tabRot=Import["../data/Dump_Growth_Rate_Precession.hf5",{"Datasets","tabRot"}]; *)
 (**)
 (*RotTable=Partition[{tabqx,tabRot}//Transpose//Flatten,3];*)
 (*a=Log10[RotTable[[All,1]]];*)
@@ -163,6 +163,3 @@
 (* ::Input:: *)
 (*Export["../graphs/PrecessionFrequency.png",pRot]*)
 (*Export["../graphs/PrecessionFrequency3D.png",pDensRot]*)
-
-
-
