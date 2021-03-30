@@ -50,16 +50,6 @@ function tabEigValsMln!(tabTruncMln=tabTruncMln_serial,
 end
 
 """
-    tabEigVecsMln([args])
-
-Computes the eigenvectors of the last truncated response matrix.
-"""
-function tabEigVecsMln(tabTruncMln=tabTruncMln_serial)
-
-    return eigvecs(tabTruncMln[N+1])
-end
-
-"""
     getPhysicalEigvals([args])
 
 Computes the physical eigenvalues of the response matrix.
