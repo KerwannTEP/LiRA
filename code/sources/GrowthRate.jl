@@ -1,3 +1,9 @@
+"""
+    growth_rate(x,q,[args])
+
+Computes the growth rate of the system, i.e. the highest imaginary part of the physical eigenvales.
+Empties the tables during the run.
+"""
 function growth_rate(x::Float64=0.0, q::Float64=1.0,
     tabOmega=tabOmega_serial, tabKappaSqOverTwoOmega=tabKappaSqOverTwoOmega_serial,
         tabAln=tabAln_serial, tabBln=tabBln_serial, tabCln=tabCln_serial,
@@ -21,6 +27,12 @@ function growth_rate(x::Float64=0.0, q::Float64=1.0,
     return imag(egv)
 end
 
+"""
+    growth_rate(x,q,[args])
+
+Computes the physical eigenvalue with the highest imaginary part.
+Empties the tables during the run.
+"""
 function growth_rate_with_rotation(x::Float64=0.0, q::Float64=1.0,
     tabOmega=tabOmega_serial, tabKappaSqOverTwoOmega=tabKappaSqOverTwoOmega_serial,
         tabAln=tabAln_serial, tabBln=tabBln_serial, tabCln=tabCln_serial,
@@ -34,8 +46,6 @@ function growth_rate_with_rotation(x::Float64=0.0, q::Float64=1.0,
     physical_eig = getPhysicalEigvals(tabEigValsMln)
     kEgv, egv = get_max(physical_eig)
 
-    # not the correct index. should go through all eigen instead of only physical predominates
-
     # clear the temp table
     tabEigValsMln_clear!(tabEigValsMln)
     tabTruncMln_clear!(tabTruncMln)
@@ -46,6 +56,12 @@ function growth_rate_with_rotation(x::Float64=0.0, q::Float64=1.0,
     return real(egv), imag(egv)
 end
 
+"""
+    eigenmode_growth_rate(x,q,[args])
+
+Computes the eigenvector corresponding to the physical eigenvalue with the highest imaginary part.
+Empties the tables during the run.
+"""
 function eigenmode_growth_rate(x::Float64=0.0, q::Float64=1.0,
     tabOmega=tabOmega_serial, tabKappaSqOverTwoOmega=tabKappaSqOverTwoOmega_serial,
         tabAln=tabAln_serial, tabBln=tabBln_serial, tabCln=tabCln_serial,
