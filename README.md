@@ -40,7 +40,7 @@ To compute a mapping of the system growth rate, one needs to open
 Then, run the command 
 
 ```
-$ julia MapGrowthRateAndPrecession
+$ julia MapGrowthRateAndPrecession.jl
 ```
 
 within the folder `code/tests`. If one wants to run this with parallelization,
@@ -60,11 +60,38 @@ julia> Threads.nthreads()
 ```
 
 The resulting file will be created in the folder `code/data` under the name 
-`Dump_Growth_Rate_Rotation_eps0_1_test.hf5`.
+`Dump_Growth_Rate_Precession.hf5`.
 
 Go to the folder `code/nb` and open the Mathematica notebook
-`GrowthRate.m`. Use it to plot and save the map in `(x,q)` space in the folder
+`GrowthRate.m`. Use it to plot and save the map in (x,q) space in the folder
 `code/graphs` under the name `GrowthRate.png` (contour plot) and `GrowthRate3D.png` (3D plot).
 
 One may also plot the precession frequency of the fastest growing mode using this notebook, and recover
 the plotd under the names `PrecessionFrequency.png` and `PrecessionFrequency3D.png`.
+
+## Plot the physical eigenvalues in a Nyquist diagram
+
+To compute the physical eigenvalues of the system, one needs to open 
+`code/tests/ComputeEigenvalues.jl` and specify the values of `x` - Mbulge/(Mbulge+Mdisk) - 
+and `q` Mdisk/(Mhalo+Mdisk) in the file.
+
+Then, run the command 
+
+```
+$ julia ComputeEigenvalues.jl
+```
+
+within the folder `code/tests`. If one wants to run this with additional arguments,
+one needs to run the following command
+
+```
+$ julia ComputeEigenvalues.jl --eps 0.1 --N 170 --m 2
+```
+
+The resulting file will be created in the folder `code/data` under the name 
+`Dump_Eigenvalues.hf5`.
+
+Go to the folder `code/nb` and open the Mathematica notebook
+`Eigenvalues.m`. Use it to plot and save the Nyquist in the folder
+`code/graphs` under the name `Eigenvalues.png` (all eigenvalues of the truncated response matrix)
+and `Physical_Eigenvalues.png` (physical eigenvalues of the truncated response matrix).
