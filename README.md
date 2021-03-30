@@ -31,3 +31,40 @@ to install the following packages:
 ### !! WARNING !!
 
 **DO NOT INTERRUPT THE DOWNLOADING OF THE PACKAGES !!!!**
+
+## Plot a growth rate map in (x,q) space
+
+To compute a mapping of the system growth rate, one needs to open 
+`code/tests`.
+
+Then, run the command 
+
+```
+$ julia MapGrowthRateAndPrecession
+```
+
+within the folder `code/tests`. If one wants to run this with parallelization,
+one needs to run the following commands (supposing one is using bash)
+
+```
+$ export JULIA_NUM_THREADS=12
+$ export JULIA_CPU_THREADS=12
+$ julia -p 12 MapGrowthRateAndPrecession.jl --parallel yes --eps 0.1 --N 170 --m 2
+```
+
+where 12 is the number of parallelized threads. One can check the number of 
+threads by opening the Julia terminal and by running the command
+
+```
+julia> Threads.nthreads()
+```
+
+The resulting file will be created in the folder `code/data` under the name 
+`Dump_Growth_Rate_Rotation_eps0_1_test.hf5`.
+
+Go to the folder `code/nb` and open the Mathematica notebook
+`GrowthRate.m`. Use it to plot and save the map in `(x,q)` space in the folder
+`code/graphs` under the name `GrowthRate.png` (contour plot) and `GrowthRate3D.png` (3D plot).
+
+One may also plot the precession frequency of the fastest growing mode using this notebook, and recover
+the plotd under the names `PrecessionFrequency.png` and `PrecessionFrequency3D.png`.
