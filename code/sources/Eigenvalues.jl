@@ -13,7 +13,7 @@ function physical_eigenvalues(x::Float64=0.0, q::Float64=1.0,
     table_function_fill!(x,q,tabOmega,tabKappaSqOverTwoOmega)
     matrix_fill!(x,q,tabAln,tabBln,tabCln,tabDln,tabFln,tabGln,tabHln,tabOmega,tabKappaSqOverTwoOmega)
     tabTruncMln!(tabTruncMln,tabAln,tabBln,tabCln,tabDln,tabFln,tabGln,tabHln)
-    tabEigValsMln!(x,q,tabTruncMln,tabEigValsMln)
+    tabEigValsMln!(tabTruncMln,tabEigValsMln)
     physical_eig = getPhysicalEigvals(tabEigValsMln)
 
     # clear the temp table
@@ -41,7 +41,7 @@ function plot_eigenvalues(x::Float64=0.0,q::Float64=1.0,
     table_function_fill!(x,q,tabOmega,tabKappaSqOverTwoOmega)
     matrix_fill!(x,q,tabAln,tabBln,tabCln,tabDln,tabFln,tabGln,tabHln,tabOmega,tabKappaSqOverTwoOmega)
     tabTruncMln!(tabTruncMln,tabAln,tabBln,tabCln,tabDln,tabFln,tabGln,tabHln)
-    tabEigValsMln!(x,q,tabTruncMln,tabEigValsMln)
+    tabEigValsMln!(tabTruncMln,tabEigValsMln)
     eig = tabEigValsMln[N+1]
 
     loci_egv_real = zeros(Float64,3*(N+1))
@@ -79,7 +79,7 @@ function plot_phys_eigenvalues(x::Float64=0.0,q::Float64=1.0,
     table_function_fill!(x,q,tabOmega,tabKappaSqOverTwoOmega)
     matrix_fill!(x,q,tabAln,tabBln,tabCln,tabDln,tabFln,tabGln,tabHln,tabOmega,tabKappaSqOverTwoOmega)
     tabTruncMln!(tabTruncMln,tabAln,tabBln,tabCln,tabDln,tabFln,tabGln,tabHln)
-    tabEigValsMln!(x,q,tabTruncMln,tabEigValsMln)
+    tabEigValsMln!(tabTruncMln,tabEigValsMln)
     physical_eig = getPhysicalEigvals(tabEigValsMln)
 
     nb_egv = length(physical_eig)

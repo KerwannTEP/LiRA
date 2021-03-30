@@ -1,7 +1,22 @@
+"""
+    tabTruncMln_serial
+
+Table containing the truncated response matrices from size `3*1` to `3*N`.
+"""
 tabTruncMln_serial = Vector{Array{Float64,2}}([zeros(Float64,3*k,3*k) for k=1:N+1])
+
+"""
+    tabEigValsMln_serial
+
+Table containing the eigenvalues of the truncated response matrices from size `3*1` to `3*N`.
+"""
 tabEigValsMln_serial = Vector{Vector{Complex{Float64}}}([zeros(Float64,3*k) for k=1:N+1])
 
-# Apply table_function_fill!() and matrix_fill!() beforehand.
+"""
+    tabTruncMln!([args])
+
+Fills the table `tabTruncMln` with the truncated matrices.
+"""
 function tabTruncMln!(tabTruncMln=tabTruncMln_serial, tabAln=tabAln_serial,
     tabBln=tabBln_serial, tabCln=tabCln_serial, tabDln=tabDln_serial,
     tabFln=tabFln_serial, tabGln=tabGln_serial, tabHln=tabHln_serial)
@@ -22,21 +37,33 @@ function tabTruncMln!(tabTruncMln=tabTruncMln_serial, tabAln=tabAln_serial,
     end
 end
 
-function tabEigValsMln!(x::Float64=0.0, q::Float64=1.0,
-    tabTruncMln=tabTruncMln_serial, tabEigValsMln=tabEigValsMln_serial)
+"""
+    tabEigValsMln!([args])
+
+Fills the table `tabTruncMln` with the truncated matrices.
+"""
+function tabEigValsMln!(tabTruncMln=tabTruncMln_serial,
+    tabEigValsMln=tabEigValsMln_serial)
     for k=1:N+1
         tabEigValsMln[k] = eigvals(tabTruncMln[k])
     end
 end
 
-# Compute eigenvectors
-function tabEigVecsMln(x::Float64=0.0, q::Float64=1.0,
-    tabTruncMln=tabTruncMln_serial)
+"""
+    tabEigVecsMln([args])
+
+Computes the eigenvectors of the last truncated response matrix.
+"""
+function tabEigVecsMln(tabTruncMln=tabTruncMln_serial)
 
     return eigvecs(tabTruncMln[N+1])
 end
 
+"""
+    getPhysicalEigvals([args])
 
+Computes the physical eigenvalues of the response matrix.
+"""
 function getPhysicalEigvals(tabEigValsMln=tabEigValsMln_serial)
     liEgv = zeros(Complex{Float64},3*(N+1))
     liEigvals = tabEigValsMln[N+1]
@@ -118,7 +145,12 @@ function getPhysicalEigvals(tabEigValsMln=tabEigValsMln_serial)
     return liPhysicalEgv
 end
 
-# Gets the element of the list li with maximum imaginary part
+"""
+    get_max(li)
+
+Returns the tuple `(kEgv, egv)` where `egv` is the element of the list `li` with the highest
+imaginary part and `kEgv` its position on the list.
+"""
 function get_max(li)
     len = length(li)
     max = -Inf
@@ -138,6 +170,11 @@ end
 # Clear table
 ######################################
 
+"""
+    tabTruncMln_clear!([args])
+
+Clears the table containing the truncated response matrices.
+"""
 function tabTruncMln_clear!(tabTruncMln=tabTruncMln_serial)
     for k=1:N+1
         for l=1:k
@@ -156,14 +193,13 @@ function tabTruncMln_clear!(tabTruncMln=tabTruncMln_serial)
     end
 end
 
+"""
+    tabEigValsMln_clear!([args])
+
+Clears the table containing the eigenvalues.
+"""
 function tabEigValsMln_clear!(tabEigValsMln=tabEigValsMln_serial)
     for k=1:N+1
         tabEigValsMln[k] = zeros(Float64,3*k)
-    end
-end
-
-function tabEigVecsMln_clear!(tabEigVecsMln=tabEigVecsMln_serial)
-    for k=1:N+1
-        tabEigVecsMln[k] = zeros(Float64,3*k,3*k)
     end
 end
