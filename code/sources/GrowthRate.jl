@@ -28,7 +28,7 @@ function growth_rate(x::Float64=0.0, q::Float64=1.0,
 end
 
 """
-    growth_rate(x,q,[args])
+    growth_rate_with_rotation(x,q,[args])
 
 Computes the physical eigenvalue with the highest imaginary part.
 Empties the tables during the run.
