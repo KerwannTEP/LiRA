@@ -1,3 +1,9 @@
+"""
+    physical_eigenvalues(x,q,[args])
+
+Computes the physical eigenvalues of the system given the selection criteria.
+Empties the tables during the run.
+"""
 function physical_eigenvalues(x::Float64=0.0, q::Float64=1.0,
     tabOmega=tabOmega_serial, tabKappaSqOverTwoOmega=tabKappaSqOverTwoOmega_serial,
         tabAln=tabAln_serial, tabBln=tabBln_serial, tabCln=tabCln_serial,
@@ -20,6 +26,12 @@ function physical_eigenvalues(x::Float64=0.0, q::Float64=1.0,
     return physical_eig
 end
 
+"""
+    plot_eigenvalues(x,q,[args])
+
+Plots the eigenvalues of the truncated response matrix on a Nyquist diagramm.
+Empties the tables during the run.
+"""
 function plot_eigenvalues(x::Float64=0.0,q::Float64=1.0,
     tabOmega=tabOmega_serial, tabKappaSqOverTwoOmega=tabKappaSqOverTwoOmega_serial,
         tabAln=tabAln_serial, tabBln=tabBln_serial, tabCln=tabCln_serial,
@@ -52,6 +64,12 @@ function plot_eigenvalues(x::Float64=0.0,q::Float64=1.0,
     readline()
 end
 
+"""
+    plot_phys_eigenvalues(x,q,[args])
+
+Plots the physical eigenvalues of the response matrix on a Nyquist diagramm.
+Empties the tables during the run.
+"""
 function plot_phys_eigenvalues(x::Float64=0.0,q::Float64=1.0,
     tabOmega=tabOmega_serial, tabKappaSqOverTwoOmega=tabKappaSqOverTwoOmega_serial,
         tabAln=tabAln_serial, tabBln=tabBln_serial, tabCln=tabCln_serial,
