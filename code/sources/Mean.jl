@@ -1,20 +1,30 @@
+"""
+    _xi(r)
+
+Returns the value of 'xi' given by the change of variable `r->xi`.
+See `Aoki et al. (1979)`.
+"""
 function _xi(r::Float64)
     r_a = r/a
     return (r_a^2-1)/(r_a^2+1)
 end
 
+"""
+    radius(xi)
+
+Returns the value of the radius given the value of `xi`.
+See `Aoki et al. (1979)`.
+"""
 function radius(xi::Float64)
     return a*sqrt((1+xi)/(1-xi))
 end
 
-function _x(frac_bulb::Float64=0.0)
-    return frac_disk
-end
+"""
+    Omega(xi,x,q)
 
-function _q(frac_bulb::Float64=0.0, frac_DH::Float64=0.0)
-    return (1-frac_bulb)/(frac_DH+1-frac_bulb)
-end
-
+Computes the dimensionless angular velocity of the system.
+See `Reddish et al. (2021)`.
+"""
 function Omega(xi::Float64,x::Float64=0.0, q::Float64=1.0)
     r = radius(xi)
     bulb = (a/c)^3*x/(1-x)*((1-xi)/2)^(-3/2)*(1+(r/c)^2)^(-3/2)
@@ -23,6 +33,12 @@ function Omega(xi::Float64,x::Float64=0.0, q::Float64=1.0)
     return sqrt(1-x)*((1-xi)/2)^(3/4)*sqrt(bulb+halo+disk)
 end
 
+"""
+    dOmegadxi(xi,x,q)
+
+Computes the `xi`-gradient of the dimensionless angular velocity of the system.
+See `Aoki et al. (1979)` and `Reddish et al. (2021)`.
+"""
 function dOmegadxi(xi::Float64,x::Float64=0.0, q::Float64=1.0)
     rc = a/c
     rb = a/b
@@ -35,6 +51,13 @@ function dOmegadxi(xi::Float64,x::Float64=0.0, q::Float64=1.0)
     return sqrt(1-x)*(num/den)
 end
 
+"""
+    kappaSqOverTwoOmega(xi,x,q)
+
+Computes the dimensionless ratio of the squared epicyclic frequency with twice
+the angular velocity of the system.
+See `Aoki et al. (1979)` and `Reddish et al. (2021)`.
+"""
 function kappaSqOverTwoOmega(xi::Float64,x::Float64=0.0, q::Float64=1.0)
     omega = Omega(xi,x,q)
     domega = dOmegadxi(xi,x,q)
@@ -46,6 +69,11 @@ end
 # Test
 ##############################
 
+"""
+    dOmegadxi(xi,x,q)
+
+Computes the numerical `xi`-gradient of the dimensionless angular velocity of the system.
+"""
 function dOmegadxiNum(xi::Float64,x::Float64=0.0, q::Float64=1.0,prec::Float64=0.0001)
     return (Omega(xi+prec,x,q)-Omega(xi-prec,x,q))/(2*prec)
 end
