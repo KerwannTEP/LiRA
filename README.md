@@ -6,7 +6,7 @@ Linear Response of (galactic) Arms
 
 This code aims to compute the growth rate of the arms of a thin Kuzmin-Toomre galactic disc, influence by the presence of two Toomre sphere potential modeling a central bulge and a surrounding dark matter halo.
 
-Used in Reddish et al. (2021) :  arXiv:2106.02622.
+Used in Reddish et al. (2021) : [arXiv:2106.02622](https://arxiv.org/pdf/2106.02622.pdf).
 
 ![plot](./code/graphs/GrowthRate.png)
 
